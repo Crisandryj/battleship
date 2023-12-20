@@ -1,0 +1,26 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "- [Overview](#overview)   - [The challenge](#the-challenge) - [My process](#my-process)   - [Built with](#built-with)   - [What I learned](#what-i-learned)   - [Continued development](#continued-development)   - [Useful resources](#useful-resources) - [Author](#author) - [Acknowledgments](#acknowledgments)",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Crisandryj/battleship.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Crisandryj/battleship/issues"
+  },
+  "homepage": "https://github.com/Crisandryj/battleship#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
