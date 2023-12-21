@@ -4,7 +4,7 @@
   "description": "- [Overview](#overview)   - [The challenge](#the-challenge) - [My process](#my-process)   - [Built with](#built-with)   - [What I learned](#what-i-learned)   - [Continued development](#continued-development)   - [Useful resources](#useful-resources) - [Author](#author) - [Acknowledgments](#acknowledgments)",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/Crisandryj/battleship#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
+    "babel-jest": "^29.7.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
