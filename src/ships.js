@@ -13,4 +13,4 @@ class Ship {
     return this.length == this.hits;
   }
 }
-export { sum, Ship };
+export { Ship };
