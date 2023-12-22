@@ -1,3 +1,7 @@
-class Gameboard {}
+class Gameboard {
+  constructor(
+    
+  )
+}
 
 export { Gameboard };
