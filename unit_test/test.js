@@ -1,5 +1,6 @@
 const { Ship } = require("../src/ships");
 const { Gameboard } = require("../src/gameBoard");
+const { Cell } = require("../src/cells");
 
 describe("Ships", () => {
   const ship = new Ship(2);
@@ -32,18 +33,136 @@ describe("Gameboard", () => {
     expect(gameBoard.board.isArray).toBeTruthy;
   });
 
-  test("board created", () => {
+  test("ship created", () => {
     expect(gameBoard.createBoard()).toStrictEqual([
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
-      [{}, {}, {}, {}, {}, {}, {}, {}, {}, {}],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
+      [
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+        new Cell(),
+      ],
     ]);
+  });
+});
+
+describe("Cell", () => {
+  const cell = new Cell();
+
+  test("cell created", () => {
+    expect(cell.hit).toBe(0);
   });
 });
