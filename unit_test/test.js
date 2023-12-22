@@ -33,7 +33,7 @@ describe("Gameboard", () => {
     expect(gameBoard.board.isArray).toBeTruthy;
   });
 
-  test("ship created", () => {
+  test("board created with cells", () => {
     expect(gameBoard.createBoard()).toStrictEqual([
       [
         new Cell(),
@@ -157,6 +157,10 @@ describe("Gameboard", () => {
       ],
     ]);
   });
+
+  // test("Ship placed on coordinates", () => {
+  //   expect(gameBoard.placeShip(4,[2,2])).toBe(gameBoard.board.);
+  // });
 });
 
 describe("Cell", () => {
@@ -164,5 +168,8 @@ describe("Cell", () => {
 
   test("cell created", () => {
     expect(cell.hit).toBe(0);
+  });
+  test("cell not occupied", () => {
+    expect(cell.occupied).toBeFalsy;
   });
 });
