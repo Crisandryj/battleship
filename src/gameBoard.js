@@ -4,7 +4,12 @@ class Gameboard {
     this.columns = 10;
     this.board = [];
   }
-  createBoard() {}
+  createBoard() {
+    for (let i = 0; i < this.rows; i++) {
+      this.board.push([{}, {}, {}, {}, {}, {}, {}, {}, {}, {}]);
+    }
+    return this.board;
+  }
 }
 
 export { Gameboard };
