@@ -1,9 +1,9 @@
 const sum = function sum(a, b) {
   return a + b;
 };
-class Ships {
+class Ship {
   constructor(length) {
     this.length = length;
   }
 }
-export { sum };
+export { sum, Ship };
