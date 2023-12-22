@@ -1,3 +1,7 @@
 const myName = (name) => "Hi! My name is " + name;
 
-export default myName;
+const sum = function sum(a, b) {
+  return a + b;
+};
+
+export { myName, sum };

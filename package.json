@@ -4,7 +4,8 @@
   "description": "- [Overview](#overview)   - [The challenge](#the-challenge) - [My process](#my-process)   - [Built with](#built-with)   - [What I learned](#what-i-learned)   - [Continued development](#continued-development)   - [Useful resources](#useful-resources) - [Author](#author) - [Acknowledgments](#acknowledgments)",
   "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "watch": "jest --watch #.js"
   },
   "repository": {
     "type": "git",
