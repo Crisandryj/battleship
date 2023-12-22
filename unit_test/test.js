@@ -11,7 +11,11 @@ test("example", () => {
 describe("Ships", () => {
   const ship = new Ship(2);
 
-  test("defines setRule()", () => {
+  test("length of ship", () => {
     expect(ship.length).toBe(2);
+  });
+
+  test("takes damage", () => {
+    expect(ship.hit()).toBe((ship.hits = 1));
   });
 });

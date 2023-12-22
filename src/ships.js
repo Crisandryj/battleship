@@ -4,6 +4,12 @@ const sum = function sum(a, b) {
 class Ship {
   constructor(length) {
     this.length = length;
+    this.hits = 0;
+  }
+
+  hit() {
+    this.hits += 1;
+    return this.hits;
   }
 }
 export { sum, Ship };
