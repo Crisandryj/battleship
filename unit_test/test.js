@@ -1,12 +1,5 @@
-const { sum, Ship } = require("../src/ships");
-
-//test jest
-test("works", () => {});
-
-//test jest
-test("example", () => {
-  expect(sum(2, 4)).toBe(6);
-});
+const { Ship } = require("../src/ships");
+const { Gameboard } = require("../src/gameBoard");
 
 describe("Ships", () => {
   const ship = new Ship(2);
