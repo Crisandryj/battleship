@@ -11,5 +11,9 @@ class Ship {
     this.hits += 1;
     return this.hits;
   }
+
+  isSunk() {
+    return this.length == this.hits;
+  }
 }
 export { sum, Ship };

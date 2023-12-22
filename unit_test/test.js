@@ -18,4 +18,8 @@ describe("Ships", () => {
   test("takes damage", () => {
     expect(ship.hit()).toBe((ship.hits = 1));
   });
+
+  test("Sunk ship", () => {
+    expect(ship.isSunk()).toBeFalsy();
+  });
 });
