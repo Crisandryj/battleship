@@ -167,9 +167,8 @@ describe("board created", () => {
   });
 
   test("Ship placed on coordinates", () => {
-    expect(gameBoard.placeShip(4, "v", 2, 2)).toBe(
-      (gameBoard.board[(2, 2)] = true)
-    );
+    gameBoard.placeShip(4, "v", 2, 2);
+    expect(gameBoard.board[2][2].occupied).toEqual(true);
   });
 });
 
