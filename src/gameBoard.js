@@ -19,6 +19,11 @@ class Gameboard {
     });
     return this.board;
   }
+
+  placeShip(length, orientation, row, column) {
+    this.board[row][column].occupied = true;
+    return this.board[row][column].occupied;
+  }
 }
 
 export { Gameboard };

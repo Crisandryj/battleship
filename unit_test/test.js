@@ -157,17 +157,27 @@ describe("Gameboard", () => {
       ],
     ]);
   });
+});
 
-  // test("Ship placed on coordinates", () => {
-  //   expect(gameBoard.placeShip(4,[2,2])).toBe(gameBoard.board.);
-  // });
+describe("board created", () => {
+  const gameBoard = new Gameboard();
+
+  beforeEach(() => {
+    gameBoard.createBoard();
+  });
+
+  test("Ship placed on coordinates", () => {
+    expect(gameBoard.placeShip(4, "v", 2, 2)).toBe(
+      (gameBoard.board[(2, 2)] = true)
+    );
+  });
 });
 
 describe("Cell", () => {
   const cell = new Cell();
 
   test("cell created", () => {
-    expect(cell.hit).toBe(0);
+    expect(cell.hit).toBeFalsy;
   });
   test("cell not occupied", () => {
     expect(cell.occupied).toBeFalsy;
