@@ -190,6 +190,30 @@ describe("board created", () => {
     gameBoard.recieveAttack(1, 1);
     expect(gameBoard.board[1][1].missed).toBe(true);
   });
+});
+
+describe("all ships sunk", () => {
+  const gameBoard = new Gameboard();
+
+  beforeEach(() => {
+    gameBoard.createBoard();
+  });
+
+  beforeEach(() => {
+    gameBoard.placeShip(5, "v", 2, 2);
+    gameBoard.placeShip(4, "v", 3, 2);
+    gameBoard.placeShip(3, "v", 4, 2);
+    gameBoard.placeShip(3, "v", 5, 2);
+    gameBoard.placeShip(2, "v", 6, 2);
+
+    gameBoard.board.forEach((arry) => {
+      arry.forEach((cell) => {
+        if (cell.occupied == true) {
+          cell.hit = true;
+        }
+      });
+    });
+  });
 
   test("All ships sunk", () => {
     expect(gameBoard.allShipsSunk()).toBe(true);
