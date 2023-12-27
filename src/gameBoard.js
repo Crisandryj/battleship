@@ -32,9 +32,30 @@ class Gameboard {
     }
   }
 
-  attack(column, row) {
+  recieveAttack(column, row) {
     if (this.board[column][row].occupied == true) {
       this.board[column][row].hit = true;
+    } else {
+      this.board[column][row].missed = true;
+    }
+  }
+
+  allShipsSunk() {
+    //go thru each cell
+    //check if occuipied and hit
+    //return true if all occupied are also hit
+    let counter = 0;
+    this.board.forEach((array) => {
+      array.forEach((cell) => {
+        if (cell.occupied == true && cell.hit == true) {
+          counter += 1;
+        }
+      });
+    });
+    if (counter == 17) {
+      return true;
+    } else {
+      return false;
     }
   }
 }

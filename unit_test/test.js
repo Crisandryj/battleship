@@ -181,9 +181,18 @@ describe("board created", () => {
     expect(gameBoard.board[5][2].occupied).toBe(true);
   });
 
-  test("Recieve attack from coordinates", () => {
-    gameBoard.attack(2, 2);
+  test("Recieve attack from coordinates that hit", () => {
+    gameBoard.recieveAttack(2, 2);
     expect(gameBoard.board[2][2].hit).toBe(true);
+  });
+
+  test("Recieve attack from coordinates that missed", () => {
+    gameBoard.recieveAttack(1, 1);
+    expect(gameBoard.board[1][1].missed).toBe(true);
+  });
+
+  test("All ships sunk", () => {
+    expect(gameBoard.allShipsSunk()).toBe(true);
   });
 });
 
