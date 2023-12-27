@@ -166,9 +166,19 @@ describe("board created", () => {
     gameBoard.createBoard();
   });
 
-  test("Ship placed on coordinates", () => {
+  test("Ship placed on start", () => {
     gameBoard.placeShip(4, "v", 2, 2);
     expect(gameBoard.board[2][2].occupied).toEqual(true);
+  });
+
+  test("Ship placed on end for vertical", () => {
+    gameBoard.placeShip(4, "v", 2, 2);
+    expect(gameBoard.board[2][5].occupied).toBeTruthy;
+  });
+
+  test("Ship placed on end for horizotal", () => {
+    gameBoard.placeShip(4, "h", 2, 2);
+    expect(gameBoard.board[5][2].occupied).toBeTruthy;
   });
 });
 

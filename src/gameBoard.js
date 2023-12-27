@@ -22,16 +22,16 @@ class Gameboard {
 
   placeShip(shipLength, orientation, column, row) {
     if (orientation.toLowerCase() == "v") {
-      for (let i = row + 1; i < shipLength; i++) {
-        this.board[column][i].occupied = true;
-      }
-      return this.board;
-    } else {
-      for (let i = column; i < shipLength; i++) {
-        this.board[i][row].occupied = true;
+      for (let i = 0; i < shipLength; i++) {
+        this.board[column][row + i].occupied = true;
       }
     }
   }
 }
 
 export { Gameboard };
+// else if (orientation.toLowerCase() == "h") {
+//   for (let i = 0; i < shipLength; i++) {
+//     this.board[column + i][row].occupied = true;
+//   }
+// }

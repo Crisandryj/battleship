@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "type": "chrome",
+      "name": "https://nodejs.org/en/docs/inspector",
+      "request": "launch",
+      "url": "https://nodejs.org/en/docs/inspector"
+    }
+  ]
+}
