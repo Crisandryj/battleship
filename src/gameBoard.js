@@ -25,13 +25,12 @@ class Gameboard {
       for (let i = 0; i < shipLength; i++) {
         this.board[column][row + i].occupied = true;
       }
+    } else if (orientation.toLowerCase() == "h") {
+      for (let i = 0; i < shipLength; i++) {
+        this.board[column + i][row].occupied = true;
+      }
     }
   }
 }
 
 export { Gameboard };
-// else if (orientation.toLowerCase() == "h") {
-//   for (let i = 0; i < shipLength; i++) {
-//     this.board[column + i][row].occupied = true;
-//   }
-// }

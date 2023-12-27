@@ -173,12 +173,17 @@ describe("board created", () => {
 
   test("Ship placed on end for vertical", () => {
     gameBoard.placeShip(4, "v", 2, 2);
-    expect(gameBoard.board[2][5].occupied).toBeTruthy;
+    expect(gameBoard.board[2][5].occupied).toBe(true);
   });
 
   test("Ship placed on end for horizotal", () => {
     gameBoard.placeShip(4, "h", 2, 2);
-    expect(gameBoard.board[5][2].occupied).toBeTruthy;
+    expect(gameBoard.board[5][2].occupied).toBe(true);
+  });
+
+  test("Ship not placed on end for verital when h", () => {
+    gameBoard.placeShip(4, "h", 2, 2);
+    expect(gameBoard.board[2][5].occupied).toBe(false);
   });
 });
 
