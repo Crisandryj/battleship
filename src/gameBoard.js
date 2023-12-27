@@ -31,6 +31,12 @@ class Gameboard {
       }
     }
   }
+
+  attack(column, row) {
+    if (this.board[column][row].occupied == true) {
+      this.board[column][row].hit = true;
+    }
+  }
 }
 
 export { Gameboard };

@@ -180,6 +180,11 @@ describe("board created", () => {
     gameBoard.placeShip(4, "h", 2, 2);
     expect(gameBoard.board[5][2].occupied).toBe(true);
   });
+
+  test("Recieve attack from coordinates", () => {
+    gameBoard.attack(2, 2);
+    expect(gameBoard.board[2][2].hit).toBe(true);
+  });
 });
 
 describe("Cell", () => {
