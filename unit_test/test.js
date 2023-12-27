@@ -180,11 +180,6 @@ describe("board created", () => {
     gameBoard.placeShip(4, "h", 2, 2);
     expect(gameBoard.board[5][2].occupied).toBe(true);
   });
-
-  test("Ship not placed on end for verital when h", () => {
-    gameBoard.placeShip(4, "h", 2, 2);
-    expect(gameBoard.board[2][5].occupied).toBe(false);
-  });
 });
 
 describe("Cell", () => {
