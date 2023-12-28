@@ -233,10 +233,14 @@ describe("Cell", () => {
 });
 
 describe("Player", () => {
-  const player = new Player();
+  const player = new Player("James");
 
   test("player created", () => {
-    let james = new Player("James");
-    expect(james.name).toBe("James");
+    expect(player.name).toBe("James");
+  });
+
+  test("change turn", () => {
+    player.changeTurn();
+    expect(player.turn).toBe(true);
   });
 });
