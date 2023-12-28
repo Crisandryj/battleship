@@ -1,6 +1,7 @@
 const { Ship } = require("../src/ships");
 const { Gameboard } = require("../src/gameBoard");
 const { Cell } = require("../src/cells");
+const { Player } = require("../src/player");
 
 describe("Ships", () => {
   const ship = new Ship(2);
@@ -192,7 +193,7 @@ describe("board created", () => {
   });
 });
 
-describe("all ships sunk", () => {
+describe("board with all ships sunk", () => {
   const gameBoard = new Gameboard();
 
   beforeEach(() => {
@@ -228,5 +229,14 @@ describe("Cell", () => {
   });
   test("cell not occupied", () => {
     expect(cell.occupied).toBeFalsy;
+  });
+});
+
+describe("Player", () => {
+  const player = new Player();
+
+  test("player created", () => {
+    let james = new Player("James");
+    expect(james.name).toBe("James");
   });
 });
