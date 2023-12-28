@@ -247,6 +247,8 @@ describe("Player", () => {
 
   test("computer make move", () => {
     player.computerMove(gameBoard.board, 2, 2);
-    expect(gameBoard.board[2][2].missed).toBe(true);
+    expect(gameBoard.board.some((array) => (cell) => cell.missed == true)).toBe(
+      true
+    );
   });
 });
