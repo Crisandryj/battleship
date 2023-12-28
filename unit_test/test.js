@@ -234,7 +234,8 @@ describe("Cell", () => {
 
 describe("Player", () => {
   const player = new Player("James");
-
+  const gameBoard = new Gameboard();
+  gameBoard.createBoard();
   test("player created", () => {
     expect(player.name).toBe("James");
   });
@@ -242,5 +243,10 @@ describe("Player", () => {
   test("change turn", () => {
     player.changeTurn();
     expect(player.turn).toBe(true);
+  });
+
+  test("computer make move", () => {
+    player.computerMove(gameBoard.board, 2, 2);
+    expect(gameBoard.board[2][2].missed).toBe(true);
   });
 });
