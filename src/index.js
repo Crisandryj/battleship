@@ -1,15 +1,15 @@
-import _ from "lodash";
-import myName from "./myName";
+import { forEach } from "lodash";
+const { Cell } = require("../src/cells");
+const { Ship } = require("../src/ships");
+const { Player } = require("../src/player");
+const { Gameboard } = require("../src/gameBoard");
 
-function component() {
-  const element = document.createElement("div");
+function playGame() {
+  const game = new Gameboard();
+  const playerOne = new Player("James");
+  const computer = new Player("Comp");
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-  // use your function!
-  element.textContent = myName("Cody");
-
-  return element;
+  game.createBoard();
 }
 
 document.body.appendChild(component());
