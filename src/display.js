@@ -10,7 +10,9 @@ function addRow(n, table) {
   }
 }
 
-export function renderBoard(board) {
+function createTable() {
   body.appendChild(table);
   addRow(10, table);
 }
+
+export function renderBoard(board) {}
