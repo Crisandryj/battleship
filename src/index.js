@@ -20,4 +20,4 @@ function playGame() {
   computer.board.placeShip(2, "v", 6, 2);
 }
 
-renderTable();
+renderBoard(playerOne.board);
