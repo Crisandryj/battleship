@@ -3,7 +3,10 @@ const body = document.querySelector("body");
 
 function addRow(n, table) {
   for (let i = 0; i < n; i++) {
-    table.insertRow(-1);
+    let row = table.insertRow(-1);
+    for (let i = 0; i < n; i++) {
+      row.insertCell(-1);
+    }
   }
 }
 
