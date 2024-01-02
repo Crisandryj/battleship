@@ -1,4 +1,3 @@
-const table = document.createElement("Table");
 const body = document.querySelector("body");
 
 function addRow(n, table) {
@@ -11,8 +10,11 @@ function addRow(n, table) {
 }
 
 function createTable() {
+  const table = document.createElement("Table");
   body.appendChild(table);
   addRow(10, table);
 }
 
-export function renderBoard(board) {}
+export function renderBoard(board) {
+  createTable();
+}

@@ -2,10 +2,10 @@ const { Gameboard } = require("../src/gameBoard");
 
 class Player {
   constructor(name) {
-    const game = new Gameboard();
+    this.game = new Gameboard();
+    this.game.createBoard();
     this.name = name;
     this.turn = false;
-    this.board = game.createBoard();
   }
 
   changeTurn() {
