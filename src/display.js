@@ -17,4 +17,5 @@ function createTable() {
 
 export function renderBoard(board) {
   createTable();
+  let table = document.querySelector("table");
 }
