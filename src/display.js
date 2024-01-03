@@ -19,10 +19,12 @@ function createTable() {
 export function renderBoard(board) {
   createTable();
   let table = document.querySelector("table");
-  board.forEach((row) => {
-    row.forEach((cell) => {
-      console.log(cell);
-    });
-  });
+  for (let i = 0; i < 10; i++) {
+    let row = table.rows[i].cells[i];
+    for (let n = 0; n < 10; i++) {
+      row.innerHTML = board[i][n];
+      console.log(board[i][n]);
+    }
+  }
   let row1 = table.rows[0].cells;
 }
