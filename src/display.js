@@ -11,6 +11,7 @@ function addRow(n, table) {
 
 function createTable() {
   const table = document.createElement("Table");
+  table.classList.add("board");
   body.appendChild(table);
   addRow(10, table);
 }
@@ -18,4 +19,10 @@ function createTable() {
 export function renderBoard(board) {
   createTable();
   let table = document.querySelector("table");
+  board.forEach((row) => {
+    row.forEach((cell) => {
+      console.log(cell);
+    });
+  });
+  let row1 = table.rows[0].cells;
 }

@@ -7,7 +7,7 @@ const { renderBoard } = require("../src/display");
 function playGame() {
   const playerOne = new Player("P1");
   const computer = new Player("Comp");
-  renderBoard();
+  renderBoard(playerOne.game.board);
   playerOne.game.placeShip(5, "v", 2, 2);
   playerOne.game.placeShip(4, "v", 3, 2);
   playerOne.game.placeShip(3, "v", 4, 2);
