@@ -23,7 +23,11 @@ export function renderBoard(board) {
     console.log(i);
     for (let n = 0; n < 10; n++) {
       let row = table.rows[i].cells[n];
-      row.textContent = board[i][n];
+      if (board[i][n].occupied == false) {
+        row.textContent = 0;
+      } else {
+        row.textContent = 1;
+      }
     }
   }
 }
