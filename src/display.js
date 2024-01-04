@@ -20,10 +20,10 @@ export function renderBoard(board) {
   createTable();
   let table = document.querySelector("table");
   for (let i = 0; i < 10; i++) {
-    let row = table.rows[i].cells[i];
-    for (let n = 0; n < 10; i++) {
+    console.log(i);
+    for (let n = 0; n < 10; n++) {
+      let row = table.rows[i].cells[n];
       row.textContent = board[i][n];
     }
   }
-  let row1 = table.rows[0].cells;
 }
