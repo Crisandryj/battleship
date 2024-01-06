@@ -9,15 +9,15 @@ function addRow(n, table) {
   }
 }
 
-function createTable() {
+function createTable(classNAme) {
   const table = document.createElement("Table");
-  table.classList.add("board");
+  table.classList.add(classNAme);
   body.appendChild(table);
   addRow(10, table);
 }
 
-export function renderBoard(board) {
-  createTable();
+export function renderBoard(board, className) {
+  createTable(className);
   let table = document.querySelector("table");
   for (let i = 0; i < 10; i++) {
     console.log(i);
