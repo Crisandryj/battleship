@@ -18,7 +18,8 @@ function createTable(classNAme) {
 
 export function renderBoard(board, className) {
   createTable(className);
-  let table = document.querySelector("table");
+  let table = document.querySelector(`.${className}`);
+  console.log(table);
   for (let i = 0; i < 10; i++) {
     console.log(i);
     for (let n = 0; n < 10; n++) {
