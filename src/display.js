@@ -19,7 +19,6 @@ function createTable(classNAme) {
 export function renderBoard(board, className) {
   createTable(className);
   let table = document.querySelector(`.${className}`);
-  console.log(table);
   for (let i = 0; i < 10; i++) {
     console.log(i);
     for (let n = 0; n < 10; n++) {
@@ -32,3 +31,18 @@ export function renderBoard(board, className) {
     }
   }
 }
+
+export function renderAttack() {
+  const tbody = document.querySelector(".p1Board");
+  tbody.addEventListener("click", function (e) {
+    const cell = e.target.closest("td");
+    if (!cell) {
+      return;
+    } // Quit, not clicked on a cell
+    const row = cell.parentElement;
+    console.log(cell.innerHTML, row.rowIndex, cell.cellIndex);
+  });
+}
+//get coordinates
+//use gameboard recieve attach
+//render new board

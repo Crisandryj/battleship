@@ -2,7 +2,7 @@ const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
-const { renderBoard } = require("../src/display");
+const { renderBoard, renderAttack } = require("../src/display");
 
 function playGame() {
   const playerOne = new Player("P1");
@@ -20,6 +20,7 @@ function playGame() {
   computer.game.placeShip(2, "v", 7, 2);
   renderBoard(playerOne.game.board, "p1Board");
   renderBoard(computer.game.board, "compBoard");
+  renderAttack();
 }
 
 playGame();
