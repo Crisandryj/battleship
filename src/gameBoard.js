@@ -59,4 +59,4 @@ class Gameboard {
   }
 }
 
-export { Gameboard };
+export { Gameboard, recieveAttack };

@@ -1,5 +1,5 @@
 const body = document.querySelector("body");
-
+const { recieveAttack } = require("../src/gameBoard");
 function addRow(n, table) {
   for (let i = 0; i < n; i++) {
     let row = table.insertRow(-1);
@@ -32,7 +32,7 @@ export function renderBoard(board, className) {
   }
 }
 
-export function renderAttack() {
+export function renderAttack(player) {
   const tbody = document.querySelector(".p1Board");
   tbody.addEventListener("click", function (e) {
     const cell = e.target.closest("td");
@@ -42,6 +42,8 @@ export function renderAttack() {
     const row = cell.parentElement;
     //get coordinates
     console.log(row.rowIndex, cell.cellIndex);
+    //place attack (working on this)
+    player.game.recieveAttack(cell.cellIndex, row.rowIndex);
   });
 }
 

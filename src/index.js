@@ -20,7 +20,9 @@ function playGame() {
   computer.game.placeShip(2, "v", 7, 2);
   renderBoard(playerOne.game.board, "p1Board");
   renderBoard(computer.game.board, "compBoard");
-  renderAttack();
+  prompt("PlayerOne place attack");
+
+  renderAttack(playerOne);
 }
 
 playGame();
