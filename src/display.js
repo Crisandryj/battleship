@@ -40,9 +40,10 @@ export function renderAttack() {
       return;
     } // Quit, not clicked on a cell
     const row = cell.parentElement;
-    console.log(cell.innerHTML, row.rowIndex, cell.cellIndex);
+    //get coordinates
+    console.log(row.rowIndex, cell.cellIndex);
   });
 }
-//get coordinates
-//use gameboard recieve attach
+
+//use gameboard recieve attack
 //render new board
