@@ -7,6 +7,7 @@ const { renderBoard, renderAttack } = require("../src/display");
 function playGame() {
   const playerOne = new Player("P1");
   const computer = new Player("Comp");
+  playerOne.turn = true;
   //place player ships
   playerOne.game.placeShip(5, "v", 2, 2);
   playerOne.game.placeShip(4, "v", 3, 2);
@@ -22,9 +23,11 @@ function playGame() {
   //display boards
   renderBoard(playerOne.game.board, "p1Board");
   renderBoard(computer.game.board, "compBoard");
-  prompt("PlayerOne place attack");
+  renderAttack(playerOne, computer);
 
-  renderAttack(playerOne);
+  console.log(playerOne.turn);
+  console.log(computer.turn);
+  console.log(computer.game.board);
 }
 
 playGame();
