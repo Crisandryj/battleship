@@ -3,7 +3,7 @@ const { Gameboard } = require("../src/gameBoard");
 class Player {
   constructor(name) {
     this.game = new Gameboard();
-    this.game.createBoard();
+    this.board = this.game.createBoard();
     this.name = name;
     this.turn = false;
   }
