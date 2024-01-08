@@ -31,7 +31,8 @@ export function renderBoard(board, className) {
     }
   }
 }
-
+//Work on
+// Board not being hit by attach (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
   console.log(player.turn);
   console.log(opp.turn);
@@ -53,6 +54,3 @@ export function renderAttack(player, opp) {
     }
   });
 }
-
-//use gameboard recieve attack
-//render new board

@@ -27,7 +27,6 @@ function playGame() {
 
   console.log(playerOne.turn);
   console.log(computer.turn);
-  console.log(computer.game.board);
 }
 
 playGame();
