@@ -35,8 +35,6 @@ export function renderBoard(board, className) {
 //Work on
 //Board not being hit by attach (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
-  console.log(player.turn);
-  console.log(opp.turn);
   const tbody = document.querySelector(".compBoard");
   tbody.addEventListener("click", function (e) {
     const cell = e.target.closest("td");
@@ -46,12 +44,13 @@ export function renderAttack(player, opp) {
     const row = cell.parentElement;
     //place attack (working on this)
     if (player.turn == true) {
-      //show coordinates
-      console.log(row.rowIndex, cell.cellIndex);
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
+      if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
+        opp.game.board[row.rowIndex][cell.cellIndex].textContent = "X";
+      } else {
+        opp.game.board[row.rowIndex][cell.cellIndex].textContent = "x";
+      }
     }
-    console.log(opp.game.board[row.rowIndex][cell.cellIndex]);
-    console.log(opp.game.board);
   });
 }

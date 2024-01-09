@@ -23,6 +23,7 @@ function playGame() {
   //display boards
   renderBoard(playerOne.game.board, "p1Board");
   renderBoard(computer.game.board, "compBoard");
+  //playone turn to attack,render attack
   renderAttack(playerOne, computer);
 
   console.log(playerOne.turn);
