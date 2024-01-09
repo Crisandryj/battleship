@@ -22,11 +22,11 @@ export function renderBoard(board, className) {
   let table = document.querySelector(`.${className}`);
   for (let i = 0; i < 10; i++) {
     for (let n = 0; n < 10; n++) {
-      let row = table.rows[i].cells[n];
+      let rowCell = table.rows[i].cells[n];
       if (board[i][n].occupied == false) {
-        row.textContent = 0;
+        rowCell.textContent = 0;
       } else {
-        row.textContent = 1;
+        rowCell.textContent = 1;
       }
     }
   }
@@ -47,9 +47,11 @@ export function renderAttack(player, opp) {
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
       if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        opp.game.board[row.rowIndex][cell.cellIndex].textContent = "X";
+        opp.game.board.rows[row.rowIndex].cells[cell.cellIndex].textContent =
+          "X";
       } else {
-        opp.game.board[row.rowIndex][cell.cellIndex].textContent = "x";
+        opp.game.board.rows[row.rowIndex].cells[cell.cellIndex].textContent =
+          "x";
       }
     }
   });
