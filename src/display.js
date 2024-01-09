@@ -31,8 +31,9 @@ export function renderBoard(board, className) {
     }
   }
 }
+
 //Work on
-// Board not being hit by attach (true is not populating for either missed or hit)
+//Board not being hit by attach (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
   console.log(player.turn);
   console.log(opp.turn);
@@ -44,7 +45,6 @@ export function renderAttack(player, opp) {
     } // Quit, not clicked on a cell
     const row = cell.parentElement;
     //place attack (working on this)
-
     if (player.turn == true) {
       //show coordinates
       console.log(row.rowIndex, cell.cellIndex);
