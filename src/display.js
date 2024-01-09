@@ -49,8 +49,9 @@ export function renderAttack(player, opp) {
       //show coordinates
       console.log(row.rowIndex, cell.cellIndex);
       //attack
-      opp.game.recieveAttack(cell.cellIndex, row.rowIndex);
-      console.log(opp.game.board);
+      opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
     }
+    console.log(opp.game.board[row.rowIndex][cell.cellIndex]);
+    console.log(opp.game.board);
   });
 }

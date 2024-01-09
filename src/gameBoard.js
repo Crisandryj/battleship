@@ -31,14 +31,13 @@ class Gameboard {
     }
   }
 
-  recieveAttack(column, row) {
+  recieveAttack(row, column) {
     console.log("activated");
-    if (this.board[column][row].occupied == true) {
-      this.board[column][row].hit = true;
+    if (this.board[row][column].occupied == true) {
+      this.board[row][column].hit = true;
       console.log("1");
     } else {
-      this.board[column][row].missed = true;
-      console.log("2");
+      this.board[row][column].missed = true;
     }
   }
 
