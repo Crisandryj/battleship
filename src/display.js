@@ -47,11 +47,9 @@ export function renderAttack(player, opp) {
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
       if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        opp.game.board.rows[row.rowIndex].cells[cell.cellIndex].textContent =
-          "X";
+        tbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
       } else {
-        opp.game.board.rows[row.rowIndex].cells[cell.cellIndex].textContent =
-          "x";
+        tbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
     }
   });
