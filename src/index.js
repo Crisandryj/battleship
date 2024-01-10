@@ -4,6 +4,13 @@ const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
 const { renderBoard, renderAttack } = require("../src/display");
 
+//create players
+const playerOne = new Player("P1");
+const computer = new Player("Comp");
+
+//assign turn
+playerOne.turn = true;
+
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
   playerOne.game.placeShip(5, "v", 2, 2);
@@ -20,10 +27,6 @@ function defaultPlaceShips(playerOne, computer) {
 }
 
 function playGame() {
-  const playerOne = new Player("P1");
-  const computer = new Player("Comp");
-  playerOne.turn = true;
-
   defaultPlaceShips(playerOne, computer);
 
   //display boards
