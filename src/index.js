@@ -29,14 +29,15 @@ function defaultPlaceShips(playerOne, computer) {
 function playGame() {
   defaultPlaceShips(playerOne, computer);
 
-  //display boards
-  renderBoard(playerOne.game.board, "p1Board");
-  renderBoard(computer.game.board, "compBoard");
   //playone turn to attack,render attack
   renderAttack(playerOne, computer);
 
   console.log(playerOne.turn);
   console.log(computer.turn);
 }
+
+//display boards
+renderBoard(playerOne.game.board, "p1Board");
+renderBoard(computer.game.board, "compBoard");
 
 playGame();
