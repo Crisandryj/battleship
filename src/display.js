@@ -36,8 +36,10 @@ export function renderBoard(board, className) {
 //Work on
 //Board not being hit by attack (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
-  const tbody = document.querySelector(".compBoard");
-  tbody.addEventListener("click", function (e) {
+  const compTbody = document.querySelector(".compBoard");
+  const playerTbody = document.querySelector(".p1Board");
+
+  compTbody.addEventListener("click", function (e) {
     const cell = e.target.closest("td");
     if (!cell) {
       return;
@@ -48,11 +50,33 @@ export function renderAttack(player, opp) {
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
       if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        tbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
+        compTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
       } else {
-        tbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
+        compTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
+      console.log("hi");
       player.changeTurn();
+    }
+  });
+
+  playerTbody.addEventListener("click", function (e) {
+    const cell = e.target.closest("td");
+    if (!cell) {
+      return;
+    } // Quit, not clicked on a cell
+    const row = cell.parentElement;
+    //place attack (working on this)
+    if (player.turn == false) {
+      //attack
+      opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
+      if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
+        playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
+      } else {
+        playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
+      }
+      console.log(opp.turn);
+      opp.changeTurn();
+      console.log(opp.turn);
     }
   });
 }
