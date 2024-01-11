@@ -28,12 +28,9 @@ function defaultPlaceShips(playerOne, computer) {
 
 function playGame() {
   defaultPlaceShips(playerOne, computer);
-
+  alert("PlayerOne make your move");
   //playone turn to attack,render attack
   renderAttack(playerOne, computer);
-
-  console.log(playerOne.turn);
-  console.log(computer.turn);
 }
 
 //display boards

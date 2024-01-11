@@ -1,5 +1,6 @@
 const body = document.querySelector("body");
 const { Gameboard } = require("../src/gameBoard");
+const { Player } = require("../src/player");
 
 function addRow(n, table) {
   for (let i = 0; i < n; i++) {
@@ -33,7 +34,7 @@ export function renderBoard(board, className) {
 }
 
 //Work on
-//Board not being hit by attach (true is not populating for either missed or hit)
+//Board not being hit by attack (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
   const tbody = document.querySelector(".compBoard");
   tbody.addEventListener("click", function (e) {
@@ -51,6 +52,7 @@ export function renderAttack(player, opp) {
       } else {
         tbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
+      player.changeTurn();
     }
   });
 }
