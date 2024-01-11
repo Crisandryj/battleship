@@ -52,7 +52,6 @@ export function renderAttack(player, opp) {
         oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
       player.changeTurn();
-      console.log(player.turn);
     });
   } else {
     playerTbody.addEventListener("click", function (e) {
@@ -62,13 +61,12 @@ export function renderAttack(player, opp) {
       } // Quit, not clicked on a cell
       const row = cell.parentElement;
       //attack
-      opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
-      if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
+      player.game.recieveAttack(row.rowIndex, cell.cellIndex);
+      if (player.game.board[row.rowIndex][cell.cellIndex].hit == true) {
         playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
       } else {
         playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
-      opp.changeTurn();
     });
   }
 }

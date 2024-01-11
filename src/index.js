@@ -8,9 +8,6 @@ const { renderBoard, renderAttack } = require("../src/display");
 const playerOne = new Player("P1");
 const computer = new Player("Comp");
 
-//assign turn
-playerOne.turn = true;
-
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
   playerOne.game.placeShip(5, "v", 2, 2);
@@ -27,6 +24,9 @@ function defaultPlaceShips(playerOne, computer) {
 }
 
 function playGame() {
+  //assign turn
+  playerOne.turn = true;
+  //place ships
   defaultPlaceShips(playerOne, computer);
   alert("PlayerOne make your move");
   //playone turn to attack,render attack
