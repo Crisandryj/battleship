@@ -33,8 +33,6 @@ export function renderBoard(board, className) {
   }
 }
 
-//Work on
-//Board not being hit by attack (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
   const oppTbody = document.querySelector(".compBoard");
   const playerTbody = document.querySelector(".p1Board");
