@@ -36,37 +36,33 @@ export function renderBoard(board, className) {
 //Work on
 //Board not being hit by attack (true is not populating for either missed or hit)
 export function renderAttack(player, opp) {
-  const compTbody = document.querySelector(".compBoard");
+  const oppTbody = document.querySelector(".compBoard");
   const playerTbody = document.querySelector(".p1Board");
 
-  compTbody.addEventListener("click", function (e) {
-    const cell = e.target.closest("td");
-    if (!cell) {
-      return;
-    } // Quit, not clicked on a cell
-    const row = cell.parentElement;
-    //place attack (working on this)
-    if (player.turn == true) {
+  if (player.turn == true) {
+    oppTbody.addEventListener("click", function (e) {
+      const cell = e.target.closest("td");
+      if (!cell) {
+        return;
+      } // Quit, not clicked on a cell
+      const row = cell.parentElement;
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
       if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        compTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
+        oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
       } else {
-        compTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
+        oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
-      console.log("hi");
       player.changeTurn();
-    }
-  });
-
-  playerTbody.addEventListener("click", function (e) {
-    const cell = e.target.closest("td");
-    if (!cell) {
-      return;
-    } // Quit, not clicked on a cell
-    const row = cell.parentElement;
-    //place attack (working on this)
-    if (player.turn == false) {
+      console.log(player.turn);
+    });
+  } else {
+    playerTbody.addEventListener("click", function (e) {
+      const cell = e.target.closest("td");
+      if (!cell) {
+        return;
+      } // Quit, not clicked on a cell
+      const row = cell.parentElement;
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
       if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
@@ -74,9 +70,7 @@ export function renderAttack(player, opp) {
       } else {
         playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
-      console.log(opp.turn);
       opp.changeTurn();
-      console.log(opp.turn);
-    }
-  });
+    });
+  }
 }
