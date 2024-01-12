@@ -38,6 +38,7 @@ export function renderAttack(player, opp) {
   const playerTbody = document.querySelector(".p1Board");
 
   if (player.turn == true) {
+    player.changeTurn();
     oppTbody.addEventListener("click", function (e) {
       const cell = e.target.closest("td");
       if (!cell) {
@@ -52,7 +53,9 @@ export function renderAttack(player, opp) {
         oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
     });
-  } else {
+  }
+  if (player.turn == false) {
+    player.changeTurn();
     playerTbody.addEventListener("click", function (e) {
       const cell = e.target.closest("td");
       if (!cell) {
