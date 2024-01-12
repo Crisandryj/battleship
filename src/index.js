@@ -24,8 +24,6 @@ function defaultPlaceShips(playerOne, computer) {
 }
 
 function playGame() {
-  //assign turn
-  playerOne.turn = true;
   //place ships
   defaultPlaceShips(playerOne, computer);
   alert("PlayerOne make your move");

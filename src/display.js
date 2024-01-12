@@ -51,7 +51,6 @@ export function renderAttack(player, opp) {
       } else {
         oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
       }
-      player.changeTurn();
     });
   } else {
     playerTbody.addEventListener("click", function (e) {
@@ -69,4 +68,6 @@ export function renderAttack(player, opp) {
       }
     });
   }
+
+  return;
 }
