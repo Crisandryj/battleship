@@ -26,9 +26,20 @@ function defaultPlaceShips(playerOne, computer) {
 function playGame() {
   //place ships
   defaultPlaceShips(playerOne, computer);
-  alert("PlayerOne make your move");
   //playone turn to attack,render attack
-  renderAttack(playerOne, computer);
+  let count = 0;
+  while (
+    playerOne.game.allShipsSunk() == false &&
+    computer.game.allShipsSunk() == false
+  ) {
+    alert("Player One make your move");
+    renderAttack(playerOne, computer);
+
+    alert("Player two make your move");
+
+    count += 1;
+    console.log(count);
+  }
 }
 
 //display boards

@@ -38,7 +38,8 @@ export function renderAttack(player, opp) {
   const playerTbody = document.querySelector(".p1Board");
 
   if (player.turn == true) {
-    player.changeTurn();
+    console.log("true active");
+
     oppTbody.addEventListener("click", function (e) {
       const cell = e.target.closest("td");
       if (!cell) {
@@ -55,7 +56,8 @@ export function renderAttack(player, opp) {
     });
   }
   if (player.turn == false) {
-    player.changeTurn();
+    console.log("false active");
+
     playerTbody.addEventListener("click", function (e) {
       const cell = e.target.closest("td");
       if (!cell) {
