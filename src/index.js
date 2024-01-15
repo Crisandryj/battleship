@@ -2,7 +2,7 @@ const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
-const { renderBoard, renderAttack } = require("../src/display");
+const { renderBoard, processAttack } = require("../src/display");
 
 //create players
 const playerOne = new Player("P1");
@@ -32,7 +32,7 @@ function playGame() {
     computer.game.allShipsSunk() == false;
 
   alert("Player One make your move");
-  renderAttack(playerOne, computer);
+  processAttack(playerOne, computer);
 
   alert("Player two make your move");
 

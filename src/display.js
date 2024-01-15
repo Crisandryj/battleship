@@ -49,8 +49,7 @@ export function processAttack(player, opp) {
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
     });
-  }
-  if (player.turn == false) {
+  } else {
     console.log("false active");
 
     playerTbody.addEventListener("click", function (e) {
