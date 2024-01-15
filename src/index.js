@@ -28,18 +28,16 @@ function playGame() {
   defaultPlaceShips(playerOne, computer);
   //playone turn to attack,render attack
   let count = 0;
-  while (
-    playerOne.game.allShipsSunk() == false &&
-    computer.game.allShipsSunk() == false
-  ) {
-    alert("Player One make your move");
-    renderAttack(playerOne, computer);
+  playerOne.game.allShipsSunk() == false &&
+    computer.game.allShipsSunk() == false;
 
-    alert("Player two make your move");
+  alert("Player One make your move");
+  renderAttack(playerOne, computer);
 
-    count += 1;
-    console.log(count);
-  }
+  alert("Player two make your move");
+
+  count += 1;
+  console.log(count);
 }
 
 //display boards
