@@ -36,7 +36,6 @@ export function renderBoard(board, className) {
 export function processAttack(player, opp) {
   const oppTbody = document.querySelector(".compBoard");
   const playerTbody = document.querySelector(".p1Board");
-
   if (player.turn == true) {
     console.log("true active");
 
@@ -66,18 +65,17 @@ export function processAttack(player, opp) {
   return;
 }
 
-function renderAttack(player, opp) {
-  if (player.turn == true) {
-    if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-      oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
-    } else {
-      oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
-    }
-  } else {
-    if (player.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-      playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
-    } else {
-      playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
-    }
-  }
+export function renderAttack(player, opp) {
+  console.log("activated");
+
+  player.board.forEach((row) => {
+    row.forEach((cell) => {
+      if (cell.missed == true) {
+        console.log(cell);
+      }
+      if (cell.occupied == true) {
+        console.log(cell);
+      }
+    });
+  });
 }
