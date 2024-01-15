@@ -33,7 +33,7 @@ export function renderBoard(board, className) {
   }
 }
 
-export function renderAttack(player, opp) {
+export function processAttack(player, opp) {
   const oppTbody = document.querySelector(".compBoard");
   const playerTbody = document.querySelector(".p1Board");
 
@@ -48,11 +48,6 @@ export function renderAttack(player, opp) {
       const row = cell.parentElement;
       //attack
       opp.game.recieveAttack(row.rowIndex, cell.cellIndex);
-      if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
-      } else {
-        oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
-      }
     });
   }
   if (player.turn == false) {
@@ -66,13 +61,24 @@ export function renderAttack(player, opp) {
       const row = cell.parentElement;
       //attack
       player.game.recieveAttack(row.rowIndex, cell.cellIndex);
-      if (player.game.board[row.rowIndex][cell.cellIndex].hit == true) {
-        playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
-      } else {
-        playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
-      }
     });
   }
 
   return;
+}
+
+function renderAttack(player, opp) {
+  if (player.turn == true) {
+    if (opp.game.board[row.rowIndex][cell.cellIndex].hit == true) {
+      oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
+    } else {
+      oppTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
+    }
+  } else {
+    if (player.game.board[row.rowIndex][cell.cellIndex].hit == true) {
+      playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "X";
+    } else {
+      playerTbody.rows[row.rowIndex].cells[cell.cellIndex].textContent = "x";
+    }
+  }
 }
