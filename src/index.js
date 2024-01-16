@@ -8,6 +8,13 @@ const { renderBoard, processAttack, renderAttack } = require("../src/display");
 const playerOne = new Player("P1");
 const computer = new Player("Comp");
 
+//create ships
+const bigONe = new Ship(5);
+const scarey = new Ship(4);
+const middleChild = new Ship(3);
+const sneaky = new Ship(3);
+const littleOne = new Ship(2);
+
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
   playerOne.game.placeShip(5, "v", 2, 2);
