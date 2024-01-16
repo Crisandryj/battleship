@@ -1,5 +1,6 @@
 import { forEach } from "lodash";
 const { Cell } = require("../src/cells");
+const { Ship } = require("../src/ships");
 
 class Gameboard {
   constructor() {
