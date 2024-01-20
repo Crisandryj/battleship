@@ -167,11 +167,6 @@ describe("board created", () => {
     gameBoard.createBoard();
   });
 
-  test("Ship placed on start", () => {
-    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
-    expect(gameBoard.board[2][2].occupied).toEqual(true);
-  });
-
   test("Ship object placed on start", () => {
     gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
     expect(gameBoard.board[2][2]).toEqual({
