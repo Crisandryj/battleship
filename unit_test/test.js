@@ -177,7 +177,7 @@ describe("board created", () => {
 
   test("Ship placed on end for vertical", () => {
     gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
-    expect(gameBoard.board[2][5].toEqual).toBe({
+    expect(gameBoard.board[2][5]).toEqual({
       length: 5,
       hits: 0,
     });
@@ -185,7 +185,7 @@ describe("board created", () => {
 
   test("Ship placed on end for horizotal", () => {
     gameBoard.placeShip(bigShip, bigShip.length, "h", 2, 2);
-    expect(gameBoard.board[5][2].occupied).toBe({
+    expect(gameBoard.board[5][2]).toEqual({
       length: 5,
       hits: 0,
     });
