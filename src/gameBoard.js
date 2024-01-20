@@ -20,14 +20,14 @@ class Gameboard {
     return this.board;
   }
 
-  placeShip(shipLength, orientation, column, row) {
+  placeShip(ship, shipLength, orientation, column, row) {
     if (orientation.toLowerCase() == "v") {
       for (let i = 0; i < shipLength; i++) {
-        this.board[column][row + i].occupied = true;
+        this.board[column][row + i] = ship;
       }
     } else if (orientation.toLowerCase() == "h") {
       for (let i = 0; i < shipLength; i++) {
-        this.board[column + i][row].occupied = true;
+        this.board[column + i][row] = ship;
       }
     }
   }

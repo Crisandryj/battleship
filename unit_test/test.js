@@ -162,24 +162,38 @@ describe("Gameboard", () => {
 
 describe("board created", () => {
   const gameBoard = new Gameboard();
-
+  const bigShip = new Ship(5);
   beforeEach(() => {
     gameBoard.createBoard();
   });
 
   test("Ship placed on start", () => {
-    gameBoard.placeShip(4, "v", 2, 2);
+    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
     expect(gameBoard.board[2][2].occupied).toEqual(true);
   });
 
+  test("Ship object placed on start", () => {
+    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
+    expect(gameBoard.board[2][2]).toEqual({
+      length: 5,
+      hits: 0,
+    });
+  });
+
   test("Ship placed on end for vertical", () => {
-    gameBoard.placeShip(4, "v", 2, 2);
-    expect(gameBoard.board[2][5].occupied).toBe(true);
+    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
+    expect(gameBoard.board[2][5].toEqual).toBe({
+      length: 5,
+      hits: 0,
+    });
   });
 
   test("Ship placed on end for horizotal", () => {
-    gameBoard.placeShip(4, "h", 2, 2);
-    expect(gameBoard.board[5][2].occupied).toBe(true);
+    gameBoard.placeShip(bigShip, bigShip.length, "h", 2, 2);
+    expect(gameBoard.board[5][2].occupied).toBe({
+      length: 5,
+      hits: 0,
+    });
   });
 
   test("Recieve attack from coordinates that hit", () => {
