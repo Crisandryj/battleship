@@ -194,6 +194,7 @@ describe("board created", () => {
   test("Recieve attack from coordinates that hit", () => {
     gameBoard.recieveAttack(2, 2);
     expect(gameBoard.board[2][2]).toEqual({
+      missed: true,
       length: 5,
       hits: 1,
     });
