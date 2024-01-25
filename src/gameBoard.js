@@ -31,11 +31,11 @@ class Gameboard {
       }
     }
   }
-
+  // fix to look for ship
   recieveAttack(row, column) {
     console.log("recieved attack");
     if (this.board[row][column].occupied == true) {
-      this.board[row][column].hit = true;
+      this.board[row][column].hit += 1;
     } else {
       this.board[row][column].missed = true;
     }

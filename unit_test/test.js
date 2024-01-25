@@ -53,8 +53,10 @@ describe("Gameboard", () => {
 describe("board created", () => {
   const gameBoard = new Gameboard();
   const bigShip = new Ship(5);
+
   beforeEach(() => {
     gameBoard.createBoard();
+    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
   });
 
   test("Ship object placed on start", () => {
@@ -84,7 +86,6 @@ describe("board created", () => {
   test("Recieve attack from coordinates that hit", () => {
     gameBoard.recieveAttack(2, 2);
     expect(gameBoard.board[2][2]).toEqual({
-      missed: true,
       length: 5,
       hits: 1,
     });
