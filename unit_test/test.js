@@ -64,6 +64,7 @@ describe("board created", () => {
     expect(gameBoard.board[2][2]).toEqual({
       length: 5,
       hits: 0,
+      occupied: true,
     });
   });
 
@@ -71,6 +72,7 @@ describe("board created", () => {
     expect(gameBoard.board[2][5]).toEqual({
       length: 5,
       hits: 0,
+      occupied: true,
     });
   });
 
@@ -78,6 +80,7 @@ describe("board created", () => {
     expect(gameBoard.board[5][2]).toEqual({
       length: 5,
       hits: 0,
+      occupied: true,
     });
   });
 
@@ -86,6 +89,7 @@ describe("board created", () => {
     expect(gameBoard.board[2][2]).toEqual({
       length: 5,
       hits: 1,
+      occupied: true,
     });
   });
 
