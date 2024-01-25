@@ -14,7 +14,7 @@ class Gameboard {
     }
     this.board.forEach((array) => {
       for (let i = 0; i < this.columns; i++) {
-        array.push([]);
+        array.push({});
       }
     });
     return this.board;
