@@ -65,17 +65,17 @@ export function processAttack(player, opp) {
   return;
 }
 
-export function renderAttack(player, opp) {
-  console.log("activated");
+// export function renderAttack(player, opp) {
+//   console.log("activated");
 
-  player.board.forEach((row) => {
-    row.forEach((cell) => {
-      if (cell.missed == true) {
-        console.log(cell);
-      }
-      if (cell.occupied == true) {
-        console.log(cell);
-      }
-    });
-  });
-}
+//   player.board.forEach((row) => {
+//     row.forEach((cell) => {
+//       if (cell.missed == true) {
+//         console.log(cell);
+//       }
+//       if (cell.occupied == true) {
+//         console.log(cell);
+//       }
+//     });
+//   });
+// }

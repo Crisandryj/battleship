@@ -37,7 +37,7 @@ function playGame() {
   let count = 0;
 
   alert("Player One make your move");
-  renderAttack(playerOne, computer);
+  // renderAttack(playerOne, computer);
   count += 1;
 }
 
