@@ -36,7 +36,7 @@ class Gameboard {
   recieveAttack(row, column) {
     console.log("recieved attack");
     if (this.board[row][column].occupied == true) {
-      this.board[row][column].hit += 1;
+      this.board[row][column].hit();
     } else {
       this.board[row][column].missed = true;
     }
