@@ -107,11 +107,17 @@ describe("board with all ships sunk", () => {
   });
 
   beforeEach(() => {
-    gameBoard.placeShip(5, "v", 2, 2);
-    gameBoard.placeShip(4, "v", 3, 2);
-    gameBoard.placeShip(3, "v", 4, 2);
-    gameBoard.placeShip(3, "v", 5, 2);
-    gameBoard.placeShip(2, "v", 6, 2);
+    const bigOne = new Ship(5);
+    const scarey = new Ship(4);
+    const middleChild = new Ship(3);
+    const sneaky = new Ship(3);
+    const littleOne = new Ship(2);
+
+    gameBoard.placeShip(bigOne, bigOne.length, "v", 2, 2);
+    gameBoard.placeShip(scarey, scarey.length, "v", 3, 2);
+    gameBoard.placeShip(middleChild, middleChild.length, "v", 4, 2);
+    gameBoard.placeShip(sneaky, sneaky.length, "v", 5, 2);
+    gameBoard.placeShip(littleOne, littleOne.length, "v", 6, 2);
 
     gameBoard.board.forEach((arry) => {
       arry.forEach((cell) => {
