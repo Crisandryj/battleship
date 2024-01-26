@@ -24,7 +24,7 @@ export function renderBoard(board, className) {
   for (let i = 0; i < 10; i++) {
     for (let n = 0; n < 10; n++) {
       let rowCell = table.rows[i].cells[n];
-      if (board[i][n].occupied == false) {
+      if (board[i][n].occupied == false || {}) {
         rowCell.textContent = 0;
       } else {
         rowCell.textContent = 1;

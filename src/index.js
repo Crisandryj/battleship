@@ -41,10 +41,8 @@ function playGame() {
   count += 1;
 }
 
-//display boards
+playGame();
 renderBoard(playerOne.game.board, "p1Board");
 renderBoard(computer.game.board, "compBoard");
-
-playGame();
 
 console.log(computer.game.board[2][2]);
