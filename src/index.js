@@ -31,18 +31,7 @@ function defaultPlaceShips(playerOne, computer) {
 }
 
 function playGame() {
-  //place ships
   defaultPlaceShips(playerOne, computer);
-  //playone turn to attack,render attack
-  let count = 0;
-
-  alert("Player One make your move");
-  // renderAttack(playerOne, computer);
-  count += 1;
 }
 
 playGame();
-renderBoard(playerOne.game.board, "p1Board");
-renderBoard(computer.game.board, "compBoard");
-
-console.log(computer.game.board[2][2]);
