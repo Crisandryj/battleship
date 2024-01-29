@@ -5,6 +5,7 @@ const { Player } = require("../src/player");
 const gameBoardsContainer = document.querySelector(".game-boards-container");
 
 let count = 0;
+
 export function displayBoard(player, color) {
   const gameBoard = document.createElement("div");
   gameBoard.classList.add("game-board");
@@ -18,4 +19,10 @@ export function displayBoard(player, color) {
       gameBoard.append(block);
     });
   });
+}
+
+document.addEventListener("click", select);
+
+function select() {
+  console.log("hello");
 }
