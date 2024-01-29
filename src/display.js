@@ -19,9 +19,17 @@ export function displayBoard(player, color) {
       block.id = count;
       count += 1;
       gameBoard.append(block);
+      displayShip(item, block);
+      console.log(item.name);
     });
   });
   count = 0;
+}
+
+function displayShip(item, block) {
+  if (item.name != undefined) {
+    block.style.backgroundColor = "orange";
+  }
 }
 
 document.addEventListener("click", select);
