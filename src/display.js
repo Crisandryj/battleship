@@ -5,7 +5,8 @@ const { Player } = require("../src/player");
 const gameBoard = document.querySelector(".game-board");
 
 let count = 0;
-export function displayBoard(player) {
+export function displayBoard(player, color) {
+  gameBoard.style.backgroundColor = color;
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
