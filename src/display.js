@@ -23,6 +23,10 @@ export function displayBoard(player, color) {
 
 document.addEventListener("click", select);
 
-function select() {
-  console.log("hello");
+function select(evt) {
+  if (evt.target.closest("div") === null) {
+    return;
+  } else {
+    console.log(evt.target.closest("div"));
+  }
 }
