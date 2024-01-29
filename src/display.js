@@ -14,6 +14,7 @@ export function displayBoard(player, color) {
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
+      block.classList.add("block");
       block.id = count;
       count += 1;
       gameBoard.append(block);
