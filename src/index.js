@@ -32,7 +32,7 @@ function defaultPlaceShips(playerOne, computer) {
 
 function playGame() {
   defaultPlaceShips(playerOne, computer);
-  displayBoard(computer, "yellow");
+  displayBoard(computer, "blue");
   displayBoard(playerOne, "gray");
 }
 
