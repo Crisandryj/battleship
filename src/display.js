@@ -20,6 +20,7 @@ export function displayBoard(player, color) {
       gameBoard.append(block);
     });
   });
+  count = 0;
 }
 
 document.addEventListener("click", select);
