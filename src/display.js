@@ -8,9 +8,10 @@ let count = 0;
 
 export function displayBoard(player, color) {
   const gameBoard = document.createElement("div");
-  gameBoard.classList.add("game-board");
+  gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
   gameBoardsContainer.append(gameBoard);
+
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");

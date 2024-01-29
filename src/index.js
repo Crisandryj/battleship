@@ -9,11 +9,11 @@ const playerOne = new Player("P1");
 const computer = new Player("Comp");
 
 //create ships
-const bigOne = new Ship(bigOne, 5);
-const scarey = new Ship(scarey, 4);
-const middleChild = new Ship(middleChild, 3);
-const sneaky = new Ship(sneaky, 3);
-const littleOne = new Ship(littleOne, 2);
+const bigOne = new Ship("bigOne", 5);
+const scarey = new Ship("scarey", 4);
+const middleChild = new Ship("middleChild", 3);
+const sneaky = new Ship("sneaky", 3);
+const littleOne = new Ship("littleOne", 2);
 
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
