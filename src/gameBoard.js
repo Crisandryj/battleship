@@ -35,7 +35,7 @@ class Gameboard {
   // fix to look for ship
   recieveAttack(row, column) {
     console.log("recieved attack");
-    if (this.board[row][column].occupied == true) {
+    if (this.board[row][column].occupied != undefined) {
       this.board[row][column].hit();
     } else {
       this.board[row][column].missed = true;

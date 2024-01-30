@@ -20,7 +20,6 @@ export function displayBoard(player, color) {
       count += 1;
       gameBoard.append(block);
       displayShip(item, block);
-      console.log(item.name);
     });
   });
   count = 0;
