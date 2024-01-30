@@ -31,12 +31,8 @@ function displayShip(item, block) {
   }
 }
 
-document.addEventListener("click", select);
-
-function select(evt) {
-  if (evt.target.closest("div") === null) {
-    return;
-  } else {
-    console.log(evt.target.closest("div"));
-  }
+export function switchBoard(playerOne, playerTwo) {
+  playerOne.turn
+    ? displayBoard(playerOne, "gray")
+    : displayBoard(playerTwo, "blue");
 }

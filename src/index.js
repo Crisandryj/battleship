@@ -2,7 +2,7 @@ const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
-const { displayBoard, processAttack, renderAttack } = require("../src/display");
+const { displayBoard, switchBoard } = require("../src/display");
 
 //create players
 const playerOne = new Player("P1");
@@ -30,10 +30,15 @@ function defaultPlaceShips(playerOne, computer) {
   computer.game.placeShip(littleOne, littleOne.length, "v", 6, 2);
 }
 
-function playGame() {
-  defaultPlaceShips(playerOne, computer);
-  displayBoard(computer, "blue");
-  displayBoard(playerOne, "gray");
-}
+defaultPlaceShips(playerOne, computer);
+displayBoard(playerOne, "blue");
 
-playGame();
+document.addEventListener("click", select);
+
+function select(evt) {
+  if (evt.target.closest("div") === null) {
+    return;
+  } else {
+    console.log(evt.target.closest("div"));
+  }
+}
