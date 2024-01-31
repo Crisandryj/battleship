@@ -3,6 +3,7 @@ const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 
 const gameBoardsContainer = document.querySelector(".game-boards-container");
+const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
 
@@ -33,11 +34,18 @@ function displayShip(item, block) {
 
 export function switchBoard(playerOne, computer) {
   if (playerOne.turn == false) {
-    displayBoard(playerOne, "gray");
+    displayBoard(computer, "blue");
     gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
   } else {
     gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
-    displayBoard(computer, "blue");
+    displayBoard(playerOne, "gray");
   }
   playerOne.changeTurn();
+  showTurn(playerOne);
+}
+
+export function showTurn(playerOne) {
+  playerOne.turn
+    ? (turnDisplay.textContent = "Player One make your move")
+    : (turnDisplay.textContent = "Player Two make your move");
 }

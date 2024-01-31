@@ -2,7 +2,7 @@ const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
-const { displayBoard, switchBoard } = require("../src/display");
+const { displayBoard, switchBoard, showTurn } = require("../src/display");
 
 //create players
 const playerOne = new Player("P1");
@@ -30,6 +30,7 @@ function defaultPlaceShips(playerOne, computer) {
   computer.game.placeShip(littleOne, littleOne.length, "v", 6, 2);
 }
 
+showTurn(playerOne);
 defaultPlaceShips(playerOne, computer);
 displayBoard(playerOne, "gray");
 
