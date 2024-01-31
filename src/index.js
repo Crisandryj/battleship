@@ -31,7 +31,7 @@ function defaultPlaceShips(playerOne, computer) {
 }
 
 defaultPlaceShips(playerOne, computer);
-displayBoard(playerOne, "blue");
+displayBoard(playerOne, "gray");
 
 document.addEventListener("click", select);
 
@@ -40,5 +40,6 @@ function select(evt) {
     return;
   } else {
     console.log(evt.target.closest("div"));
+    switchBoard(playerOne, computer);
   }
 }

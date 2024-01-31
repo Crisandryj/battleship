@@ -31,8 +31,13 @@ function displayShip(item, block) {
   }
 }
 
-export function switchBoard(playerOne, playerTwo) {
-  playerOne.turn
-    ? displayBoard(playerOne, "gray")
-    : displayBoard(playerTwo, "blue");
+export function switchBoard(playerOne, computer) {
+  if (playerOne.turn == false) {
+    displayBoard(playerOne, "gray");
+    gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
+  } else {
+    gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
+    displayBoard(computer, "blue");
+  }
+  playerOne.changeTurn();
 }
