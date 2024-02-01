@@ -41,7 +41,22 @@ function select(evt) {
     return;
   } else {
     switchBoard(playerOne, computer);
-    console.log(evt.target.closest("div"));
+    attack(evt);
+    console.log(evt.target.closest("div").id);
     return evt.target.closest("div");
+  }
+}
+function attack(evt) {
+  if (playerOne.turn == false) {
+    playerOne.game.recieveAttack(
+      evt.target.closest("div").id[0],
+      evt.target.closest("div").id[1]
+    );
+    console.log(computer.board);
+  } else {
+    computer.game.recieveAttack(
+      evt.target.closest("div").id[0],
+      evt.target.closest("div").id[1]
+    );
   }
 }
