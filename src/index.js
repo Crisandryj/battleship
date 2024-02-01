@@ -40,7 +40,8 @@ function select(evt) {
   if (evt.target.closest("div") === null) {
     return;
   } else {
-    console.log(evt.target.closest("div"));
     switchBoard(playerOne, computer);
+    console.log(evt.target.closest("div"));
+    return evt.target.closest("div");
   }
 }
