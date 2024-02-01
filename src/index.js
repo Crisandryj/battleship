@@ -41,12 +41,12 @@ function select(evt) {
     return;
   } else {
     switchBoard(playerOne, computer);
-    attack(evt);
+    selectAttack(evt);
     console.log(evt.target.closest("div").id);
     return evt.target.closest("div");
   }
 }
-function attack(evt) {
+function selectAttack(evt) {
   if (playerOne.turn == false) {
     playerOne.game.recieveAttack(
       evt.target.closest("div").id[0],
