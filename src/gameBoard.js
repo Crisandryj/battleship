@@ -1,5 +1,4 @@
 import { forEach } from "lodash";
-const { Cell } = require("../src/cells");
 const { Ship } = require("../src/ships");
 
 class Gameboard {
@@ -34,7 +33,7 @@ class Gameboard {
   // fix to look for ship
   recieveAttack(row, column) {
     console.log("recieved attack");
-    if (this.board[row][column].occupied != undefined) {
+    if (this.board[row][column].occupied == true) {
       this.board[row][column].hit();
     } else {
       this.board[row][column].missed = true;

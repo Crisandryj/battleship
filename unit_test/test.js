@@ -1,6 +1,6 @@
 const { Ship } = require("../src/ships");
 const { Gameboard } = require("../src/gameBoard");
-const { Cell } = require("../src/cells");
+
 const { Player } = require("../src/player");
 
 describe("Ships", () => {
@@ -130,17 +130,6 @@ describe("board with all ships sunk", () => {
 
   test("All ships sunk", () => {
     expect(gameBoard.allShipsSunk()).toBe(true);
-  });
-});
-
-describe("Cell", () => {
-  const cell = new Cell();
-
-  test("cell created", () => {
-    expect(cell.hit).toBeFalsy;
-  });
-  test("cell not occupied", () => {
-    expect(cell.occupied).toBeFalsy;
   });
 });
 
