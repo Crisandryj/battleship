@@ -39,23 +39,24 @@ function select(evt) {
   if (evt.target.closest("div") === null) {
     return;
   } else {
-    switchBoard(playerOne, computer);
     selectAttack(evt);
-    console.log(evt.target.closest("div").id);
+    switchBoard(playerOne, computer);
+    console.log(evt.target.closest("div"));
     return evt.target.closest("div");
   }
 }
 function selectAttack(evt) {
+  let rowNum = evt.target.closest("div").id[0];
+  let columnNum = evt.target.closest("div").id[1];
+  //dont allow player to select the same box again
+  if (playerOne.game.board[rowNum][columnNum].missed == true) {
+    switchBoard(playerOne, computer);
+    return;
+  }
   if (playerOne.turn == false) {
-    playerOne.game.recieveAttack(
-      evt.target.closest("div").id[0],
-      evt.target.closest("div").id[1]
-    );
+    playerOne.game.recieveAttack(rowNum, columnNum);
     console.log(computer.board);
   } else {
-    computer.game.recieveAttack(
-      evt.target.closest("div").id[0],
-      evt.target.closest("div").id[1]
-    );
+    computer.game.recieveAttack(rowNum, columnNum);
   }
 }
