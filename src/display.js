@@ -32,6 +32,8 @@ function displayShip(item, block) {
   }
 }
 
+function displayMiss() {}
+
 export function switchBoard(playerOne, computer) {
   if (playerOne.turn == false) {
     displayBoard(computer, "blue");
