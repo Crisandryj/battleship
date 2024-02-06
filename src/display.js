@@ -21,9 +21,16 @@ export function displayBoard(player, color) {
       count += 1;
       gameBoard.append(block);
       displayShip(item, block);
+      displayMiss(item, block);
     });
   });
   count = 0;
+}
+
+function displayMiss(item, block) {
+  if (item.missed == true) {
+    block.textContent = "X";
+  }
 }
 
 function displayShip(item, block) {
@@ -31,8 +38,6 @@ function displayShip(item, block) {
     block.style.backgroundColor = "orange";
   }
 }
-
-function displayMiss() {}
 
 export function switchBoard(playerOne, computer) {
   if (playerOne.turn == false) {
