@@ -62,7 +62,6 @@ function selectAttack(evt) {
   }
   if (playerOne.turn == false) {
     playerOne.game.recieveAttack(rowNum, columnNum);
-    console.log(computer.board);
   } else {
     computer.game.recieveAttack(rowNum, columnNum);
   }
