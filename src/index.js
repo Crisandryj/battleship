@@ -14,6 +14,13 @@ const middleChild = new Ship("middleChild", 3);
 const sneaky = new Ship("sneaky", 3);
 const littleOne = new Ship("littleOne", 2);
 
+//create ships
+const bigOneComp = new Ship("bigOne", 5);
+const scareyComp = new Ship("scarey", 4);
+const middleChildComp = new Ship("middleChild", 3);
+const sneakyComp = new Ship("sneaky", 3);
+const littleOneComp = new Ship("littleOne", 2);
+
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
   playerOne.game.placeShip(bigOne, bigOne.length, "v", 2, 2);
@@ -22,11 +29,11 @@ function defaultPlaceShips(playerOne, computer) {
   playerOne.game.placeShip(sneaky, sneaky.length, "v", 5, 2);
   playerOne.game.placeShip(littleOne, littleOne.length, "v", 6, 2);
   //place computer ships
-  computer.game.placeShip(bigOne, bigOne.length, "v", 2, 2);
-  computer.game.placeShip(scarey, scarey.length, "v", 3, 2);
-  computer.game.placeShip(middleChild, middleChild.length, "v", 4, 2);
-  computer.game.placeShip(sneaky, sneaky.length, "v", 5, 2);
-  computer.game.placeShip(littleOne, littleOne.length, "v", 6, 2);
+  computer.game.placeShip(bigOneComp, bigOneComp.length, "v", 2, 2);
+  computer.game.placeShip(scareyComp, scareyComp.length, "v", 3, 2);
+  computer.game.placeShip(middleChildComp, middleChildComp.length, "v", 4, 2);
+  computer.game.placeShip(sneakyComp, sneakyComp.length, "v", 5, 2);
+  computer.game.placeShip(littleOneComp, littleOneComp.length, "v", 6, 2);
 }
 
 showTurn(playerOne);
