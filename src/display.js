@@ -29,7 +29,7 @@ export function displayBoard(player, color) {
 
 function displayMiss(item, block) {
   if (item.missed == true) {
-    block.textContent = "X";
+    block.textContent = "x";
   }
 }
 
