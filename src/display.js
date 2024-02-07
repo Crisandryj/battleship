@@ -27,9 +27,9 @@ export function displayBoard(player, color) {
   count = 0;
 }
 
-function displayMiss(item, block) {
+function displayMiss(item, blockDiv) {
   if (item.missed == true) {
-    block.textContent = "x";
+    blockDiv.textContent = "x";
   }
 }
 
