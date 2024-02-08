@@ -14,7 +14,7 @@ const middleChild = new Ship("middleChild", 3);
 const sneaky = new Ship("sneaky", 3);
 const littleOne = new Ship("littleOne", 2);
 
-//create ships
+//create comp ships
 const bigOneComp = new Ship("bigOne", 5);
 const scareyComp = new Ship("scarey", 4);
 const middleChildComp = new Ship("middleChild", 3);
@@ -40,22 +40,22 @@ showTurn(playerOne);
 defaultPlaceShips(playerOne, computer);
 displayBoard(playerOne, "gray");
 
-document.addEventListener("click", select);
+document.addEventListener("click", handleClick);
 
-function select(evt) {
+function handleClick(evt) {
   if (evt.target.closest("div") === null) {
     return;
   } else {
     selectAttack(evt);
     switchBoard(playerOne, computer);
-    console.log(evt.target.closest("div"));
     return evt.target.closest("div");
   }
 }
+
 function selectAttack(evt) {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
-  //dont allow player to select the same box again
+  //dont allow player to select the same missed box again
   if (playerOne.game.board[rowNum][columnNum].missed == true) {
     switchBoard(playerOne, computer);
     return;
