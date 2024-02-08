@@ -13,7 +13,7 @@ class Gameboard {
     }
     this.board.forEach((array) => {
       for (let i = 0; i < this.columns; i++) {
-        array.push({});
+        array.push({ missed: false, occupied: false });
       }
     });
     return this.board;

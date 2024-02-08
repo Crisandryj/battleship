@@ -56,13 +56,28 @@ function selectAttack(evt) {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
   //dont allow player to select the same missed box again
-  if (playerOne.game.board[rowNum][columnNum].missed == true) {
-    switchBoard(playerOne, computer);
-    return;
-  }
-  if (playerOne.turn == false) {
-    playerOne.game.recieveAttack(rowNum, columnNum);
+  if (columnNum != undefined) {
+    if (playerOne.game.board[rowNum][columnNum].missed == true) {
+      switchBoard(playerOne, computer);
+      return;
+    }
   } else {
-    computer.game.recieveAttack(rowNum, columnNum);
+    if (playerOne.game.board[0][rowNum].missed == true) {
+      switchBoard(playerOne, computer);
+      return;
+    }
+  }
+  if (columnNum != undefined) {
+    if (playerOne.turn == false) {
+      playerOne.game.recieveAttack(rowNum, columnNum);
+    } else {
+      computer.game.recieveAttack(rowNum, columnNum);
+    }
+  } else {
+    if (playerOne.turn == false) {
+      playerOne.game.recieveAttack(0, rowNum);
+    } else {
+      computer.game.recieveAttack(0, rowNum);
+    }
   }
 }
