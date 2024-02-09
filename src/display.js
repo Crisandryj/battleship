@@ -22,6 +22,8 @@ export function displayBoard(player, color) {
       gameBoard.append(block);
       displayShip(item, block);
       displayMiss(item, block);
+      displayHit(item, block);
+      console.log(item);
     });
   });
   count = 0;
@@ -33,7 +35,11 @@ function displayMiss(item, blockDiv) {
   }
 }
 
-function displayHit() {}
+function displayHit(item, blockDiv) {
+  if (item.occupied == true && item.hits > 0) {
+    blockDiv.textContent = "X";
+  }
+}
 
 function displayShip(item, block) {
   if (item.name != undefined) {
