@@ -1,7 +1,12 @@
 const { Gameboard } = require("../src/gameBoard");
 const { Player } = require("../src/player");
 const { Ship } = require("../src/ships");
-const { displayBoard, switchBoard, showTurn } = require("../src/display");
+const {
+  displayBoard,
+  switchBoard,
+  showTurn,
+  displayHit,
+} = require("../src/display");
 
 //create players
 const playerOne = new Player("P1");
@@ -64,6 +69,7 @@ function selectAttack(evt) {
   } else {
     if (playerOne.game.board[0][rowNum].missed == true) {
       switchBoard(playerOne, computer);
+      displayHit(playerOne.game.board[0][rowNum], evt.target.closest("div"));
       return;
     }
   }
