@@ -69,7 +69,6 @@ function selectAttack(evt) {
   } else {
     if (playerOne.game.board[0][rowNum].missed == true) {
       switchBoard(playerOne, computer);
-      displayHit(playerOne.game.board[0][rowNum], evt.target.closest("div"));
       return;
     }
   }

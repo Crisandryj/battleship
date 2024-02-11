@@ -22,6 +22,7 @@ export function displayBoard(player, color) {
       gameBoard.append(block);
       displayShip(item, block);
       displayMiss(item, block);
+      displayHit(item, block);
     });
   });
   count = 0;
@@ -33,9 +34,9 @@ function displayMiss(item, blockDiv) {
   }
 }
 
-export function displayHit(item, blockDiv, id) {
-  if (item.occupied == true && item.hits > 0) {
-    blockDiv.textContent = "X";
+export function displayHit(item, blockDiv) {
+  if (blockDiv.class == "block hit") {
+    console.log(blockDiv);
   }
 }
 
