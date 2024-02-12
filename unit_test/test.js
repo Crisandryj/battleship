@@ -162,7 +162,7 @@ describe("Gameboard", () => {
 
 describe("board created", () => {
   const gameBoard = new Gameboard();
-  const bigShip = new Ship(5);
+  const bigShip = new Ship("big", 5);
 
   beforeEach(() => {
     gameBoard.createBoard();
@@ -172,24 +172,30 @@ describe("board created", () => {
 
   test("Ship object placed on start", () => {
     expect(gameBoard.board[2][2]).toEqual({
-      length: 5,
+      arry: [0, 1, 2, 3, 4],
       hits: 0,
+      length: 5,
+      name: "big",
       occupied: true,
     });
   });
 
   test("Ship placed on end for vertical", () => {
     expect(gameBoard.board[2][5]).toEqual({
-      length: 5,
+      arry: [0, 1, 2, 3, 4],
       hits: 0,
+      length: 5,
+      name: "big",
       occupied: true,
     });
   });
 
   test("Ship placed on end for horizontal", () => {
     expect(gameBoard.board[5][2]).toEqual({
-      length: 5,
+      arry: [0, 1, 2, 3, 4],
       hits: 0,
+      length: 5,
+      name: "big",
       occupied: true,
     });
   });
@@ -197,8 +203,10 @@ describe("board created", () => {
   test("Recieve attack from coordinates that hit", () => {
     gameBoard.recieveAttack(2, 2);
     expect(gameBoard.board[2][2]).toEqual({
-      length: 5,
+      arry: [0, 1, 2, 3, 4],
       hits: 1,
+      length: 5,
+      name: "big",
       occupied: true,
     });
   });
@@ -232,7 +240,7 @@ describe("board with all ships sunk", () => {
     gameBoard.board.forEach((arry) => {
       arry.forEach((cell) => {
         if (cell.occupied == true) {
-          cell.hit = true;
+          cell.hit += 1;
         }
       });
     });

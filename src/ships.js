@@ -1,10 +1,11 @@
 export class Ship {
   constructor(name, len) {
-    this.array = [];
+    this.arry = [];
     for (let i = 0; i < len; i++) {
-      this.array.push(i);
+      this.arry.push(i);
     }
-    this.length = this.array.length;
+
+    this.length = this.arry.length;
     this.name = name;
     this.hits = 0;
     this.occupied = true;
