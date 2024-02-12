@@ -86,3 +86,5 @@ function selectAttack(evt) {
     }
   }
 }
+
+console.log(bigOne);
