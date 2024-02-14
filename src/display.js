@@ -1,5 +1,5 @@
 const body = document.querySelector("body");
-const { Game } = require("../src/Game");
+const { Game } = require("./Game");
 const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");

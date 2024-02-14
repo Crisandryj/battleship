@@ -1,5 +1,5 @@
 import { forEach } from "lodash";
-const { Ship } = require("../src/ships");
+const { Ship } = require("./ships");
 
 class Game {
   constructor() {

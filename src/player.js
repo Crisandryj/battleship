@@ -1,8 +1,8 @@
-const { Gameboard } = require("../src/gameBoard");
+const { Game } = require("./Game");
 
 class Player {
   constructor(name) {
-    this.game = new Gameboard();
+    this.game = new Game();
     this.board = this.game.createBoard();
     this.name = name;
     this.turn = false;

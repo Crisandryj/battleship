@@ -1,4 +1,4 @@
-const { Game } = require("../src/Game");
+const { Game } = require("./Game");
 const { Player } = require("../src/player");
 const { Ship } = require("../src/ships");
 const {
