@@ -1,5 +1,5 @@
 const { Ship } = require("../src/ships");
-const { Gameboard } = require("../src/gameBoard");
+const { Game } = require("../src/Game");
 
 const { Player } = require("../src/player");
 
@@ -19,23 +19,23 @@ describe("Ships", () => {
   });
 });
 
-describe("Gameboard", () => {
-  const gameBoard = new Gameboard();
+describe("Game", () => {
+  const Game = new Game();
 
   test("# of rows", () => {
-    expect(gameBoard.rows).toBe(10);
+    expect(Game.rows).toBe(10);
   });
 
   test("# of columns", () => {
-    expect(gameBoard.columns).toBe(10);
+    expect(Game.columns).toBe(10);
   });
 
   test("array created", () => {
-    expect(gameBoard.board.isArray).toBeTruthy;
+    expect(Game.board.isArray).toBeTruthy;
   });
 
   test("board created with cells", () => {
-    expect(gameBoard.createBoard()).toStrictEqual([
+    expect(Game.createBoard()).toStrictEqual([
       [
         { occupied: false, missed: false },
         { occupied: false, missed: false },
@@ -161,17 +161,17 @@ describe("Gameboard", () => {
 });
 
 describe("board created", () => {
-  const gameBoard = new Gameboard();
+  const Game = new Game();
   const bigShip = new Ship("big", 5);
 
   beforeEach(() => {
-    gameBoard.createBoard();
-    gameBoard.placeShip(bigShip, bigShip.length, "v", 2, 2);
-    gameBoard.placeShip(bigShip, bigShip.length, "h", 2, 2);
+    Game.createBoard();
+    Game.placeShip(bigShip, bigShip.length, "v", 2, 2);
+    Game.placeShip(bigShip, bigShip.length, "h", 2, 2);
   });
 
   test("Ship object placed on start", () => {
-    expect(gameBoard.board[2][2]).toEqual({
+    expect(Game.board[2][2]).toEqual({
       arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
@@ -181,7 +181,7 @@ describe("board created", () => {
   });
 
   test("Ship placed on end for vertical", () => {
-    expect(gameBoard.board[2][5]).toEqual({
+    expect(Game.board[2][5]).toEqual({
       arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
@@ -191,7 +191,7 @@ describe("board created", () => {
   });
 
   test("Ship placed on end for horizontal", () => {
-    expect(gameBoard.board[5][2]).toEqual({
+    expect(Game.board[5][2]).toEqual({
       arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
@@ -201,8 +201,8 @@ describe("board created", () => {
   });
 
   test("Recieve attack from coordinates that hit", () => {
-    gameBoard.recieveAttack(2, 2);
-    expect(gameBoard.board[2][2]).toEqual({
+    Game.recieveAttack(2, 2);
+    expect(Game.board[2][2]).toEqual({
       arry: [0, 1, 2, 3, 4],
       hits: 1,
       length: 5,
@@ -212,16 +212,16 @@ describe("board created", () => {
   });
 
   test("Recieve attack from coordinates that missed", () => {
-    gameBoard.recieveAttack(1, 1);
-    expect(gameBoard.board[1][1].missed).toBe(true);
+    Game.recieveAttack(1, 1);
+    expect(Game.board[1][1].missed).toBe(true);
   });
 });
 
 describe("board with all ships sunk", () => {
-  const game = new Game();
+  const Game = new Game();
 
   beforeEach(() => {
-    gameBoard.createBoard();
+    Game.createBoard();
   });
 
   beforeEach(() => {
@@ -231,13 +231,13 @@ describe("board with all ships sunk", () => {
     const sneaky = new Ship(3);
     const littleOne = new Ship(2);
 
-    gameBoard.placeShip(bigOne, bigOne.length, "v", 2, 2);
-    gameBoard.placeShip(scarey, scarey.length, "v", 3, 2);
-    gameBoard.placeShip(middleChild, middleChild.length, "v", 4, 2);
-    gameBoard.placeShip(sneaky, sneaky.length, "v", 5, 2);
-    gameBoard.placeShip(littleOne, littleOne.length, "v", 6, 2);
+    Game.placeShip(bigOne, bigOne.length, "v", 2, 2);
+    Game.placeShip(scarey, scarey.length, "v", 3, 2);
+    Game.placeShip(middleChild, middleChild.length, "v", 4, 2);
+    Game.placeShip(sneaky, sneaky.length, "v", 5, 2);
+    Game.placeShip(littleOne, littleOne.length, "v", 6, 2);
 
-    gameBoard.board.forEach((arry) => {
+    Game.board.forEach((arry) => {
       arry.forEach((cell) => {
         if (cell.occupied == true) {
           cell.hit += 1;
@@ -247,13 +247,13 @@ describe("board with all ships sunk", () => {
   });
 
   test("All ships sunk", () => {
-    expect(gameBoard.allShipsSunk()).toBe(true);
+    expect(Game.allShipsSunk()).toBe(true);
   });
 });
 
 describe("Player", () => {
   const player = new Player("James");
-  const gameBoard = new Gameboard();
+  const Game = new Game();
   test("player has board", () => {
     expect(player.board).toStrictEqual([
       [
@@ -378,7 +378,7 @@ describe("Player", () => {
       ],
     ]);
   });
-  gameBoard.createBoard();
+  Game.createBoard();
   test("player created", () => {
     expect(player.name).toBe("James");
   });
@@ -389,8 +389,8 @@ describe("Player", () => {
   });
 
   test("computer make move", () => {
-    player.computerMove(gameBoard.board, 2, 2);
-    expect(gameBoard.board.some((array) => (cell) => cell.missed == true)).toBe(
+    player.computerMove(Game.board, 2, 2);
+    expect(Game.board.some((array) => (cell) => cell.missed == true)).toBe(
       true
     );
   });

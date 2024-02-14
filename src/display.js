@@ -1,17 +1,17 @@
 const body = document.querySelector("body");
-const { Gameboard } = require("../src/gameBoard");
+const { Game } = require("../src/Game");
 const { Player } = require("../src/player");
 
-const gameBoardsContainer = document.querySelector(".game-boards-container");
+const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
 
 export function displayBoard(player, color) {
-  const gameBoard = document.createElement("div");
-  gameBoard.classList.add(`${player.name}-board`);
-  gameBoard.style.backgroundColor = color;
-  gameBoardsContainer.append(gameBoard);
+  const Game = document.createElement("div");
+  Game.classList.add(`${player.name}-board`);
+  Game.style.backgroundColor = color;
+  GamesContainer.append(Game);
 
   player.game.board.forEach((row) => {
     row.forEach((item) => {
@@ -19,7 +19,7 @@ export function displayBoard(player, color) {
       block.classList.add("block");
       block.id = count;
       count += 1;
-      gameBoard.append(block);
+      Game.append(block);
       displayShip(item, block);
       displayMiss(item, block);
       displayHit(item, block);
@@ -49,9 +49,9 @@ function displayShip(item, block) {
 export function switchBoard(playerOne, computer) {
   if (playerOne.turn == false) {
     displayBoard(computer, "blue");
-    gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
   } else {
-    gameBoardsContainer.removeChild(gameBoardsContainer.firstElementChild);
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerOne, "gray");
   }
   playerOne.changeTurn();

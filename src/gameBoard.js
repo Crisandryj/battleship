@@ -1,7 +1,7 @@
 import { forEach } from "lodash";
 const { Ship } = require("../src/ships");
 
-class Gameboard {
+class Game {
   constructor() {
     this.rows = 10;
     this.columns = 10;
@@ -60,4 +60,4 @@ class Gameboard {
   }
 }
 
-export { Gameboard };
+export { Game };
