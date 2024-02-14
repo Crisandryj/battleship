@@ -218,7 +218,7 @@ describe("board created", () => {
 });
 
 describe("board with all ships sunk", () => {
-  const gameBoard = new Gameboard();
+  const game = new Game();
 
   beforeEach(() => {
     gameBoard.createBoard();
