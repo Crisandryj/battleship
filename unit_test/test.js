@@ -222,9 +222,6 @@ describe("board with all ships sunk", () => {
 
   beforeEach(() => {
     game.createBoard();
-  });
-
-  beforeEach(() => {
     const bigOne = new Ship(5);
     const scarey = new Ship(4);
     const middleChild = new Ship(3);
@@ -240,7 +237,7 @@ describe("board with all ships sunk", () => {
     game.board.forEach((arry) => {
       arry.forEach((cell) => {
         if (cell.occupied == true) {
-          cell.hit += 1;
+          cell.hits += 1;
         }
       });
     });

@@ -31,10 +31,12 @@ class Game {
     }
   }
   // fix to look for ship
-  recieveAttack(row, column) {
+  recieveAttack(row, column, e) {
     console.log("recieved attack");
     if (this.board[row][column].occupied == true) {
-      this.board[row][column].hit();
+      this.board[row][column].hits += 1;
+      console.log(e);
+      console.log(this.board[row][column]);
     } else {
       this.board[row][column].missed = true;
     }
@@ -47,8 +49,11 @@ class Game {
     let counter = 0;
     this.board.forEach((array) => {
       array.forEach((cell) => {
-        if (cell.occupied == true && cell.hit == true) {
+        if (cell.occupied == true && cell.hits != 0) {
           counter += 1;
+          console.log(counter);
+        } else {
+          console.log(cell);
         }
       });
     });

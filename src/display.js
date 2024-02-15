@@ -1,5 +1,7 @@
+import { forEach } from "lodash";
+
 const body = document.querySelector("body");
-const { Game } = require("./game");
+const { Game } = require("../src/game");
 const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
@@ -17,8 +19,9 @@ export function displayBoard(player, color) {
     row.forEach((item) => {
       const block = document.createElement("div");
       block.classList.add("block");
-      block.id = count;
-      count += 1;
+      if (item.arry != undefined) {
+        block.id = item.arry.shift();
+      }
       Game.append(block);
       displayShip(item, block);
       displayMiss(item, block);
