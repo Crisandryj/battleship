@@ -21,7 +21,10 @@ export function displayBoard(player, color) {
       block.classList.add("block");
       if (item.arry != undefined) {
         block.id = item.arry.shift();
+      } else {
+        block.id = count;
       }
+      count += 1;
       Game.append(block);
       displayShip(item, block);
       displayMiss(item, block);
