@@ -13,7 +13,6 @@ export class Ship {
 
   shipLength(len) {
     for (let i = 0; i < length; i++) {
-      g;
       this.array.push(i);
     }
   }
