@@ -162,7 +162,7 @@ describe("Game", () => {
 
 describe("board created", () => {
   const game = new Game();
-  const bigShip = new Ship("big", 5);
+  const bigShip = new Ship(5);
 
   beforeEach(() => {
     game.createBoard();
