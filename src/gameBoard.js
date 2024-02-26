@@ -16,6 +16,7 @@ class Gameboard {
         row.push({ missed: false, occupied: false });
       }
     });
+    return this.board;
   }
 
   placeShip(ship, shipLength, orientation, column, row) {
@@ -59,4 +60,4 @@ class Gameboard {
   }
 }
 
-export { Game };
+export { Gameboard };

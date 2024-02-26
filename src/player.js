@@ -1,4 +1,4 @@
-const { Game } = require("./gameBoard");
+const { Gameboard } = require("./gameBoard");
 
 class Player {
   constructor(name) {

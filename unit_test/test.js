@@ -1,5 +1,5 @@
 const { Ship } = require("../src/ships");
-const { Game } = require("../src/gameBoard");
+const { Gameboard } = require("../src/gameBoard");
 
 const { Player } = require("../src/player");
 

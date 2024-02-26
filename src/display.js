@@ -1,7 +1,7 @@
 import { forEach } from "lodash";
 
 const body = document.querySelector("body");
-const { Game } = require("./gameBoard");
+const { Gameboard } = require("./gameBoard");
 const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
