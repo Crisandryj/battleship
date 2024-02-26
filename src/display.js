@@ -1,7 +1,7 @@
 import { forEach } from "lodash";
 
 const body = document.querySelector("body");
-const { Game } = require("../src/game");
+const { Game } = require("./gameBoard");
 const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
@@ -42,7 +42,6 @@ function displayMiss(item, blockDiv) {
 
 export function displayHit(item, blockDiv) {
   if (blockDiv.class == "block hit") {
-    console.log(blockDiv);
   }
 }
 

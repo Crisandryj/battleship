@@ -1,6 +1,6 @@
 const { Player } = require("../src/player");
 const { Ship } = require("../src/ships");
-const { Game } = require("../src/game");
+const { Gameboard } = require("./gameBoard");
 
 const {
   displayBoard,

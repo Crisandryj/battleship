@@ -1,5 +1,5 @@
 const { Ship } = require("../src/ships");
-const { Game } = require("../src/game");
+const { Game } = require("../src/gameBoard");
 
 const { Player } = require("../src/player");
 
@@ -11,7 +11,7 @@ describe("Ships", () => {
   });
 
   test("takes damage", () => {
-    expect(ship.hit()).toBe((ship.hits = 1));
+    expect(ship.hit()).toBe(ship.hits == 1);
   });
 
   test("Sunk ship", () => {
@@ -20,7 +20,7 @@ describe("Ships", () => {
 });
 
 describe("Game", () => {
-  const game = new Game();
+  const game = new Gameboard();
 
   test("# of rows", () => {
     expect(game.rows).toBe(10);
@@ -161,7 +161,7 @@ describe("Game", () => {
 });
 
 describe("board created", () => {
-  const game = new Game();
+  const game = new Gameboard();
   const bigShip = new Ship(5);
 
   beforeEach(() => {
@@ -218,7 +218,7 @@ describe("board created", () => {
 });
 
 describe("board with all ships sunk", () => {
-  const game = new Game();
+  const game = new Gameboard();
 
   beforeEach(() => {
     game.createBoard();
@@ -250,7 +250,7 @@ describe("board with all ships sunk", () => {
 
 describe("Player", () => {
   const player = new Player("James");
-  const game = new Game();
+  const game = new Gameboard();
   test("player has board", () => {
     expect(player.board).toStrictEqual([
       [

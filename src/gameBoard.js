@@ -1,7 +1,7 @@
 import { forEach } from "lodash";
 const { Ship } = require("./ships");
 
-class Game {
+class Gameboard {
   constructor() {
     this.rows = 10;
     this.columns = 10;
@@ -11,12 +11,11 @@ class Game {
     for (let i = 0; i < this.rows; i++) {
       this.board.push([]);
     }
-    this.board.forEach((array) => {
+    this.board.forEach((row) => {
       for (let i = 0; i < this.columns; i++) {
-        array.push({ missed: false, occupied: false });
+        row.push({ missed: false, occupied: false });
       }
     });
-    return this.board;
   }
 
   placeShip(ship, shipLength, orientation, column, row) {
@@ -32,11 +31,8 @@ class Game {
   }
   // fix to look for ship
   recieveAttack(row, column, e) {
-    console.log("recieved attack");
     if (this.board[row][column].occupied == true) {
       this.board[row][column].hits += 1;
-      console.log(e);
-      console.log(this.board[row][column]);
     } else {
       this.board[row][column].missed = true;
     }
@@ -51,9 +47,7 @@ class Game {
       array.forEach((cell) => {
         if (cell.occupied == true && cell.hits != 0) {
           counter += 1;
-          console.log(counter);
         } else {
-          console.log(cell);
         }
       });
     });
