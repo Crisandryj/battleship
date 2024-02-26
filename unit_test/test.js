@@ -165,8 +165,8 @@ describe("board created", () => {
 
   beforeEach(() => {
     game.createBoard();
-    game.placeShip(5, "v", 2, 2);
-    game.placeShip(5, "h", 2, 2);
+    game.placeShip(5, false, 2, 2);
+    game.placeShip(5, true, 2, 2);
   });
 
   test("Ship object placed on start", () => {
@@ -219,11 +219,11 @@ describe("board with all ships sunk", () => {
     const sneaky = new Ship(3);
     const littleOne = new Ship(2);
 
-    game.placeShip(bigOne, bigOne.length, "v", 2, 2);
-    game.placeShip(scarey, scarey.length, "v", 3, 2);
-    game.placeShip(middleChild, middleChild.length, "v", 4, 2);
-    game.placeShip(sneaky, sneaky.length, "v", 5, 2);
-    game.placeShip(littleOne, littleOne.length, "v", 6, 2);
+    game.placeShip(bigOne, bigOne.length, true, 2, 2);
+    game.placeShip(scarey, scarey.length, true, 3, 2);
+    game.placeShip(middleChild, middleChild.length, true, 4, 2);
+    game.placeShip(sneaky, sneaky.length, true, 5, 2);
+    game.placeShip(littleOne, littleOne.length, true, 6, 2);
 
     game.board.forEach((arry) => {
       arry.forEach((cell) => {

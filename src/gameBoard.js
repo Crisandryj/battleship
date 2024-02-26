@@ -19,13 +19,14 @@ class Gameboard {
     return this.board;
   }
 
-  placeShip(shipLength, orientation, column, row) {
+  placeShip(shipLength, turn, column, row) {
     const ship = new Ship(shipLength);
-    if (orientation.toLowerCase() == "v") {
+
+    if (turn == false) {
       for (let i = 0; i < shipLength; i++) {
         this.board[column][row + i] = ship;
       }
-    } else if (orientation.toLowerCase() == "h") {
+    } else if (turn == true) {
       for (let i = 0; i < shipLength; i++) {
         this.board[column + i][row] = ship;
       }
