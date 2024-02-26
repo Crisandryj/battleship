@@ -19,7 +19,8 @@ class Gameboard {
     return this.board;
   }
 
-  placeShip(ship, shipLength, orientation, column, row) {
+  placeShip(shipLength, orientation, column, row) {
+    const ship = new Ship(shipLength);
     if (orientation.toLowerCase() == "v") {
       for (let i = 0; i < shipLength; i++) {
         this.board[column][row + i] = ship;
@@ -31,9 +32,9 @@ class Gameboard {
     }
   }
   // fix to look for ship
-  recieveAttack(row, column, e) {
-    if (this.board[row][column].occupied == true) {
-      this.board[row][column].hits += 1;
+  recieveAttack(row, column) {
+    if (this.board[row][column].hits >= 0) {
+      this.board[row][column].hit();
     } else {
       this.board[row][column].missed = true;
     }

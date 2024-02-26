@@ -11,7 +11,7 @@ describe("Ships", () => {
   });
 
   test("takes damage", () => {
-    expect(ship.hit()).toBe(ship.hits == 1);
+    expect(ship.hit()).toBe(ship.hits);
   });
 
   test("Sunk ship", () => {
@@ -162,52 +162,43 @@ describe("Game", () => {
 
 describe("board created", () => {
   const game = new Gameboard();
-  const bigShip = new Ship(5);
 
   beforeEach(() => {
     game.createBoard();
-    game.placeShip(bigShip, bigShip.length, "v", 2, 2);
-    game.placeShip(bigShip, bigShip.length, "h", 2, 2);
+    game.placeShip(5, "v", 2, 2);
+    game.placeShip(5, "h", 2, 2);
   });
 
   test("Ship object placed on start", () => {
     expect(game.board[2][2]).toEqual({
-      arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
-      name: "big",
-      occupied: true,
+      sunk: false,
     });
   });
 
   test("Ship placed on end for vertical", () => {
     expect(game.board[2][5]).toEqual({
-      arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
-      name: "big",
-      occupied: true,
+      sunk: false,
     });
   });
 
   test("Ship placed on end for horizontal", () => {
     expect(game.board[5][2]).toEqual({
-      arry: [0, 1, 2, 3, 4],
       hits: 0,
       length: 5,
-      name: "big",
-      occupied: true,
+      sunk: false,
     });
   });
 
   test("Recieve attack from coordinates that hit", () => {
     game.recieveAttack(2, 2);
     expect(game.board[2][2]).toEqual({
-      arry: [0, 1, 2, 3, 4],
       hits: 1,
       length: 5,
-      name: "big",
-      occupied: true,
+      sunk: false,
     });
   });
 
