@@ -4,7 +4,7 @@ const { Game } = require("../src/game");
 const { Player } = require("../src/player");
 
 describe("Ships", () => {
-  const ship = new Ship("Pro", 2);
+  const ship = new Ship(2);
 
   test("length of ship", () => {
     expect(ship.length).toBe(2);
