@@ -21,7 +21,8 @@ class Gameboard {
 
   placeShip(shipLength, turn, column, row) {
     const ship = new Ship(shipLength);
-
+    //false is vertical placement
+    //true is horizontal placement
     if (turn == false) {
       for (let i = 0; i < shipLength; i++) {
         this.board[column][row + i] = ship;
@@ -48,7 +49,7 @@ class Gameboard {
     let counter = 0;
     this.board.forEach((array) => {
       array.forEach((cell) => {
-        if (cell.occupied == true && cell.hits != 0) {
+        if (cell.length >= 0 && cell.hits != 0) {
           counter += 1;
         } else {
         }
@@ -57,7 +58,7 @@ class Gameboard {
     if (counter == 17) {
       return true;
     } else {
-      return false;
+      return counter;
     }
   }
 }

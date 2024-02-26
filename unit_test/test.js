@@ -213,22 +213,17 @@ describe("board with all ships sunk", () => {
 
   beforeEach(() => {
     game.createBoard();
-    const bigOne = new Ship(5);
-    const scarey = new Ship(4);
-    const middleChild = new Ship(3);
-    const sneaky = new Ship(3);
-    const littleOne = new Ship(2);
 
-    game.placeShip(bigOne, bigOne.length, true, 2, 2);
-    game.placeShip(scarey, scarey.length, true, 3, 2);
-    game.placeShip(middleChild, middleChild.length, true, 4, 2);
-    game.placeShip(sneaky, sneaky.length, true, 5, 2);
-    game.placeShip(littleOne, littleOne.length, true, 6, 2);
+    game.placeShip(5, true, 2, 2);
+    game.placeShip(4, true, 2, 3);
+    game.placeShip(3, true, 2, 4);
+    game.placeShip(3, true, 2, 5);
+    game.placeShip(2, true, 2, 6);
 
     game.board.forEach((arry) => {
       arry.forEach((cell) => {
-        if (cell.occupied == true) {
-          cell.hits += 1;
+        if (cell.length >= 0) {
+          cell.hit();
         }
       });
     });
