@@ -12,6 +12,7 @@ let count = 0;
 export function displayBoard(player, color) {
   const gameBoard = document.createElement("div");
   styleGameBoard(gameBoard, player, color);
+  GamesContainer.append(gameBoard);
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
@@ -29,7 +30,6 @@ export function displayBoard(player, color) {
 function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
-  GamesContainer.append(gameBoard);
 }
 
 function displayMiss(item, blockDiv) {
