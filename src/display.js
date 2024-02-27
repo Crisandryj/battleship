@@ -8,13 +8,10 @@ const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
+const gameBoard = document.createElement("div");
 
 export function displayBoard(player, color) {
-  const Game = document.createElement("div");
-  Game.classList.add(`${player.name}-board`);
-  Game.style.backgroundColor = color;
-  GamesContainer.append(Game);
-
+  styleGameBoard(player, color);
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
@@ -25,13 +22,19 @@ export function displayBoard(player, color) {
         block.id = count;
       }
       count += 1;
-      Game.append(block);
+      gameBoard.append(block);
       displayShip(item, block);
       displayMiss(item, block);
       displayHit(item, block);
     });
   });
   count = 0;
+}
+
+function styleGameBoard(player, color) {
+  gameBoard.classList.add(`${player.name}-board`);
+  gameBoard.style.backgroundColor = color;
+  GamesContainer.append(gameBoard);
 }
 
 function displayMiss(item, blockDiv) {
