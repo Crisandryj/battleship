@@ -63,7 +63,7 @@ function selectAttack(evt) {
   //dont allow player to select the same missed box again
   //column num is undefined when div id is less than 10
   if (columnNum != undefined) {
-    if (playerOne.game.board[rowNum][columnNum].missed == true) {
+    if (playerOne.game.board[rowNum][0].missed == true) {
       switchBoard(playerOne, computer);
       return;
     }
