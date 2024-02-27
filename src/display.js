@@ -16,16 +16,11 @@ export function displayBoard(player, color) {
     row.forEach((item) => {
       const block = document.createElement("div");
       block.classList.add("block");
-      if (item.arry != undefined) {
-        block.id = item.arry.shift();
-      } else {
-        block.id = count;
-      }
-      count += 1;
       gameBoard.append(block);
       displayShip(item, block);
       displayMiss(item, block);
       displayHit(item, block);
+      console.log(item);
     });
   });
   count = 0;
@@ -49,7 +44,7 @@ export function displayHit(item, blockDiv) {
 }
 
 function displayShip(item, block) {
-  if (item.name != undefined) {
+  if (item.length >= 0) {
     block.style.backgroundColor = "orange";
   }
 }

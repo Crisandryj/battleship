@@ -14,32 +14,32 @@ const playerOne = new Player("P1");
 const computer = new Player("Comp");
 
 //create ships
-const bigOne = new Ship("bigOne", 5);
-const scarey = new Ship("scarey", 4);
-const middleChild = new Ship("middleChild", 3);
-const sneaky = new Ship("sneaky", 3);
-const littleOne = new Ship("littleOne", 2);
+const bigOne = new Ship(5);
+const scarey = new Ship(4);
+const middleChild = new Ship(3);
+const sneaky = new Ship(3);
+const littleOne = new Ship(2);
 
 //create comp ships
-const bigOneComp = new Ship("bigOne", 5);
-const scareyComp = new Ship("scarey", 4);
-const middleChildComp = new Ship("middleChild", 3);
-const sneakyComp = new Ship("sneaky", 3);
-const littleOneComp = new Ship("littleOne", 2);
+const bigOneComp = new Ship(5);
+const scareyComp = new Ship(4);
+const middleChildComp = new Ship(3);
+const sneakyComp = new Ship(3);
+const littleOneComp = new Ship(2);
 
 function defaultPlaceShips(playerOne, computer) {
   //place player ships
-  playerOne.game.placeShip(bigOne, bigOne.length, "v", 2, 2);
-  playerOne.game.placeShip(scarey, scarey.length, "v", 3, 2);
-  playerOne.game.placeShip(middleChild, middleChild.length, "v", 4, 2);
-  playerOne.game.placeShip(sneaky, sneaky.length, "v", 5, 2);
-  playerOne.game.placeShip(littleOne, littleOne.length, "v", 6, 2);
+  playerOne.game.placeShip(bigOne.length, false, 2, 2);
+  playerOne.game.placeShip(scarey.length, false, 3, 2);
+  playerOne.game.placeShip(middleChild.length, false, 4, 2);
+  playerOne.game.placeShip(sneaky.length, false, 5, 2);
+  playerOne.game.placeShip(littleOne.length, false, 6, 2);
   //place computer ships
-  computer.game.placeShip(bigOneComp, bigOneComp.length, "v", 2, 2);
-  computer.game.placeShip(scareyComp, scareyComp.length, "v", 3, 2);
-  computer.game.placeShip(middleChildComp, middleChildComp.length, "v", 4, 2);
-  computer.game.placeShip(sneakyComp, sneakyComp.length, "v", 5, 2);
-  computer.game.placeShip(littleOneComp, littleOneComp.length, "v", 6, 2);
+  computer.game.placeShip(bigOneComp.length, false, 2, 2);
+  computer.game.placeShip(scareyComp.length, false, 3, 2);
+  computer.game.placeShip(middleChildComp.length, false, 4, 2);
+  computer.game.placeShip(sneakyComp.length, false, 5, 2);
+  computer.game.placeShip(littleOneComp.length, false, 6, 2);
 }
 
 showTurn(playerOne);
