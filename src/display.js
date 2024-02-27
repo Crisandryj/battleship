@@ -8,10 +8,10 @@ const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
-const gameBoard = document.createElement("div");
 
 export function displayBoard(player, color) {
-  styleGameBoard(player, color);
+  const gameBoard = document.createElement("div");
+  styleGameBoard(gameBoard, player, color);
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
@@ -26,7 +26,7 @@ export function displayBoard(player, color) {
   count = 0;
 }
 
-function styleGameBoard(player, color) {
+function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
   GamesContainer.append(gameBoard);
