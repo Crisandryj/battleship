@@ -14,8 +14,8 @@ export function displayBoard(player, color) {
   styleGameBoard(gameBoard, player, color);
   GamesContainer.append(gameBoard);
   loop(player, gameBoard);
-  count = 0;
 }
+//think of better name
 function loop(player, board) {
   player.game.board.forEach((row) => {
     row.forEach((item) => {
@@ -28,6 +28,7 @@ function loop(player, board) {
       displayHit(item, block);
     });
   });
+  count = 0;
 }
 function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
