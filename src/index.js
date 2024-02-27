@@ -54,7 +54,6 @@ function handleClick(evt) {
   } else {
     selectAttack(evt);
     switchBoard(playerOne, computer);
-    return evt.target.closest("div");
   }
 }
 
