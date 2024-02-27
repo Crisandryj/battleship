@@ -13,20 +13,22 @@ export function displayBoard(player, color) {
   const gameBoard = document.createElement("div");
   styleGameBoard(gameBoard, player, color);
   GamesContainer.append(gameBoard);
+  loop(player, gameBoard);
+  count = 0;
+}
+function loop(player, board) {
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
       block.setAttribute("id", count);
       count += 1;
-      gameBoard.append(block);
+      board.append(block);
       displayShip(item, block);
       displayMiss(item, block);
       displayHit(item, block);
     });
   });
-  count = 0;
 }
-
 function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
