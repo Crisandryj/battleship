@@ -62,38 +62,73 @@ function selectAttack(evt) {
   let columnNum = evt.target.closest("div").id[1];
   //dont allow player to select the same missed box again
   //column num is undefined when div id is less than 10
-  if (columnNum != undefined) {
-    if (playerOne.game.board[rowNum][0].missed == true) {
-      switchBoard(playerOne, computer);
-      return;
-    }
-  } else {
-    if (playerOne.game.board[0][rowNum].missed == true) {
-      switchBoard(playerOne, computer);
-      return;
-    }
-  }
-  if (columnNum != undefined) {
-    if (playerOne.turn == false) {
-      playerOne.game.recieveAttack(
-        rowNum,
-        columnNum,
-        evt.target.closest("div").id
-      );
-    } else {
-      computer.game.recieveAttack(
-        rowNum,
-        columnNum,
-        evt.target.closest("div").id
-      );
-    }
-  } else {
-    if (playerOne.turn == false) {
-      playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
-      console.log(evt.target.closest("div").id);
-    } else {
-      computer.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
-      console.log(evt.target.closest("div").id);
-    }
+
+  // if (columnNum != undefined) {
+  //   if (playerOne.game.board[rowNum][0].missed == true) {
+  //     switchBoard(playerOne, computer);
+  //     return;
+  //   }
+  // } else {
+  //   if (playerOne.game.board[0][rowNum].missed == true) {
+  //     switchBoard(playerOne, computer);
+  //     return;
+  //   }
+  // }
+
+  // if (columnNum != undefined) {
+  //   if (playerOne.turn == false) {
+  //     playerOne.game.recieveAttack(
+  //       rowNum,
+  //       columnNum,
+  //       evt.target.closest("div").id
+  //     );
+  //   } else {
+  //     computer.game.recieveAttack(
+  //       rowNum,
+  //       columnNum,
+  //       evt.target.closest("div").id
+  //     );
+  //   }
+  // } else {
+  //   if (playerOne.turn == false) {
+  //     playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+  //     console.log(evt.target.closest("div").id);
+  //   } else {
+  //     computer.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
+  //     console.log(evt.target.closest("div").id);
+  //   }
+  // }
+  switch (columnNum) {
+    case undefined:
+      if (playerOne.game.board[0][rowNum].missed == true) {
+        switchBoard(playerOne, computer);
+        return;
+      }
+      if (playerOne.turn == false) {
+        playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+        console.log(evt.target.closest("div").id);
+      } else {
+        computer.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
+        console.log(evt.target.closest("div").id);
+      }
+      break;
+    default:
+      if (playerOne.game.board[columnNum][0].missed == true) {
+        switchBoard(playerOne, computer);
+        return;
+      }
+      if (playerOne.turn == false) {
+        playerOne.game.recieveAttack(
+          rowNum,
+          columnNum,
+          evt.target.closest("div").id
+        );
+      } else {
+        computer.game.recieveAttack(
+          rowNum,
+          columnNum,
+          evt.target.closest("div").id
+        );
+      }
   }
 }
