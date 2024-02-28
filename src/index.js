@@ -75,23 +75,15 @@ function selectAttack(evt) {
   }
   if (columnNum != undefined) {
     if (playerOne.turn == false) {
-      playerOne.game.recieveAttack(
-        rowNum,
-        columnNum,
-        evt.target.closest("div").id
-      );
+      playerOne.game.recieveAttack(rowNum, columnNum);
     } else {
-      computer.game.recieveAttack(
-        rowNum,
-        columnNum,
-        evt.target.closest("div").id
-      );
+      computer.game.recieveAttack(rowNum, columnNum);
     }
   } else {
     if (playerOne.turn == false) {
-      playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+      playerOne.game.recieveAttack(0, rowNum);
     } else {
-      computer.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+      computer.game.recieveAttack(0, rowNum);
     }
   }
 }
