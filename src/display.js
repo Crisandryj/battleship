@@ -15,6 +15,7 @@ export function displayBoard(player, color) {
   GamesContainer.append(gameBoard);
   loop(player, gameBoard);
 }
+
 //think of better name
 function loop(player, board) {
   player.game.board.forEach((row) => {
@@ -41,8 +42,12 @@ function displayMiss(item, blockDiv) {
   }
 }
 
-export function displayHit(item, blockDiv) {
-  if (blockDiv.class == "block hit") {
+function displayHit(item, blockDiv) {
+  // recieve div location from recieve attack and mark X
+  if (item.id) {
+    if (item.id.includes(blockDiv.id)) {
+      blockDiv.textContent = "X";
+    }
   }
 }
 
