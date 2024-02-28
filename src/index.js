@@ -75,8 +75,11 @@ function selectAttack(evt) {
   }
   if (columnNum != undefined) {
     if (playerOne.turn == false) {
-      playerOne.game.recieveAttack(rowNum, columnNum),
-        evt.target.closest("div").id;
+      playerOne.game.recieveAttack(
+        rowNum,
+        columnNum,
+        evt.target.closest("div").id
+      );
     } else {
       computer.game.recieveAttack(
         rowNum,
