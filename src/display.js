@@ -51,6 +51,7 @@ function displayHit(item, blockDiv) {
   }
 }
 
+//Allow current player to view his ship placement
 function displayAllShip(item, block) {
   if (item.length >= 0) {
     block.style.backgroundColor = "orange";
