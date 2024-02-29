@@ -9,11 +9,17 @@ const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
 
-export function displayBoard(player, color) {
-  const gameBoard = document.createElement("div");
-  styleGameBoard(gameBoard, player, color);
-  GamesContainer.append(gameBoard);
-  loop(player, gameBoard);
+export function displayBoard(player, playerTwo, oneColor, twoColor) {
+  const currentPlayerBoard = document.createElement("div");
+  const opponentGameboard = document.createElement("div");
+  styleGameBoard(currentPlayerBoard, player, oneColor);
+  styleGameBoard(opponentGameboard, player, twoColor);
+
+  GamesContainer.append(currentPlayerBoard);
+  GamesContainer.append(opponentGameboard);
+
+  loop(player, currentPlayerBoard);
+  loop(playerTwo, opponentGameboard);
 }
 
 //think of better name
@@ -60,11 +66,13 @@ function displayAllShip(item, block) {
 
 export function switchBoard(playerOne, computer) {
   if (playerOne.turn == false) {
-    displayBoard(computer, "blue");
+    displayBoard(computer, playerOne, "blue", "gray");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerOne, "gray");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+    displayBoard(playerOne, computer, "gray", "blue");
   }
   playerOne.changeTurn();
   showTurn(playerOne);

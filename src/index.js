@@ -44,7 +44,7 @@ function defaultPlaceShips(playerOne, computer) {
 
 showTurn(playerOne);
 defaultPlaceShips(playerOne, computer);
-displayBoard(playerOne, "gray");
+displayBoard(playerOne, computer, "gray");
 
 document.addEventListener("click", handleClick);
 
