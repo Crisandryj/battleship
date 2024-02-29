@@ -13,7 +13,7 @@ export function displayBoard(player, playerTwo, oneColor, twoColor) {
   const currentPlayerBoard = document.createElement("div");
   const opponentGameboard = document.createElement("div");
   styleGameBoard(currentPlayerBoard, player, oneColor);
-  styleGameBoard(opponentGameboard, player, twoColor);
+  styleGameBoard(opponentGameboard, playerTwo, twoColor);
 
   GamesContainer.append(currentPlayerBoard);
   GamesContainer.append(opponentGameboard);

@@ -11,7 +11,7 @@ const {
 
 //create players
 const playerOne = new Player("P1");
-const computer = new Player("Comp");
+const playerTwo = new Player("Comp");
 
 //create ships
 const bigOne = new Ship(5);
@@ -27,24 +27,24 @@ const middleChildComp = new Ship(3);
 const sneakyComp = new Ship(3);
 const littleOneComp = new Ship(2);
 
-function defaultPlaceShips(playerOne, computer) {
+function defaultPlaceShips(playerOne, playerTwo) {
   //place player ships
   playerOne.game.placeShip(bigOne.length, false, 2, 2);
   playerOne.game.placeShip(scarey.length, false, 3, 2);
   playerOne.game.placeShip(middleChild.length, false, 4, 2);
   playerOne.game.placeShip(sneaky.length, false, 5, 2);
   playerOne.game.placeShip(littleOne.length, false, 6, 2);
-  //place computer ships
-  computer.game.placeShip(bigOneComp.length, false, 2, 2);
-  computer.game.placeShip(scareyComp.length, false, 3, 2);
-  computer.game.placeShip(middleChildComp.length, false, 4, 2);
-  computer.game.placeShip(sneakyComp.length, false, 5, 2);
-  computer.game.placeShip(littleOneComp.length, false, 6, 2);
+  //place playerTwo ships
+  playerTwo.game.placeShip(bigOneComp.length, false, 2, 2);
+  playerTwo.game.placeShip(scareyComp.length, false, 3, 2);
+  playerTwo.game.placeShip(middleChildComp.length, false, 4, 2);
+  playerTwo.game.placeShip(sneakyComp.length, false, 5, 2);
+  playerTwo.game.placeShip(littleOneComp.length, false, 6, 2);
 }
 
 showTurn(playerOne);
-defaultPlaceShips(playerOne, computer);
-displayBoard(playerOne, computer, "gray", "blue");
+defaultPlaceShips(playerOne, playerTwo);
+displayBoard(playerOne, playerTwo, "gray", "blue");
 
 document.addEventListener("click", handleClick);
 
@@ -53,7 +53,7 @@ function handleClick(evt) {
     return;
   } else {
     selectAttack(evt);
-    switchBoard(playerOne, computer);
+    switchBoard(playerOne, playerTwo);
   }
 }
 
@@ -64,20 +64,20 @@ function selectAttack(evt) {
   switch (columnNum) {
     case undefined:
       if (playerOne.game.board[0][rowNum].missed == true) {
-        switchBoard(playerOne, computer);
+        switchBoard(playerOne, playerTwo);
         return;
       }
       if (playerOne.turn == false) {
         playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
         console.log(evt.target.closest("div").id);
       } else {
-        computer.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
+        playerTwo.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
         console.log(evt.target.closest("div").id);
       }
       break;
     default:
       if (playerOne.game.board[columnNum][0].missed == true) {
-        switchBoard(playerOne, computer);
+        switchBoard(playerOne, playerTwo);
         return;
       }
       if (playerOne.turn == false) {
@@ -87,7 +87,7 @@ function selectAttack(evt) {
           evt.target.closest("div").id
         );
       } else {
-        computer.game.recieveAttack(
+        playerTwo.game.recieveAttack(
           rowNum,
           columnNum,
           evt.target.closest("div").id
