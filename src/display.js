@@ -64,15 +64,15 @@ function displayAllShip(item, block) {
   }
 }
 
-export function switchBoard(playerOne, computer) {
+export function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
-    displayBoard(computer, playerOne, "blue", "gray");
+    displayBoard(playerTwo, playerOne, "blue", "gray");
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerOne, computer, "gray", "blue");
+    displayBoard(playerOne, playerTwo, "gray", "blue");
   }
   playerOne.changeTurn();
   showTurn(playerOne);
