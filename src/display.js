@@ -24,7 +24,7 @@ function loop(player, board) {
       block.setAttribute("id", count);
       count += 1;
       board.append(block);
-      displayShip(item, block);
+      displayAllShip(item, block);
       displayMiss(item, block);
       displayHit(item, block);
     });
@@ -51,7 +51,7 @@ function displayHit(item, blockDiv) {
   }
 }
 
-function displayShip(item, block) {
+function displayAllShip(item, block) {
   if (item.length >= 0) {
     block.style.backgroundColor = "orange";
   }
