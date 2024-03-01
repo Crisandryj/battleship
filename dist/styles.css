@@ -20,3 +20,8 @@
   border-style: solid;
   border-color: black;
 }
+
+.boardname {
+  display: flex;
+  gap: 170px;
+}
