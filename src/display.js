@@ -9,17 +9,18 @@ const turnDisplay = document.querySelector(".turn");
 
 let count = 0;
 
-export function displayBoard(player, playerTwo, oneColor, twoColor) {
-  const currentPlayerBoard = document.createElement("div");
-  const opponentGameboard = document.createElement("div");
-  styleGameBoard(currentPlayerBoard, player, oneColor);
-  styleGameBoard(opponentGameboard, playerTwo, twoColor);
+export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
+  const playerOneBoard = document.createElement("div");
+  const playerTwoBoard = document.createElement("div");
 
-  GamesContainer.append(currentPlayerBoard);
-  GamesContainer.append(opponentGameboard);
+  styleGameBoard(playerOneBoard, playerOne, oneColor);
+  styleGameBoard(playerTwoBoard, playerTwo, twoColor);
 
-  loop(player, currentPlayerBoard);
-  loop(playerTwo, opponentGameboard);
+  GamesContainer.append(playerOneBoard);
+  GamesContainer.append(playerTwoBoard);
+
+  loop(playerOne, playerOneBoard);
+  loop(playerTwo, playerTwoBoard);
 }
 
 //think of better name
@@ -30,7 +31,7 @@ function loop(player, board) {
       block.setAttribute("id", count);
       count += 1;
       board.append(block);
-      displayAllShip(item, block);
+      displayCurrentPlayerShips(item, block, player);
       displayMiss(item, block);
       displayHit(item, block);
     });
@@ -58,8 +59,9 @@ function displayHit(item, blockDiv) {
 }
 
 //Allow current player to view his ship placement
-function displayAllShip(item, block) {
-  if (item.length >= 0) {
+function displayCurrentPlayerShips(item, block, player) {
+  console.log(player.turn);
+  if (item.length >= 0 && player.turn == false) {
     block.style.backgroundColor = "orange";
   }
 }
@@ -74,7 +76,7 @@ export function switchBoard(playerOne, playerTwo) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerOne, playerTwo, "gray", "blue");
   }
-  playerOne.changeTurn();
+
   showTurn(playerOne);
 }
 
