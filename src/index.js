@@ -41,7 +41,7 @@ function defaultPlaceShips(playerOne, playerTwo) {
   playerTwo.game.placeShip(sneakyplayerTwo.length, false, 5, 2);
   playerTwo.game.placeShip(littleOneplayerTwo.length, false, 6, 2);
 }
-
+playerOne.turn = true;
 showTurn(playerOne);
 defaultPlaceShips(playerOne, playerTwo);
 displayBoard(playerOne, playerTwo, "gray", "blue");
@@ -54,6 +54,8 @@ function handleClick(evt) {
   } else {
     selectAttack(evt);
     switchBoard(playerOne, playerTwo);
+    playerOne.changeTurn();
+    playerTwo.changeTurn();
   }
 }
 
