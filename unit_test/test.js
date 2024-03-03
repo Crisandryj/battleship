@@ -172,6 +172,7 @@ describe("board created", () => {
   test("Ship object placed on start", () => {
     expect(game.board[2][2]).toEqual({
       hits: 0,
+      id: [],
       length: 5,
       sunk: false,
     });
@@ -180,6 +181,7 @@ describe("board created", () => {
   test("Ship placed on end for vertical", () => {
     expect(game.board[2][5]).toEqual({
       hits: 0,
+      id: [],
       length: 5,
       sunk: false,
     });
@@ -188,6 +190,7 @@ describe("board created", () => {
   test("Ship placed on end for horizontal", () => {
     expect(game.board[5][2]).toEqual({
       hits: 0,
+      id: [],
       length: 5,
       sunk: false,
     });
@@ -197,6 +200,7 @@ describe("board created", () => {
     game.recieveAttack(2, 2);
     expect(game.board[2][2]).toEqual({
       hits: 1,
+      id: [],
       length: 5,
       sunk: false,
     });
