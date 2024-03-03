@@ -35,11 +35,11 @@ function defaultPlaceShips(playerOne, playerTwo) {
   playerOne.game.placeShip(sneaky.length, false, 5, 2);
   playerOne.game.placeShip(littleOne.length, false, 6, 2);
   //place playerTwo ships
-  playerTwo.game.placeShip(bigOneplayerTwo.length, false, 2, 2);
-  playerTwo.game.placeShip(scareyplayerTwo.length, false, 3, 2);
-  playerTwo.game.placeShip(middleChildplayerTwo.length, false, 4, 2);
-  playerTwo.game.placeShip(sneakyplayerTwo.length, false, 5, 2);
-  playerTwo.game.placeShip(littleOneplayerTwo.length, false, 6, 2);
+  playerTwo.game.placeShip(bigOneplayerTwo.length, false, 3, 2);
+  playerTwo.game.placeShip(scareyplayerTwo.length, false, 4, 2);
+  playerTwo.game.placeShip(middleChildplayerTwo.length, false, 5, 2);
+  playerTwo.game.placeShip(sneakyplayerTwo.length, false, 6, 2);
+  playerTwo.game.placeShip(littleOneplayerTwo.length, false, 7, 3);
 }
 playerOne.turn = true;
 showTurn(playerOne);
@@ -53,9 +53,9 @@ function handleClick(evt) {
     return;
   } else {
     selectAttack(evt);
-    switchBoard(playerOne, playerTwo);
-    playerOne.changeTurn();
     playerTwo.changeTurn();
+    playerOne.changeTurn();
+    switchBoard(playerOne, playerTwo);
   }
 }
 
