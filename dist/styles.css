@@ -25,3 +25,14 @@
   display: flex;
   gap: 170px;
 }
+
+.ships {
+  padding: 1rem;
+  background-color: blueviolet;
+  border: 1px solid black;
+  cursor: move;
+}
+
+.ships.dragging {
+  opacity: 0.5;
+}
