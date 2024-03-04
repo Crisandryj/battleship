@@ -9,3 +9,9 @@
 8 [0 1 2 3 4 5 6 7 8 9]
 9 [0 1 2 3 4 5 6 7 8 9]
 
+
+User drag and drop to place ships
+
+1) Show all ships to place on bottom of screen
+   a) create divs for ships
+2) Allow current player to move ships to location
