@@ -97,3 +97,41 @@ function selectAttack(evt) {
       }
   }
 }
+
+//draggable
+const draggableShips = document.querySelectorAll(".ships");
+const containers = document.querySelectorAll(".game-boards-container");
+
+draggableShips.forEach((draggable) => {
+  draggable.addEventListener("dragstart", () =>
+    draggable.classList.add("dragging")
+  );
+
+  draggable.addEventListener("dragend", () => {
+    draggable.classList.remove("dragging");
+  });
+
+  containers.forEach((container) => {
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault;
+      const afterElement = getDragAfterElement(container, e.clientY);
+      const draggable = document.querySelector(".dragging");
+      container.appendChild(draggable);
+    });
+  });
+});
+
+function getDragAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll(".ships:not(.dragging)"),
+  ];
+  draggableElements.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      console.log(box);
+    },
+    {
+      offset: Number.POSITIVE_INFINITY,
+    }
+  );
+}
