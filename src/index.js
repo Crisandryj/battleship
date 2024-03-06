@@ -115,6 +115,7 @@ draggableShips.forEach((draggable) => {
     container.addEventListener("dragover", (e) => {
       e.preventDefault;
       const afterElement = getDragAfterElement(container, e.clientY);
+      console.log(afterElement.element);
       const draggable = document.querySelector(".dragging");
       container.appendChild(draggable);
     });
@@ -125,13 +126,19 @@ function getDragAfterElement(container, y) {
   const draggableElements = [
     ...container.querySelectorAll(".ships:not(.dragging)"),
   ];
-  draggableElements.reduce(
+  return draggableElements.reduce(
     (closest, child) => {
       const box = child.getBoundingClientRect();
-      console.log(box);
+      const offset = y - box.top - box.height / 2;
+      console.log(offset);
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
     },
     {
-      offset: Number.POSITIVE_INFINITY,
+      offset: Number.NEGATIVE_INFINITY,
     }
   );
 }
