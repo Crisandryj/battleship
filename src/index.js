@@ -71,10 +71,8 @@ function selectAttack(evt) {
       }
       if (playerOne.turn == false) {
         playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
-        console.log(evt.target.closest("div").id);
       } else {
         playerTwo.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
-        console.log(evt.target.closest("div").id);
       }
       break;
     default:
@@ -99,46 +97,5 @@ function selectAttack(evt) {
 }
 
 //draggable
-const draggableShips = document.querySelectorAll(".ships");
-const containers = document.querySelectorAll(".game-boards-container");
-
-draggableShips.forEach((draggable) => {
-  draggable.addEventListener("dragstart", () =>
-    draggable.classList.add("dragging")
-  );
-
-  draggable.addEventListener("dragend", () => {
-    draggable.classList.remove("dragging");
-  });
-
-  containers.forEach((container) => {
-    container.addEventListener("dragover", (e) => {
-      e.preventDefault;
-      const afterElement = getDragAfterElement(container, e.clientY);
-      console.log(afterElement.element);
-      const draggable = document.querySelector(".dragging");
-      container.appendChild(draggable);
-    });
-  });
-});
-
-function getDragAfterElement(container, y) {
-  const draggableElements = [
-    ...container.querySelectorAll(".ships:not(.dragging)"),
-  ];
-  return draggableElements.reduce(
-    (closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      console.log(offset);
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      } else {
-        return closest;
-      }
-    },
-    {
-      offset: Number.NEGATIVE_INFINITY,
-    }
-  );
-}
+const draggableShips = document.querySelectorAll(".draggable");
+const containers = document.querySelectorAll(".container");
