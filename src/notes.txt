@@ -15,3 +15,32 @@ User drag and drop to place ships
 1) Show all ships to place on bottom of screen
    a) create divs for ships
 2) Allow current player to move ships to location
+
+How to create draggable divs
+1) create div containers (in my case 2) that divs can be dragged to and from
+2) create items to drag accross div
+3) Add styles to divs(items and containers)
+  - add 'cursor: move' for draggable items - cursor changes over draggable items
+4)
+
+js
+draggables
+1) Select elements we need to move 
+  - all draggable items (querySelectorAll)
+2)cycle thru draggable items
+ a) add addEventListener for dragstart and dragend
+     - add draggable class when starting and remove dragable class when ending
+3) add styles for .draggable.dragging class (opacity: .5)
+
+containers
+1) Select containers we need to move into
+  - all containers (querySelectorAll)
+2) cycle thru containers
+    a) addEventListener to listen for dragover 
+3) create var for current element with dragging class - select element with querySelector
+
+getDragafterelement
+1) will go in drag over
+2) need contaner and y postion of mouse (args)
+3) queryselectall - get all items in current container except for item with .dragging class(currently being dragged)
+4) splat to create array of queryselectall ([...queryselectall])
