@@ -97,5 +97,32 @@ function selectAttack(evt) {
 }
 
 //draggable
-const draggableShips = document.querySelectorAll(".draggable");
+const draggables = document.querySelectorAll(".draggable");
 const containers = document.querySelectorAll(".container");
+
+draggables.forEach((draggable) => {
+  draggable.addEventListener("dragstart", (e) => {
+    draggable.classList.add("dragging");
+  });
+
+  draggable.addEventListener("dragend", (e) => {
+    draggable.classList.remove(".dragging");
+  });
+});
+
+containers.forEach((container) => {
+  container.addEventListener("dragover", (e) => {
+    e.preventDefault;
+    const getAfterElement = getDrageAfterElement(container, y);
+    const draggable = document.querySelector(".dragging");
+    container.appendChild(draggable);
+  });
+});
+
+function getDrageAfterElement(container, y) {
+  const draggableElements = [
+    ...container.querySelectorAll("draggable:not(.dragging)"),
+  ];
+
+  draggableElements.reduce();
+}
