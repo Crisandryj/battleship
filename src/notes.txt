@@ -44,3 +44,5 @@ getDragafterelement
 2) need contaner and y postion of mouse (args)
 3) queryselectall - get all items in current container except for item with .dragging class(currently being dragged)
 4) splat to create array of queryselectall ([...queryselectall])
+5) add const to containers loop 
+6) add reduce loop to get closest element based on clientY
