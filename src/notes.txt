@@ -46,3 +46,4 @@ getDragafterelement
 4) splat to create array of queryselectall ([...queryselectall])
 5) add const to containers loop 
 6) add reduce loop to get closest element based on clientY
+7) get bounding boundingClientBoxRect() in reduce
