@@ -127,6 +127,7 @@ function getDrageAfterElement(container, y) {
   draggableElements.reduce(
     (closest, child) => {
       const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
       console.log(box);
     },
     { offset: Number.NEGATIVE_INFINITY }
