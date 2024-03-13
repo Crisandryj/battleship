@@ -106,16 +106,20 @@ draggables.forEach((draggable) => {
   });
 
   draggable.addEventListener("dragend", () => {
-    draggable.classList.remove(".dragging");
+    draggable.classList.remove("dragging");
   });
 });
 
 containers.forEach((container) => {
   container.addEventListener("dragover", (e) => {
-    e.preventDefault;
+    e.preventDefault();
     const getAfterElement = getDrageAfterElement(container, e.clientY);
     const draggable = document.querySelector(".dragging");
-    container.appendChild(draggable);
+    if (getAfterElement == null) {
+      container.appendChild(draggable);
+    } else {
+      container.insertBefore(draggable, getAfterElement);
+    }
   });
 });
 
@@ -124,12 +128,16 @@ function getDrageAfterElement(container, y) {
     ...container.querySelectorAll(".draggable:not(.dragging)"),
   ];
 
-  draggableElements.reduce(
+  return draggableElements.reduce(
     (closest, child) => {
       const box = child.getBoundingClientRect();
       const offset = y - box.top - box.height / 2;
-      console.log(box);
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
     },
     { offset: Number.NEGATIVE_INFINITY }
-  );
+  ).element;
 }
