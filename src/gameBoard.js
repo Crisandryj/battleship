@@ -38,7 +38,6 @@ class Gameboard {
     if (this.board[row][column].hits >= 0) {
       this.board[row][column].hit();
       this.board[row][column].id.push(id);
-      console.log(this.board[row][column]);
     } else {
       this.board[row][column].missed = true;
     }
