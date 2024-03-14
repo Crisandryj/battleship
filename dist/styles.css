@@ -25,25 +25,3 @@
   display: flex;
   gap: 170px;
 }
-
-/* temp styles for draging demo*/
-body {
-  margin: 0;
-}
-
-.container {
-  background-color: gray;
-  padding: 1rem;
-  margin: 1rem;
-}
-
-.draggable {
-  background-color: white;
-  padding: 1rem;
-  border: 1px soild black;
-  cursor: move;
-}
-
-.draggable.dragging {
-  opacity: 0.5;
-}
