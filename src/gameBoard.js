@@ -64,4 +64,12 @@ class Gameboard {
   }
 }
 
+// place ships logic
+
+// listen to gameboards clicks
+// go in order of ships and allow 'X' consective clicks in order to place ships in place
+// if clicked changed class to taken
+// check for taken class and add ships to them
+// use ID first num is row and second num is column for placeships method
+
 export { Gameboard };
