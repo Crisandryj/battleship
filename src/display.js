@@ -29,6 +29,7 @@ function loop(player, board) {
     row.forEach((item) => {
       const block = document.createElement("div");
       block.setAttribute("id", count);
+      block.setAttribute("class", "container");
       count += 1;
       board.append(block);
       displayCurrentPlayerShips(item, block, player);
