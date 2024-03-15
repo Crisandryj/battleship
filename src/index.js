@@ -105,8 +105,9 @@ function selectAttack(evt) {
 // listen to gameboards clicks
 const gameBoard = document.querySelector(".P1-board");
 
-gameBoard.addEventListener("click", () => {
-  console.log("clicked");
+gameBoard.addEventListener("click", (e) => {
+  let div = e.target.closest("div");
+  console.log(div);
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
 // if clicked changed class to taken
