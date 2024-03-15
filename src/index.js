@@ -46,7 +46,12 @@ showTurn(playerOne);
 defaultPlaceShips(playerOne, playerTwo);
 displayBoard(playerOne, playerTwo, "gray", "blue");
 
-document.addEventListener("click", handleClick);
+//Start game
+const startButton = document.querySelector("#start");
+
+startButton.addEventListener("click", () => {
+  document.addEventListener("click", handleClick);
+});
 
 function handleClick(evt) {
   if (evt.target.closest("div") === null) {
@@ -95,3 +100,15 @@ function selectAttack(evt) {
       }
   }
 }
+//place ships logic
+
+// listen to gameboards clicks
+const gameBoard = document.querySelector(".P1-board");
+
+gameBoard.addEventListener("click", () => {
+  console.log("clicked");
+});
+// go in order of ships and allow 'X' consective clicks in order to place ships in place
+// if clicked changed class to taken
+// check for taken class and add ships to them
+// use ID first num is row and second num is column for placeships method
