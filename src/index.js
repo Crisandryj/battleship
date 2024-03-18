@@ -43,7 +43,7 @@ function defaultPlaceShips(playerOne, playerTwo) {
 }
 playerOne.turn = true;
 showTurn(playerOne);
-defaultPlaceShips(playerOne, playerTwo);
+// defaultPlaceShips(playerOne, playerTwo);
 displayBoard(playerOne, playerTwo, "gray", "blue");
 
 //Start game
@@ -100,14 +100,16 @@ function selectAttack(evt) {
       }
   }
 }
+
 //place ships logic
 
 // listen to gameboards clicks
 const gameBoard = document.querySelector(".P1-board");
 
-gameBoard.addEventListener("click", (e) => {
-  let div = e.target.closest("div");
-  console.log(div);
+gameBoard.addEventListener("click", (evt) => {
+  let rowNum = evt.target.closest("div").id[0];
+  let columnNum = evt.target.closest("div").id[1];
+  playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
 // if clicked changed class to taken
