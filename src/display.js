@@ -36,6 +36,7 @@ function loop(player, board) {
       displayHit(item, block);
     });
   });
+
   count = 0;
 }
 function styleGameBoard(gameBoard, player, color) {

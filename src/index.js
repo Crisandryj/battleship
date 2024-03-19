@@ -41,15 +41,16 @@ function defaultPlaceShips(playerOne, playerTwo) {
   playerTwo.game.placeShip(sneakyplayerTwo.length, false, 6, 2);
   playerTwo.game.placeShip(littleOneplayerTwo.length, false, 7, 3);
 }
-playerOne.turn = true;
-showTurn(playerOne);
 // defaultPlaceShips(playerOne, playerTwo);
-displayBoard(playerOne, playerTwo, "gray", "blue");
 
 //Start game
 const startButton = document.querySelector("#start");
 
 startButton.addEventListener("click", () => {
+  start = true;
+  playerOne.turn = true;
+  showTurn(playerOne);
+  displayBoard(playerOne, playerTwo, "gray", "blue");
   document.addEventListener("click", handleClick);
 });
 
@@ -110,6 +111,9 @@ gameBoard.addEventListener("click", (evt) => {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
   playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
+  console.log(rowNum);
+  console.log(columnNum);
+  console.log(playerOne.game.board);
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
 // if clicked changed class to taken
