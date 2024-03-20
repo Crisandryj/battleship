@@ -6,7 +6,7 @@ const {
   displayBoard,
   switchBoard,
   showTurn,
-  displayHit,
+  displaySetUpBoard,
 } = require("../src/display");
 
 //create players
@@ -41,13 +41,18 @@ function defaultPlaceShips(playerOne, playerTwo) {
   playerTwo.game.placeShip(sneakyplayerTwo.length, false, 6, 2);
   playerTwo.game.placeShip(littleOneplayerTwo.length, false, 7, 3);
 }
+
+const GamesContainer = document.querySelector(".game-boards-container");
 // defaultPlaceShips(playerOne, playerTwo);
 
 //Start game
 const startButton = document.querySelector("#start");
+//display set up board
+displaySetUpBoard(playerOne);
 
 startButton.addEventListener("click", () => {
   start = true;
+  GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   showTurn(playerOne);
   displayBoard(playerOne, playerTwo, "gray", "blue");

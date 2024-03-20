@@ -13,8 +13,8 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   const playerOneHeader = document.createElement("h2");
   const playerTwoHeader = document.createElement("h2");
 
-  playerOneHeader.textContent = "Player One board";
-  playerTwoHeader.textContent = "Player Two board";
+  playerOneHeader.textContent = "Current";
+  playerTwoHeader.textContent = "Opponent";
 
   boardNames.append(playerOneHeader);
   boardNames.append(playerTwoHeader);
@@ -30,6 +30,13 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
 
   loop(playerOne, playerOneBoard);
   loop(playerTwo, playerTwoBoard);
+}
+
+export function displaySetUpBoard(player) {
+  const board = document.createElement("div");
+  loop(player, board);
+  GamesContainer.append(board);
+  board.classList.add(`${player.name}-board`);
 }
 
 //think of better name
