@@ -6,11 +6,10 @@ const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".turn");
-
+const boardNames = document.querySelector(".boardname");
 let count = 0;
 
 export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
-  const boardNames = document.querySelector(".boardname");
   const playerOneHeader = document.createElement("h2");
   const playerTwoHeader = document.createElement("h2");
 
@@ -82,9 +81,13 @@ export function switchBoard(playerOne, playerTwo) {
     displayBoard(playerTwo, playerOne, "blue", "gray");
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
+    boardNames.removeChild(boardNames.firstElementChild);
+    boardNames.removeChild(boardNames.firstElementChild);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
+    boardNames.removeChild(boardNames.firstElementChild);
+    boardNames.removeChild(boardNames.firstElementChild);
     displayBoard(playerOne, playerTwo, "gray", "blue");
   }
 
