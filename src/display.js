@@ -10,6 +10,16 @@ const turnDisplay = document.querySelector(".turn");
 let count = 0;
 
 export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
+  const boardNames = document.querySelector(".boardname");
+  const playerOneHeader = document.createElement("h2");
+  const playerTwoHeader = document.createElement("h2");
+
+  playerOneHeader.textContent = "Player One board";
+  playerTwoHeader.textContent = "Player Two board";
+
+  boardNames.append(playerOneHeader);
+  boardNames.append(playerTwoHeader);
+
   const playerOneBoard = document.createElement("div");
   const playerTwoBoard = document.createElement("div");
 
