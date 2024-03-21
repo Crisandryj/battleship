@@ -116,8 +116,7 @@ gameBoard.addEventListener("click", (evt) => {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
   let div = evt.target.closest("div");
-  playerOne.game.board[rowNum][columnNum] = new Ship(5);
-  playerOne.game.board[rowNum][columnNum] = new Ship(5);
+  playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
   div.style.backgroundColor = "orange";
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
