@@ -26,6 +26,7 @@ class Gameboard {
     if (turn == false) {
       for (let i = 0; i < shipLength; i++) {
         this.board[column][row + i] = ship;
+        console.log(this.board[column][row + i]);
       }
     } else if (turn == true) {
       for (let i = 0; i < shipLength; i++) {

@@ -115,10 +115,10 @@ const gameBoard = document.querySelector(".P1-board");
 gameBoard.addEventListener("click", (evt) => {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
-  playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
-  console.log(rowNum);
-  console.log(columnNum);
-  console.log(playerOne.game.board);
+  let div = evt.target.closest("div");
+  playerOne.game.board[rowNum][columnNum] = new Ship(5);
+  playerOne.game.board[rowNum][columnNum] = new Ship(5);
+  div.style.backgroundColor = "orange";
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
 // if clicked changed class to taken
