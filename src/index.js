@@ -27,6 +27,7 @@ const middleChildplayerTwo = new Ship(3);
 const sneakyplayerTwo = new Ship(3);
 const littleOneplayerTwo = new Ship(2);
 
+//Set ships before game starts
 function defaultPlaceShips(playerOne, playerTwo) {
   //place player ships
   playerOne.game.placeShip(bigOne.length, false, 2, 2);
