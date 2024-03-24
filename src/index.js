@@ -20,13 +20,6 @@ const middleChild = new Ship(3);
 const sneaky = new Ship(3);
 const littleOne = new Ship(2);
 
-//create playerTwo ships
-const bigOneplayerTwo = new Ship(5);
-const scareyplayerTwo = new Ship(4);
-const middleChildplayerTwo = new Ship(3);
-const sneakyplayerTwo = new Ship(3);
-const littleOneplayerTwo = new Ship(2);
-
 //Set ships before game starts
 function defaultPlaceShips(playerOne, playerTwo) {
   //place player ships
@@ -112,12 +105,37 @@ function selectAttack(evt) {
 
 // listen to gameboards clicks
 const gameBoard = document.querySelector(".P1-board");
+let count = 0;
 
 gameBoard.addEventListener("click", (evt) => {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
   let div = evt.target.closest("div");
-  playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
+
+  //place ships
+  switch (count) {
+    case 0:
+      const bigOne = new Ship(5);
+      playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
+      break;
+    case 1:
+      const scarey = new Ship(4);
+      playerOne.game.placeShip(scarey.length, false, rowNum, columnNum);
+      break;
+    case 2:
+      const middleChild = new Ship(3);
+      playerOne.game.placeShip(middleChild.length, false, rowNum, columnNum);
+      break;
+    case 3:
+      const sneakyplayer = new Ship(3);
+      playerOne.game.placeShip(sneakyplayer.length, false, rowNum, columnNum);
+      break;
+    case 4:
+      const littleOne = new Ship(2);
+      playerOne.game.placeShip(littleOne.length, false, rowNum, columnNum);
+      break;
+  }
+  count += 1;
   div.style.backgroundColor = "orange";
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
