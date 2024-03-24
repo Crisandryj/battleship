@@ -44,13 +44,17 @@ const startButton = document.querySelector("#start");
 //display set up board
 displaySetUpBoard(playerOne);
 
-startButton.addEventListener("click", () => {
+function startGame() {
   start = true;
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   showTurn(playerOne);
   displayBoard(playerOne, playerTwo, "gray", "blue");
   document.addEventListener("click", handleClick);
+}
+
+startButton.addEventListener("click", () => {
+  startGame();
 });
 
 function handleClick(evt) {
