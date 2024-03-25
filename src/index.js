@@ -46,6 +46,7 @@ displaySetUpBoard(playerOne);
 
 startButton.addEventListener("click", () => {
   startGame();
+  startButton.parentNode.removeChild(startButton);
 });
 
 function startGame() {
