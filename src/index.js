@@ -106,7 +106,15 @@ function selectAttack(evt) {
   }
 }
 
-//place ships logic
+// Color the blocks where the ships were placed
+function colorSquares(ship, evt) {
+  let div = evt.target.closest("div");
+  for (let i = 0; i < ship.length; i++) {
+    let select = document.getElementById(`${parseInt(div.id) + i}`);
+    console.log(select);
+    select.style.backgroundColor = "orange";
+  }
+}
 
 // listen to gameboards clicks
 const gameBoard = document.querySelector(".P1-board");
@@ -122,26 +130,30 @@ gameBoard.addEventListener("click", (evt) => {
     case 0:
       const bigOne = new Ship(5);
       playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
+      colorSquares(bigOne, evt);
       break;
     case 1:
       const scarey = new Ship(4);
       playerOne.game.placeShip(scarey.length, false, rowNum, columnNum);
+      colorSquares(scarey, evt);
       break;
     case 2:
       const middleChild = new Ship(3);
       playerOne.game.placeShip(middleChild.length, false, rowNum, columnNum);
+      colorSquares(middleChild, evt);
       break;
     case 3:
       const sneakyplayer = new Ship(3);
       playerOne.game.placeShip(sneakyplayer.length, false, rowNum, columnNum);
+      colorSquares(sneakyplayer, evt);
       break;
     case 4:
       const littleOne = new Ship(2);
       playerOne.game.placeShip(littleOne.length, false, rowNum, columnNum);
+      colorSquares(littleOne, evt);
       break;
   }
   count += 1;
-  div.style.backgroundColor = "orange";
 });
 // go in order of ships and allow 'X' consective clicks in order to place ships in place
 // if clicked changed class to taken
