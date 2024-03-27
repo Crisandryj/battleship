@@ -126,6 +126,7 @@ gameBoard.addEventListener("click", (evt) => {
   let div = evt.target.closest("div");
 
   //place ships
+  // go in order of ships and allow 'X' consective clicks in order to place ships in place
   switch (count) {
     case 0:
       const bigOne = new Ship(5);
@@ -155,7 +156,3 @@ gameBoard.addEventListener("click", (evt) => {
   }
   count += 1;
 });
-// go in order of ships and allow 'X' consective clicks in order to place ships in place
-// if clicked changed class to taken
-// check for taken class and add ships to them
-// use ID first num is row and second num is column for placeships method
