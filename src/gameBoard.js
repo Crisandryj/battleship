@@ -26,9 +26,8 @@ class Gameboard {
     //false is vertical placement
     //true is horizontal placement
     if (turn == false) {
-      for (let i = 0; i < shipLength; i++) {
+      for (let i = shipLength; i >= 0; i--) {
         this.board[column][row + i] = ship;
-        console.log(this.board[column][row + i]);
       }
     } else if (turn == true) {
       for (let i = 0; i < shipLength; i++) {
