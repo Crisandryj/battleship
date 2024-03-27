@@ -109,9 +109,13 @@ function selectAttack(evt) {
 // Color the blocks where the ships were placed
 function colorSquares(ship, evt) {
   let div = evt.target.closest("div");
-  for (let i = 0; i < ship.length; i++) {
+  let row = div.id[0];
+  for (let i = ship.length - 1; i >= 0; i--) {
+    let num = (parseInt(div.id) + i).toString()[0];
+    if (row != parseInt(num[0])) {
+      break;
+    }
     let select = document.getElementById(`${parseInt(div.id) + i}`);
-    console.log(select);
     select.style.backgroundColor = "orange";
   }
 }
@@ -131,27 +135,56 @@ gameBoard.addEventListener("click", (evt) => {
       const bigOne = new Ship(5);
       playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
       colorSquares(bigOne, evt);
+      console.log(checkShipPlaced(playerOne, bigOne.length, count));
+      if (checkShipPlaced(playerOne, bigOne.length)) {
+        count += 1;
+      }
+      console.log(count);
       break;
     case 1:
       const scarey = new Ship(4);
       playerOne.game.placeShip(scarey.length, false, rowNum, columnNum);
       colorSquares(scarey, evt);
+      if (checkShipPlaced(playerOne, scarey.length)) {
+        count += 1;
+      }
       break;
     case 2:
       const middleChild = new Ship(3);
       playerOne.game.placeShip(middleChild.length, false, rowNum, columnNum);
       colorSquares(middleChild, evt);
+      if (checkShipPlaced(playerOne, middleChild.length)) {
+        count += 1;
+      }
       break;
     case 3:
       const sneakyplayer = new Ship(3);
       playerOne.game.placeShip(sneakyplayer.length, false, rowNum, columnNum);
       colorSquares(sneakyplayer, evt);
+      if (checkShipPlaced(playerOne, sneakyplayer.length)) {
+        count += 1;
+      }
+
       break;
     case 4:
       const littleOne = new Ship(2);
       playerOne.game.placeShip(littleOne.length, false, rowNum, columnNum);
       colorSquares(littleOne, evt);
+      if (checkShipPlaced(playerOne, littleOne.length)) {
+        count += 1;
+      }
       break;
   }
-  count += 1;
 });
+
+function checkShipPlaced(player, length) {
+  let check = false;
+  player.game.board.forEach((row) => {
+    for (let i = 0; i < 10; i++) {
+      if (row[i].length == length) {
+        check = true;
+      }
+    }
+  });
+  return check;
+}
