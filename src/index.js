@@ -123,7 +123,6 @@ let count = 0;
 gameBoard.addEventListener("click", (evt) => {
   let rowNum = evt.target.closest("div").id[0];
   let columnNum = evt.target.closest("div").id[1];
-  let div = evt.target.closest("div");
 
   //place ships
   // go in order of ships and allow 'X' consective clicks in order to place ships in place
