@@ -77,7 +77,6 @@ function displayHit(item, blockDiv) {
 
 //Allow current player to view his ship placement
 function displayCurrentPlayerShips(item, block, player) {
-  console.log(player.turn);
   if (item.length >= 0 && player.turn == true) {
     block.style.backgroundColor = "orange";
   }
