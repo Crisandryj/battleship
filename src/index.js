@@ -38,6 +38,14 @@ function defaultPlaceShips(playerOne, playerTwo) {
 
 const GamesContainer = document.querySelector(".game-boards-container");
 // defaultPlaceShips(playerOne, playerTwo);
+const turnButton = document.querySelector("#turnShip");
+
+let turn = false;
+
+turnButton.addEventListener("click", () => {
+  console.log(turn);
+  return turn ? (turn = false) : (turn = true);
+});
 
 //Start game
 const startButton = document.querySelector("#start");
@@ -107,16 +115,30 @@ function selectAttack(evt) {
 }
 
 // Color the blocks where the ships were placed
-function colorSquares(ship, evt) {
+function colorSquares(ship, evt, turn) {
   let div = evt.target.closest("div");
   let row = div.id[0];
-  for (let i = ship.length - 1; i >= 0; i--) {
-    let num = (parseInt(div.id) + i).toString()[0];
-    if (row != parseInt(num[0])) {
-      break;
+  let column = div.id[1];
+
+  if (turn == false) {
+    for (let i = ship.length - 1; i >= 0; i--) {
+      let num = (parseInt(div.id) + i).toString()[0];
+      if (row != parseInt(num[0])) {
+        break;
+      }
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
+      select.style.backgroundColor = "orange";
     }
-    let select = document.getElementById(`${parseInt(div.id) + i}`);
-    select.style.backgroundColor = "orange";
+  } else {
+    //select veritcal blocks to color
+    for (let i = ship.length - 1; i >= 0; i - 10) {
+      let num = (parseInt(div.id) + i).toString()[0];
+      if (column != parseInt(num[0])) {
+        break;
+      }
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
+      select.style.backgroundColor = "orange";
+    }
   }
 }
 
@@ -133,17 +155,17 @@ gameBoard.addEventListener("click", (evt) => {
   switch (count) {
     case 0:
       const bigOne = new Ship(5);
-      playerOne.game.placeShip(bigOne.length, false, rowNum, columnNum);
+      playerOne.game.placeShip(bigOne.length, turn, rowNum, columnNum);
       colorSquares(bigOne, evt);
-      console.log(checkShipPlaced(playerOne, bigOne.length, count));
       if (checkShipPlaced(playerOne, bigOne.length)) {
         count += 1;
       }
-      console.log(count);
+
       break;
     case 1:
       const scarey = new Ship(4);
-      playerOne.game.placeShip(scarey.length, false, rowNum, columnNum);
+      console.log(turn);
+      playerOne.game.placeShip(scarey.length, turn, rowNum, columnNum);
       colorSquares(scarey, evt);
       if (checkShipPlaced(playerOne, scarey.length)) {
         count += 1;
@@ -151,7 +173,8 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 2:
       const middleChild = new Ship(3);
-      playerOne.game.placeShip(middleChild.length, false, rowNum, columnNum);
+      console.log(turn);
+      playerOne.game.placeShip(middleChild.length, turn, rowNum, columnNum);
       colorSquares(middleChild, evt);
       if (checkShipPlaced(playerOne, middleChild.length)) {
         count += 1;
@@ -159,7 +182,8 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 3:
       const sneakyplayer = new Ship(3);
-      playerOne.game.placeShip(sneakyplayer.length, false, rowNum, columnNum);
+      console.log(turn);
+      playerOne.game.placeShip(sneakyplayer.length, turn, rowNum, columnNum);
       colorSquares(sneakyplayer, evt);
       if (checkShipPlaced(playerOne, sneakyplayer.length)) {
         count += 1;
@@ -168,7 +192,8 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 4:
       const littleOne = new Ship(2);
-      playerOne.game.placeShip(littleOne.length, false, rowNum, columnNum);
+      console.log(turn);
+      playerOne.game.placeShip(littleOne.length, turn, rowNum, columnNum);
       colorSquares(littleOne, evt);
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
