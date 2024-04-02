@@ -40,6 +40,7 @@ const GamesContainer = document.querySelector(".game-boards-container");
 // defaultPlaceShips(playerOne, playerTwo);
 const turnButton = document.querySelector("#turnShip");
 
+//handle turn of ships
 let turn = false;
 
 turnButton.addEventListener("click", () => {
