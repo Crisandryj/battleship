@@ -119,7 +119,7 @@ function selectAttack(evt) {
 function colorSquares(ship, evt, turn) {
   let div = evt.target.closest("div");
   let row = div.id[0];
-  let column = div.id[1];
+  let column = div.id[0][0];
 
   if (turn == false) {
     for (let i = ship.length - 1; i >= 0; i--) {
@@ -134,14 +134,15 @@ function colorSquares(ship, evt, turn) {
   } else {
     //select veritcal blocks to color
     for (let i = ship.length - 1; i >= 0; i--) {
-      let num = (parseInt(div.id) + 10).toString()[0];
+      count = i * 10;
+      let num = parseInt(div.id + count).toString()[0];
       console.log("else");
-      console.log(turn);
-      console.log(num);
       if (column != parseInt(num[0])) {
         break;
       }
-      let select = document.getElementById(`${parseInt(div.id) + i}`);
+      let select = document.getElementById(`${parseInt(div.id) + count}`);
+      console.log(parseInt(div.id) + count);
+      count -= 10;
       select.style.backgroundColor = "orange";
     }
   }
