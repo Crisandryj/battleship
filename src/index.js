@@ -129,7 +129,7 @@ function colorSquares(ship, evt, turn) {
       let select = document.getElementById(`${parseInt(div.id) + i}`);
       select.style.backgroundColor = "orange";
     }
-  } else {
+  } else if (turn == true) {
     //select veritcal blocks to color
     for (let i = ship.length - 1; i >= 0; i--) {
       count = i * 10;
