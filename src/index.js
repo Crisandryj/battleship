@@ -44,7 +44,6 @@ const turnButton = document.querySelector("#turnShip");
 let turn = false;
 
 turnButton.addEventListener("click", () => {
-  console.log(turn);
   return turn ? (turn = false) : (turn = true);
 });
 
@@ -124,7 +123,6 @@ function colorSquares(ship, evt, turn) {
   if (turn == false) {
     for (let i = ship.length - 1; i >= 0; i--) {
       let num = (parseInt(div.id) + i).toString()[0];
-      console.log(num);
       if (row != parseInt(num[0])) {
         break;
       }
@@ -136,12 +134,10 @@ function colorSquares(ship, evt, turn) {
     for (let i = ship.length - 1; i >= 0; i--) {
       count = i * 10;
       let num = parseInt(div.id + count).toString()[0];
-      console.log("else");
       if (column != parseInt(num[0])) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + count}`);
-      console.log(parseInt(div.id) + count);
       count -= 10;
       select.style.backgroundColor = "orange";
     }
@@ -170,7 +166,6 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 1:
       const scarey = new Ship(4);
-      console.log(turn);
       playerOne.game.placeShip(scarey.length, turn, rowNum, columnNum);
       colorSquares(scarey, evt, turn);
       if (checkShipPlaced(playerOne, scarey.length)) {
@@ -179,7 +174,6 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 2:
       const middleChild = new Ship(3);
-      console.log(turn);
       playerOne.game.placeShip(middleChild.length, turn, rowNum, columnNum);
       colorSquares(middleChild, evt, turn);
       if (checkShipPlaced(playerOne, middleChild.length)) {
@@ -188,7 +182,6 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 3:
       const sneakyplayer = new Ship(3);
-      console.log(turn);
       playerOne.game.placeShip(sneakyplayer.length, turn, rowNum, columnNum);
       colorSquares(sneakyplayer, evt, turn);
       if (checkShipPlaced(playerOne, sneakyplayer.length)) {
@@ -198,7 +191,6 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 4:
       const littleOne = new Ship(2);
-      console.log(turn);
       playerOne.game.placeShip(littleOne.length, turn, rowNum, columnNum);
       colorSquares(littleOne, evt, turn);
       if (checkShipPlaced(playerOne, littleOne.length)) {
