@@ -120,16 +120,7 @@ function colorSquares(ship, evt, turn) {
   let row = div.id[0];
   let column = div.id[0][0];
 
-  if (turn == false) {
-    for (let i = ship.length - 1; i >= 0; i--) {
-      let num = (parseInt(div.id) + i).toString()[0];
-      if (row != parseInt(num[0])) {
-        break;
-      }
-      let select = document.getElementById(`${parseInt(div.id) + i}`);
-      select.style.backgroundColor = "orange";
-    }
-  } else if (turn == true) {
+  if (turn == true) {
     //select veritcal blocks to color
     for (let i = ship.length - 1; i >= 0; i--) {
       count = i * 10;
@@ -138,7 +129,16 @@ function colorSquares(ship, evt, turn) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + count}`);
+      select.style.backgroundColor = "orange";
       count -= 10;
+    }
+  } else if (turn == false) {
+    for (let i = ship.length - 1; i >= 0; i--) {
+      let num = (parseInt(div.id) + i).toString()[0];
+      if (row != parseInt(num[0])) {
+        break;
+      }
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
       select.style.backgroundColor = "orange";
     }
   }
