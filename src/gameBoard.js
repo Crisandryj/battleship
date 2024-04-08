@@ -33,7 +33,10 @@ class Gameboard {
         this.board[column][row + i] = ship;
       }
     } else if (turn == true) {
-      for (let i = 0; i < shipLength; i++) {
+      for (let i = shipLength - 1; i >= 0; i--) {
+        if (column + i > 9) {
+          break;
+        }
         this.board[column + i][row] = ship;
       }
     }
