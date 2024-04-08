@@ -123,14 +123,14 @@ function colorSquares(ship, evt, turn) {
   if (turn == true) {
     //select veritcal blocks to color
     for (let i = ship.length - 1; i >= 0; i--) {
-      count = i * 10;
-      let num = parseInt(div.id + count).toString()[0];
+      start = i * 10;
+      let num = parseInt(div.id + start).toString()[0];
       if (column != parseInt(num[0])) {
         break;
       }
-      let select = document.getElementById(`${parseInt(div.id) + count}`);
+      let select = document.getElementById(`${parseInt(div.id) + start}`);
       select.style.backgroundColor = "orange";
-      count -= 10;
+      start -= 10;
     }
   } else if (turn == false) {
     for (let i = ship.length - 1; i >= 0; i--) {
