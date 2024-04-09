@@ -130,7 +130,10 @@ function colorSquares(ship, evt, turn) {
       }
 
       let select = document.getElementById(`${parseInt(div.id) + start}`);
-      if (select.style.backgroundColor == "orange") {
+      if (
+        select.style.backgroundColor == "orange" ||
+        div.style.backgroundColor == "orange"
+      ) {
         return;
       }
       select.style.backgroundColor = "orange";
@@ -143,7 +146,10 @@ function colorSquares(ship, evt, turn) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + i}`);
-      if (select.style.backgroundColor == "orange") {
+      if (
+        select.style.backgroundColor == "orange" ||
+        div.style.backgroundColor == "orange"
+      ) {
         return;
       }
       select.style.backgroundColor = "orange";
