@@ -27,16 +27,28 @@ class Gameboard {
     //true is horizontal placement
     if (turn == false) {
       for (let i = shipLength - 1; i >= 0; i--) {
+        if (this.board[column][row + i].length > 0) {
+          return;
+        }
+      }
+      for (let i = shipLength - 1; i >= 0; i--) {
         if (row + i > 9) {
           break;
         }
+
         this.board[column][row + i] = ship;
       }
     } else if (turn == true) {
       for (let i = shipLength - 1; i >= 0; i--) {
+        if (this.board[column + i][row].length > 0) {
+          return;
+        }
+      }
+      for (let i = shipLength - 1; i >= 0; i--) {
         if (column + i > 9) {
           break;
         }
+
         this.board[column + i][row] = ship;
       }
     }
