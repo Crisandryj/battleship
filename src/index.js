@@ -128,7 +128,11 @@ function colorSquares(ship, evt, turn) {
       if (column != parseInt(num[0])) {
         break;
       }
+
       let select = document.getElementById(`${parseInt(div.id) + start}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
       select.style.backgroundColor = "orange";
       start -= 10;
     }
@@ -139,6 +143,9 @@ function colorSquares(ship, evt, turn) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + i}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
       select.style.backgroundColor = "orange";
     }
   }
