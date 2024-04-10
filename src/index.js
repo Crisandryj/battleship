@@ -124,34 +124,35 @@ function colorSquares(ship, evt, turn) {
     //select veritcal blocks to color
     for (let i = ship.length - 1; i >= 0; i--) {
       start = i * 10;
+      let select = document.getElementById(`${parseInt(div.id) + start}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
+    }
+    for (let i = ship.length - 1; i >= 0; i--) {
+      start = i * 10;
       let num = parseInt(div.id + start).toString()[0];
       if (column != parseInt(num[0])) {
         break;
       }
-
       let select = document.getElementById(`${parseInt(div.id) + start}`);
-      if (
-        select.style.backgroundColor == "orange" ||
-        div.style.backgroundColor == "orange"
-      ) {
-        return;
-      }
       select.style.backgroundColor = "orange";
       start -= 10;
     }
   } else if (turn == false) {
+    for (let i = ship.length - 1; i >= 0; i--) {
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
+    }
     for (let i = ship.length - 1; i >= 0; i--) {
       let num = (parseInt(div.id) + i).toString()[0];
       if (row != parseInt(num[0])) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + i}`);
-      if (
-        select.style.backgroundColor == "orange" ||
-        div.style.backgroundColor == "orange"
-      ) {
-        return;
-      }
+
       select.style.backgroundColor = "orange";
     }
   }
