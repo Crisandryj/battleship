@@ -13,29 +13,6 @@ const {
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
 
-//create ships
-const bigOne = new Ship(5);
-const scarey = new Ship(4);
-const middleChild = new Ship(3);
-const sneaky = new Ship(3);
-const littleOne = new Ship(2);
-
-//Set ships before game starts
-function defaultPlaceShips(playerOne, playerTwo) {
-  //place player ships
-  playerOne.game.placeShip(bigOne.length, false, 2, 2);
-  playerOne.game.placeShip(scarey.length, false, 3, 2);
-  playerOne.game.placeShip(middleChild.length, false, 4, 2);
-  playerOne.game.placeShip(sneaky.length, false, 5, 2);
-  playerOne.game.placeShip(littleOne.length, false, 6, 2);
-  //place playerTwo ships
-  playerTwo.game.placeShip(bigOneplayerTwo.length, false, 3, 2);
-  playerTwo.game.placeShip(scareyplayerTwo.length, false, 4, 2);
-  playerTwo.game.placeShip(middleChildplayerTwo.length, false, 5, 2);
-  playerTwo.game.placeShip(sneakyplayerTwo.length, false, 6, 2);
-  playerTwo.game.placeShip(littleOneplayerTwo.length, false, 7, 3);
-}
-
 const GamesContainer = document.querySelector(".game-boards-container");
 // defaultPlaceShips(playerOne, playerTwo);
 const turnButton = document.querySelector("#turnShip");
