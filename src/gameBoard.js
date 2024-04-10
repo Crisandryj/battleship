@@ -35,7 +35,6 @@ class Gameboard {
         if (row + i > 9) {
           break;
         }
-
         this.board[column][row + i] = ship;
       }
     } else if (turn == true) {
