@@ -140,15 +140,24 @@ const gameBoard = document.querySelector(".P1-board");
 let count = 0;
 
 gameBoard.addEventListener("click", (evt) => {
-  let rowNum = evt.target.closest("div").id[0];
-  let columnNum = evt.target.closest("div").id[1];
+  let rowNum;
+  let columnNum;
+  if (evt.target.closest("div").id[1] >= 0) {
+    columnNum = evt.target.closest("div").id[0];
+    rowNum = evt.target.closest("div").id[1];
+  } else {
+    rowNum = evt.target.closest("div").id;
+    columnNum = 0;
+  }
 
   //place ships
   // go in order of ships and allow 'X' consective clicks in order to place ships in place
   switch (count) {
     case 0:
       const bigOne = new Ship(5);
-      playerOne.game.placeShip(bigOne.length, turn, rowNum, columnNum);
+      console.log(columnNum);
+      playerOne.game.placeShip(bigOne.length, turn, columnNum, rowNum);
+      console.log(playerOne.game);
       colorSquares(bigOne, evt, turn);
       if (checkShipPlaced(playerOne, bigOne.length)) {
         count += 1;
@@ -157,7 +166,7 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 1:
       const scarey = new Ship(4);
-      playerOne.game.placeShip(scarey.length, turn, rowNum, columnNum);
+      playerOne.game.placeShip(scarey.length, turn, columnNum, rowNum);
       colorSquares(scarey, evt, turn);
       if (checkShipPlaced(playerOne, scarey.length)) {
         count += 1;
@@ -165,7 +174,7 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 2:
       const middleChild = new Ship(3);
-      playerOne.game.placeShip(middleChild.length, turn, rowNum, columnNum);
+      playerOne.game.placeShip(middleChild.length, turn, columnNum, rowNum);
       colorSquares(middleChild, evt, turn);
       if (checkShipPlaced(playerOne, middleChild.length)) {
         count += 1;
@@ -173,7 +182,7 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 3:
       const sneakyplayer = new Ship(3);
-      playerOne.game.placeShip(sneakyplayer.length, turn, rowNum, columnNum);
+      playerOne.game.placeShip(sneakyplayer.length, turn, columnNum, rowNum);
       colorSquares(sneakyplayer, evt, turn);
       if (checkShipPlaced(playerOne, sneakyplayer.length)) {
         count += 1;
@@ -182,7 +191,7 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 4:
       const littleOne = new Ship(2);
-      playerOne.game.placeShip(littleOne.length, turn, rowNum, columnNum);
+      playerOne.game.placeShip(littleOne.length, turn, columnNum, rowNum);
       colorSquares(littleOne, evt, turn);
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
