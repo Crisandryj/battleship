@@ -147,7 +147,7 @@ gameBoard.addEventListener("click", (evt) => {
     columnNum = evt.target.closest("div").id[0];
     rowNum = evt.target.closest("div").id[1];
   } else {
-    rowNum = evt.target.closest("div").id[1];
+    rowNum = evt.target.closest("div").id[0];
     columnNum = 0;
   }
 
