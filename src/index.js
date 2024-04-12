@@ -26,8 +26,10 @@ turnButton.addEventListener("click", () => {
 
 //Start game
 const startButton = document.querySelector("#start");
+
 //display set up board
 displaySetUpBoard(playerOne);
+const gameBoard = document.querySelector(".P1-board");
 
 startButton.addEventListener("click", () => {
   startGame();
@@ -125,10 +127,6 @@ function colorSquares(ship, evt, turn) {
       }
     }
     for (let i = ship.length - 1; i >= 0; i--) {
-      let num = (parseInt(div.id) + i).toString()[0];
-      if (row != parseInt(num[0])) {
-        break;
-      }
       let select = document.getElementById(`${parseInt(div.id) + i}`);
 
       select.style.backgroundColor = "orange";
@@ -137,7 +135,7 @@ function colorSquares(ship, evt, turn) {
 }
 
 // listen to gameboards clicks
-const gameBoard = document.querySelector(".P1-board");
+
 let count = 0;
 
 gameBoard.addEventListener("click", (evt) => {
