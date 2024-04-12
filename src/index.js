@@ -96,9 +96,9 @@ function colorSquares(ship, evt, turn) {
   let div = evt.target.closest("div");
   let row = div.id[0];
   let column = div.id[0][0];
-
+  //select veritcal blocks to color
   if (turn == true) {
-    //select veritcal blocks to color
+    //stop from ships overlapping
     for (let i = ship.length - 1; i >= 0; i--) {
       start = i * 10;
       let select = document.getElementById(`${parseInt(div.id) + start}`);
@@ -117,6 +117,7 @@ function colorSquares(ship, evt, turn) {
       start -= 10;
     }
   } else if (turn == false) {
+    //stop from ships overlapping
     for (let i = ship.length - 1; i >= 0; i--) {
       let select = document.getElementById(`${parseInt(div.id) + i}`);
       if (select.style.backgroundColor == "orange") {
@@ -146,7 +147,7 @@ gameBoard.addEventListener("click", (evt) => {
     columnNum = evt.target.closest("div").id[0];
     rowNum = evt.target.closest("div").id[1];
   } else {
-    rowNum = evt.target.closest("div").id;
+    rowNum = evt.target.closest("div").id[1];
     columnNum = 0;
   }
 
