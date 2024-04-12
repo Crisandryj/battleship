@@ -156,7 +156,6 @@ gameBoard.addEventListener("click", (evt) => {
   switch (count) {
     case 0:
       const bigOne = new Ship(5);
-      console.log(columnNum);
       playerOne.game.placeShip(bigOne.length, turn, columnNum, rowNum);
       console.log(playerOne.game);
       colorSquares(bigOne, evt, turn);
