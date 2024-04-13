@@ -29,7 +29,7 @@ const startButton = document.querySelector("#start");
 
 //display set up board
 displaySetUpBoard(playerOne);
-const gameBoard = document.querySelector(".P1-board");
+let gameBoard = document.querySelector(".P1-board");
 
 startButton.addEventListener("click", () => {
   startGame();
