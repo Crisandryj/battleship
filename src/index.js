@@ -38,7 +38,16 @@ startButton.addEventListener("click", () => {
   startButton.parentNode.removeChild(startButton);
 });
 
+function clearColors() {
+  let div = document.getElementById("0");
+  for (let i = 99; i >= 0; i--) {
+    let select = document.getElementById(`${parseInt(div.id) + i}`);
+    select.style.removeProperty("background-color");
+  }
+}
+
 done.addEventListener("click", () => {
+  clearColors();
   gameBoard.classList.remove("P1-board");
   gameBoard.classList.add("P2-board");
   count = 0;
