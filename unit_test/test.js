@@ -166,7 +166,7 @@ describe("board created", () => {
   beforeEach(() => {
     game.createBoard();
     game.placeShip(5, false, 2, 2);
-    game.placeShip(5, true, 2, 2);
+    game.placeShip(5, true, 2, 8);
   });
 
   test("Ship object placed on start", () => {
@@ -188,7 +188,7 @@ describe("board created", () => {
   });
 
   test("Ship placed on end for horizontal", () => {
-    expect(game.board[5][2]).toEqual({
+    expect(game.board[5][8]).toEqual({
       hits: 0,
       id: [],
       length: 5,
