@@ -81,6 +81,25 @@ class Gameboard {
       return counter;
     }
   }
+  allShipsPlaced() {
+    //go thru each cell
+    //check if occuipied and hit
+    //return true if all occupied are also hit
+    let counter = 0;
+    this.board.forEach((array) => {
+      array.forEach((cell) => {
+        if (cell.length >= 0) {
+          counter += 1;
+        } else {
+        }
+      });
+    });
+    if (counter == 17) {
+      return true;
+    } else {
+      return counter;
+    }
+  }
 }
 
 export { Gameboard };
