@@ -91,27 +91,25 @@ function chooseBoard(length, turn, columnNum, rowNum) {
 //create players
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
-
+// select container for boards
 const GamesContainer = document.querySelector(".game-boards-container");
-
 //defaultPlaceShips(playerOne, playerTwo)
 const turnButton = document.querySelector("#turnShip");
-
 //handle turn of ships
 let turn = false;
+//Start game
+const startButton = document.querySelector("#start");
+//Finish board set up and move to next board
+const done = document.querySelector("#done");
+//select first board
+let gameBoard = document.querySelector(".P1-board");
+
+//display set up board
+displaySetUpBoard(playerOne);
 
 turnButton.addEventListener("click", () => {
   return turn ? (turn = false) : (turn = true);
 });
-
-//Start game
-const startButton = document.querySelector("#start");
-
-//Finish board set up
-const done = document.querySelector("#done");
-//display set up board
-displaySetUpBoard(playerOne);
-let gameBoard = document.querySelector(".P1-board");
 
 startButton.addEventListener("click", () => {
   startGame();

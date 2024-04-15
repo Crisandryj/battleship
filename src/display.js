@@ -28,19 +28,19 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   GamesContainer.append(playerOneBoard);
   GamesContainer.append(playerTwoBoard);
 
-  loop(playerOne, playerOneBoard);
-  loop(playerTwo, playerTwoBoard);
+  fillBoardloop(playerOne, playerOneBoard);
+  fillBoardloop(playerTwo, playerTwoBoard);
 }
 
 export function displaySetUpBoard(player) {
   const board = document.createElement("div");
-  loop(player, board);
+  fillBoardloop(player, board);
   GamesContainer.append(board);
   board.classList.add(`${player.name}-board`);
 }
 
 //think of better name
-function loop(player, board) {
+function fillBoardloop(player, board) {
   player.game.board.forEach((row) => {
     row.forEach((item) => {
       const block = document.createElement("div");
