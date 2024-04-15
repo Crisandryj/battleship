@@ -39,7 +39,6 @@ export function displaySetUpBoard(player) {
   board.classList.add(`${player.name}-board`);
 }
 
-//think of better name
 function fillBoardloop(player, board) {
   player.game.board.forEach((row) => {
     row.forEach((item) => {
