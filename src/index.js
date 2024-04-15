@@ -93,7 +93,8 @@ const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
 
 const GamesContainer = document.querySelector(".game-boards-container");
-// defaultPlaceShips(playerOne, playerTwo);
+
+//defaultPlaceShips(playerOne, playerTwo)
 const turnButton = document.querySelector("#turnShip");
 
 //handle turn of ships
@@ -167,10 +168,10 @@ gameBoard.addEventListener("click", (evt) => {
       }
       break;
     case 3:
-      const sneakyplayer = new Ship(3);
-      chooseBoard(sneakyplayer.length, turn, columnNum, rowNum);
-      colorSquares(sneakyplayer, evt, turn);
-      if (checkShipPlaced(playerOne, sneakyplayer.length)) {
+      const sneakyPlayer = new Ship(3);
+      chooseBoard(sneakyPlayer.length, turn, columnNum, rowNum);
+      colorSquares(sneakyPlayer, evt, turn);
+      if (checkShipPlaced(playerOne, sneakyPlayer.length)) {
         count += 1;
       }
 
