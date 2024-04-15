@@ -105,3 +105,51 @@ export function showTurn(playerOne) {
     ? (turnDisplay.textContent = "Player One make your move")
     : (turnDisplay.textContent = "Player Two make your move");
 }
+export function clearColors() {
+  let div = document.getElementById("0");
+  for (let i = 99; i >= 0; i--) {
+    let select = document.getElementById(`${parseInt(div.id) + i}`);
+    select.style.removeProperty("background-color");
+  }
+}
+
+// Color the blocks where the ships were placed
+export function colorSquares(ship, evt, turn) {
+  let div = evt.target.closest("div");
+  let row = div.id[0];
+  let column = div.id[0][0];
+  //select veritcal blocks to color
+  if (turn == true) {
+    //stop from ships overlapping
+    for (let i = ship.length - 1; i >= 0; i--) {
+      start = i * 10;
+      let select = document.getElementById(`${parseInt(div.id) + start}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
+    }
+    for (let i = ship.length - 1; i >= 0; i--) {
+      start = i * 10;
+      let num = parseInt(div.id + start).toString()[0];
+      if (column != parseInt(num[0])) {
+        break;
+      }
+      let select = document.getElementById(`${parseInt(div.id) + start}`);
+      select.style.backgroundColor = "orange";
+      start -= 10;
+    }
+  } else if (turn == false) {
+    //stop from ships overlapping
+    for (let i = ship.length - 1; i >= 0; i--) {
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
+      if (select.style.backgroundColor == "orange") {
+        return;
+      }
+    }
+    for (let i = ship.length - 1; i >= 0; i--) {
+      let select = document.getElementById(`${parseInt(div.id) + i}`);
+
+      select.style.backgroundColor = "orange";
+    }
+  }
+}

@@ -7,51 +7,9 @@ const {
   switchBoard,
   showTurn,
   displaySetUpBoard,
+  clearColors,
+  colorSquares,
 } = require("../src/display");
-
-//create players
-const playerOne = new Player("P1");
-const playerTwo = new Player("P2");
-
-const GamesContainer = document.querySelector(".game-boards-container");
-// defaultPlaceShips(playerOne, playerTwo);
-const turnButton = document.querySelector("#turnShip");
-
-//handle turn of ships
-let turn = false;
-
-turnButton.addEventListener("click", () => {
-  return turn ? (turn = false) : (turn = true);
-});
-
-//Start game
-const startButton = document.querySelector("#start");
-
-//Finish board set up
-const done = document.querySelector("#done");
-//display set up board
-displaySetUpBoard(playerOne);
-let gameBoard = document.querySelector(".P1-board");
-
-startButton.addEventListener("click", () => {
-  startGame();
-  startButton.parentNode.removeChild(startButton);
-});
-
-function clearColors() {
-  let div = document.getElementById("0");
-  for (let i = 99; i >= 0; i--) {
-    let select = document.getElementById(`${parseInt(div.id) + i}`);
-    select.style.removeProperty("background-color");
-  }
-}
-
-done.addEventListener("click", () => {
-  clearColors();
-  gameBoard.classList.remove("P1-board");
-  gameBoard.classList.add("P2-board");
-  count = 0;
-});
 
 function startGame() {
   start = true;
@@ -71,6 +29,18 @@ function handleClick(evt) {
     playerOne.changeTurn();
     switchBoard(playerOne, playerTwo);
   }
+}
+
+function checkShipPlaced(player, length) {
+  let check = false;
+  player.game.board.forEach((row) => {
+    for (let i = 0; i < 10; i++) {
+      if (row[i].length == length) {
+        check = true;
+      }
+    }
+  });
+  return check;
 }
 
 function selectAttack(evt) {
@@ -110,47 +80,6 @@ function selectAttack(evt) {
   }
 }
 
-// Color the blocks where the ships were placed
-function colorSquares(ship, evt, turn) {
-  let div = evt.target.closest("div");
-  let row = div.id[0];
-  let column = div.id[0][0];
-  //select veritcal blocks to color
-  if (turn == true) {
-    //stop from ships overlapping
-    for (let i = ship.length - 1; i >= 0; i--) {
-      start = i * 10;
-      let select = document.getElementById(`${parseInt(div.id) + start}`);
-      if (select.style.backgroundColor == "orange") {
-        return;
-      }
-    }
-    for (let i = ship.length - 1; i >= 0; i--) {
-      start = i * 10;
-      let num = parseInt(div.id + start).toString()[0];
-      if (column != parseInt(num[0])) {
-        break;
-      }
-      let select = document.getElementById(`${parseInt(div.id) + start}`);
-      select.style.backgroundColor = "orange";
-      start -= 10;
-    }
-  } else if (turn == false) {
-    //stop from ships overlapping
-    for (let i = ship.length - 1; i >= 0; i--) {
-      let select = document.getElementById(`${parseInt(div.id) + i}`);
-      if (select.style.backgroundColor == "orange") {
-        return;
-      }
-    }
-    for (let i = ship.length - 1; i >= 0; i--) {
-      let select = document.getElementById(`${parseInt(div.id) + i}`);
-
-      select.style.backgroundColor = "orange";
-    }
-  }
-}
-
 function chooseBoard(length, turn, columnNum, rowNum) {
   if (gameBoard.classList.value == "P1-board") {
     playerOne.game.placeShip(length, turn, columnNum, rowNum);
@@ -158,8 +87,44 @@ function chooseBoard(length, turn, columnNum, rowNum) {
     playerTwo.game.placeShip(length, turn, columnNum, rowNum);
   }
 }
-// listen to gameboards clicks
 
+//create players
+const playerOne = new Player("P1");
+const playerTwo = new Player("P2");
+
+const GamesContainer = document.querySelector(".game-boards-container");
+// defaultPlaceShips(playerOne, playerTwo);
+const turnButton = document.querySelector("#turnShip");
+
+//handle turn of ships
+let turn = false;
+
+turnButton.addEventListener("click", () => {
+  return turn ? (turn = false) : (turn = true);
+});
+
+//Start game
+const startButton = document.querySelector("#start");
+
+//Finish board set up
+const done = document.querySelector("#done");
+//display set up board
+displaySetUpBoard(playerOne);
+let gameBoard = document.querySelector(".P1-board");
+
+startButton.addEventListener("click", () => {
+  startGame();
+  startButton.parentNode.removeChild(startButton);
+});
+
+done.addEventListener("click", () => {
+  clearColors();
+  gameBoard.classList.remove("P1-board");
+  gameBoard.classList.add("P2-board");
+  count = 0;
+});
+
+// listen to gameboards clicks
 let count = 0;
 
 gameBoard.addEventListener("click", (evt) => {
@@ -172,7 +137,6 @@ gameBoard.addEventListener("click", (evt) => {
     rowNum = evt.target.closest("div").id[0];
     columnNum = 0;
   }
-
   //place ships
   // go in order of ships and allow 'X' consective clicks in order to place ships in place
   switch (count) {
@@ -221,15 +185,3 @@ gameBoard.addEventListener("click", (evt) => {
       break;
   }
 });
-
-function checkShipPlaced(player, length) {
-  let check = false;
-  player.game.board.forEach((row) => {
-    for (let i = 0; i < 10; i++) {
-      if (row[i].length == length) {
-        check = true;
-      }
-    }
-  });
-  return check;
-}
