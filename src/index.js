@@ -10,6 +10,9 @@ const {
   clearColors,
   colorSquares,
 } = require("../src/display");
+
+const display = document.querySelector(".display");
+
 //create players
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
@@ -125,6 +128,7 @@ doneBtn.addEventListener("click", () => {
   clearColors();
   gameBoard.classList.remove("P1-board");
   gameBoard.classList.add("P2-board");
+  display.textContent = "P2 PLACE YOUR SHIPS";
   count = 0;
 });
 
