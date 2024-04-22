@@ -23,7 +23,7 @@ let turn = false;
 //Start game
 const startButton = document.querySelector("#start");
 //Finish board set up and move to next board
-const done = document.querySelector("#done");
+const doneBtn = document.querySelector("#done");
 
 //display set up board
 displaySetUpBoard(playerOne);
@@ -117,9 +117,11 @@ turnButton.addEventListener("click", () => {
 startButton.addEventListener("click", () => {
   startGame();
   startButton.parentNode.removeChild(startButton);
+  turnButton.parentNode.removeChild(turnButton);
+  doneBtn.parentNode.removeChild(doneBtn);
 });
 
-done.addEventListener("click", () => {
+doneBtn.addEventListener("click", () => {
   clearColors();
   gameBoard.classList.remove("P1-board");
   gameBoard.classList.add("P2-board");
