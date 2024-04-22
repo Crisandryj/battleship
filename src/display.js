@@ -5,7 +5,7 @@ const { Gameboard } = require("./gameBoard");
 const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
-const turnDisplay = document.querySelector(".turn");
+const turnDisplay = document.querySelector(".display");
 const boardNames = document.querySelector(".boardname");
 let count = 0;
 
@@ -101,8 +101,8 @@ export function switchBoard(playerOne, playerTwo) {
 
 export function showTurn(playerOne) {
   playerOne.turn
-    ? (turnDisplay.textContent = "Player One make your move")
-    : (turnDisplay.textContent = "Player Two make your move");
+    ? (turnDisplay.textContent = "P1 MAKE YOUR MOVE")
+    : (turnDisplay.textContent = "P2 MAKE YOUR MOVE");
 }
 export function clearColors() {
   let div = document.getElementById("0");
