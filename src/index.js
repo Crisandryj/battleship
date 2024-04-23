@@ -27,7 +27,8 @@ let turn = false;
 const startButton = document.querySelector("#start");
 //Finish board set up and move to next board
 const doneBtn = document.querySelector("#done");
-
+//done count start game after button clicked twice
+let doneCount = 0;
 //display set up board
 displaySetUpBoard(playerOne);
 
@@ -117,11 +118,14 @@ turnButton.addEventListener("click", () => {
   return turn ? (turn = false) : (turn = true);
 });
 
-startButton.addEventListener("click", () => {
-  startGame();
+function removeBtns() {
   startButton.parentNode.removeChild(startButton);
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
+}
+startButton.addEventListener("click", () => {
+  startGame();
+  removeBtns();
 });
 
 doneBtn.addEventListener("click", () => {
@@ -129,7 +133,12 @@ doneBtn.addEventListener("click", () => {
   gameBoard.classList.remove("P1-board");
   gameBoard.classList.add("P2-board");
   display.textContent = "P2 PLACE YOUR SHIPS";
+  doneCount += 1;
   count = 0;
+  if (doneCount == 2) {
+    startGame();
+    removeBtns();
+  }
 });
 
 // listen to gameboards clicks
