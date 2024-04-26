@@ -132,6 +132,22 @@ startButton.addEventListener("click", () => {
   removeBtns();
 });
 
+function appendDoneListener() {
+  buttons.append(done);
+  const doneBtn = document.querySelector(".done");
+  doneBtn.addEventListener("click", () => {
+    clearColors();
+    gameBoard.classList.remove("P1-board");
+    gameBoard.classList.add("P2-board");
+    display.textContent = "P2 PLACE YOUR SHIPS";
+    doneCount += 1;
+    count = 0;
+    if (doneCount == 2) {
+      removeBtns();
+      startGame();
+    }
+  });
+}
 // listen to gameboards clicks
 let count = 0;
 let ready;
@@ -190,23 +206,8 @@ gameBoard.addEventListener("click", (evt) => {
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
       }
-      buttons.append(done);
-
+      appendDoneListener();
       //Finish board set up and move to next board
-
       break;
-  }
-});
-const doneBtn = document.querySelector(".done");
-doneBtn.addEventListener("click", () => {
-  clearColors();
-  gameBoard.classList.remove("P1-board");
-  gameBoard.classList.add("P2-board");
-  display.textContent = "P2 PLACE YOUR SHIPS";
-  doneCount += 1;
-  count = 0;
-  if (doneCount == 2) {
-    startGame();
-    removeBtns();
   }
 });
