@@ -137,6 +137,9 @@ function appendDoneListener() {
     gameBoard.classList.add("P2-board");
     display.textContent = "P2 PLACE YOUR SHIPS";
     doneCount += 1;
+    if (doneCount == 1 || doneCount == 2) {
+      doneBtn.parentNode.removeChild(doneBtn);
+    }
     count = 0;
     if (doneCount == 2) {
       startGame();
