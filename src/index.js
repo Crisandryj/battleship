@@ -17,6 +17,8 @@ const display = document.querySelector(".display");
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
 
+//buttons
+const buttons = document.querySelector(".buttons");
 // select container for boards
 const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
@@ -25,8 +27,10 @@ const turnButton = document.querySelector("#turnShip");
 let turn = false;
 //Start game
 const startButton = document.querySelector("#start");
-//Finish board set up and move to next board
-const doneBtn = document.querySelector("#done");
+let done = document.createElement("BUTTON");
+done.classList.add("done");
+done.textContent = "Done";
+
 //done count start game after button clicked twice
 let doneCount = 0;
 //display set up board
@@ -128,22 +132,9 @@ startButton.addEventListener("click", () => {
   removeBtns();
 });
 
-doneBtn.addEventListener("click", () => {
-  clearColors();
-  gameBoard.classList.remove("P1-board");
-  gameBoard.classList.add("P2-board");
-  display.textContent = "P2 PLACE YOUR SHIPS";
-  doneCount += 1;
-  count = 0;
-  if (doneCount == 2) {
-    startGame();
-    removeBtns();
-  }
-});
-
 // listen to gameboards clicks
 let count = 0;
-
+let ready;
 gameBoard.addEventListener("click", (evt) => {
   let rowNum;
   let columnNum;
@@ -199,6 +190,23 @@ gameBoard.addEventListener("click", (evt) => {
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
       }
+      buttons.append(done);
+
+      //Finish board set up and move to next board
+
       break;
+  }
+});
+const doneBtn = document.querySelector(".done");
+doneBtn.addEventListener("click", () => {
+  clearColors();
+  gameBoard.classList.remove("P1-board");
+  gameBoard.classList.add("P2-board");
+  display.textContent = "P2 PLACE YOUR SHIPS";
+  doneCount += 1;
+  count = 0;
+  if (doneCount == 2) {
+    startGame();
+    removeBtns();
   }
 });
