@@ -25,8 +25,6 @@ const GamesContainer = document.querySelector(".game-boards-container");
 const turnButton = document.querySelector("#turnShip");
 //handle turn of ships
 let turn = false;
-//Start game
-
 let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
@@ -131,18 +129,23 @@ function appendDoneListener() {
   buttons.append(done);
   const doneBtn = document.querySelector(".done");
   doneBtn.addEventListener("click", () => {
-    clearColors();
+    if (doneCount < 2) {
+      clearColors();
+    }
+
     gameBoard.classList.remove("P1-board");
     gameBoard.classList.add("P2-board");
     display.textContent = "P2 PLACE YOUR SHIPS";
     doneCount += 1;
     count = 0;
     if (doneCount == 2) {
-      removeBtns();
       startGame();
+      removeBtns();
+      doneCount = 0;
     }
   });
 }
+
 // listen to gameboards clicks
 let count = 0;
 let ready;
@@ -203,6 +206,7 @@ gameBoard.addEventListener("click", (evt) => {
       }
       appendDoneListener();
       //Finish board set up and move to next board
+
       break;
   }
 });
