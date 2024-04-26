@@ -26,7 +26,7 @@ const turnButton = document.querySelector("#turnShip");
 //handle turn of ships
 let turn = false;
 //Start game
-const startButton = document.querySelector("#start");
+
 let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
@@ -123,14 +123,9 @@ turnButton.addEventListener("click", () => {
 });
 
 function removeBtns() {
-  startButton.parentNode.removeChild(startButton);
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
 }
-startButton.addEventListener("click", () => {
-  startGame();
-  removeBtns();
-});
 
 function appendDoneListener() {
   buttons.append(done);
