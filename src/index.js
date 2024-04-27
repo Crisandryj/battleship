@@ -132,7 +132,6 @@ function appendDoneListener() {
     if (doneCount < 2) {
       clearColors();
     }
-
     gameBoard.classList.remove("P1-board");
     gameBoard.classList.add("P2-board");
     display.textContent = "P2 PLACE YOUR SHIPS";
@@ -151,7 +150,7 @@ function appendDoneListener() {
 
 // listen to gameboards clicks
 let count = 0;
-let ready;
+
 gameBoard.addEventListener("click", (evt) => {
   let rowNum;
   let columnNum;
