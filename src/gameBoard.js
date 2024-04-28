@@ -78,7 +78,7 @@ class Gameboard {
     if (counter == 17) {
       return true;
     } else {
-      return counter;
+      return false;
     }
   }
   allShipsPlaced() {
