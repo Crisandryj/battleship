@@ -1,7 +1,7 @@
 const { Player } = require("../src/player");
 const { Ship } = require("../src/ships");
 const { Gameboard } = require("./gameBoard");
-
+const { allShipsSunk } = require("../src/gameBoard");
 const {
   displayBoard,
   switchBoard,
@@ -48,6 +48,12 @@ function startGame() {
   document.addEventListener("click", handleClick);
 }
 
+function gameOver(player) {
+  if (player.game.allShipsSunk()) {
+    console.log("gameover");
+  }
+}
+
 function handleClick(evt) {
   if (evt.target.closest("div") === null) {
     return;
@@ -83,8 +89,10 @@ function selectAttack(evt) {
       }
       if (playerOne.turn == false) {
         playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+        gameOver(playerOne);
       } else {
         playerTwo.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
+        gameOver(playerTwo);
       }
       break;
     default:
@@ -98,12 +106,14 @@ function selectAttack(evt) {
           columnNum,
           evt.target.closest("div").id
         );
+        gameOver(playerOne);
       } else {
         playerTwo.game.recieveAttack(
           rowNum,
           columnNum,
           evt.target.closest("div").id
         );
+        gameOver(playerTwo);
       }
   }
 }
