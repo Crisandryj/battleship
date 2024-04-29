@@ -104,6 +104,13 @@ export function showTurn(playerOne) {
     ? (turnDisplay.textContent = "P1 MAKE YOUR MOVE")
     : (turnDisplay.textContent = "P2 MAKE YOUR MOVE");
 }
+
+export function gameOver(player) {
+  if (player.game.allShipsSunk()) {
+    display.textContent = "Gameover";
+    console.log("gameover");
+  }
+}
 export function clearColors() {
   let div = document.getElementById("0");
   for (let i = 99; i >= 0; i--) {

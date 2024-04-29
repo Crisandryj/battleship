@@ -9,6 +9,7 @@ const {
   displaySetUpBoard,
   clearColors,
   colorSquares,
+  gameOver,
 } = require("../src/display");
 
 const display = document.querySelector(".display");
@@ -43,15 +44,9 @@ function startGame() {
   start = true;
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
-  showTurn(playerOne);
+  display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "blue");
   document.addEventListener("click", handleClick);
-}
-
-function gameOver(player) {
-  if (player.game.allShipsSunk()) {
-    console.log("gameover");
-  }
 }
 
 function handleClick(evt) {
@@ -144,10 +139,10 @@ function appendDoneListener() {
     }
     gameBoard.classList.remove("P1-board");
     gameBoard.classList.add("P2-board");
-    display.textContent = "P2 PLACE YOUR SHIPS";
     doneCount += 1;
     if (doneCount == 1 || doneCount == 2) {
       doneBtn.parentNode.removeChild(doneBtn);
+      display.textContent = "P2 PLACE YOUR SHIPS";
     }
     count = 0;
     if (doneCount == 2) {
