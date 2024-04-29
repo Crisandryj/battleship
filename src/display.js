@@ -95,8 +95,7 @@ export function switchBoard(playerOne, playerTwo) {
     boardNames.removeChild(boardNames.firstElementChild);
     displayBoard(playerOne, playerTwo, "gray", "blue");
   }
-
-  showTurn(playerOne);
+  gameOver(playerOne);
 }
 
 export function showTurn(playerOne) {
@@ -107,8 +106,10 @@ export function showTurn(playerOne) {
 
 export function gameOver(player) {
   if (player.game.allShipsSunk()) {
-    display.textContent = "Gameover";
+    turnDisplay.textContent = "Gameover";
     console.log("gameover");
+  } else {
+    showTurn(player);
   }
 }
 export function clearColors() {
