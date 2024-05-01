@@ -53,6 +53,7 @@ function handleClick(evt) {
     return;
   } else {
     selectAttack(evt);
+    console.log(playerTwo.board);
     playerTwo.changeTurn();
     playerOne.changeTurn();
     switchBoard(playerOne, playerTwo);
@@ -85,7 +86,7 @@ function selectAttack(evt) {
         playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
         gameOver(playerOne);
       } else {
-        playerTwo.game.recieveAttack(0, rowNum), evt.target.closest("div").id;
+        playerTwo.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
         gameOver(playerTwo);
       }
       break;
