@@ -5,7 +5,6 @@ const { allShipsSunk } = require("../src/gameBoard");
 const {
   displayBoard,
   switchBoard,
-  showTurn,
   displaySetUpBoard,
   clearColors,
   colorSquares,
