@@ -53,7 +53,6 @@ function handleClick(evt) {
     return;
   } else {
     selectAttack(evt);
-    console.log(playerTwo.board);
     playerTwo.changeTurn();
     playerOne.changeTurn();
     switchBoard(playerOne, playerTwo);
