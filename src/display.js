@@ -106,8 +106,7 @@ export function showTurn(playerOne) {
 
 export function gameOver(player) {
   if (player.game.allShipsSunk()) {
-    turnDisplay.textContent = "Gameover";
-    console.log("gameover");
+    turnDisplay.textContent = `${player.name} has been defeated`;
   } else {
     showTurn(player);
   }
