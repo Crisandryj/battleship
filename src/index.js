@@ -37,8 +37,6 @@ displaySetUpBoard(playerOne);
 //select first board
 let gameBoard = document.querySelector(".P1-board");
 
-console.log(gameBoard);
-
 function startGame() {
   start = true;
   GamesContainer.removeChild(GamesContainer.firstElementChild);
