@@ -138,7 +138,7 @@ export function colorSquares(ship, evt, turn) {
     for (let i = ship.length - 1; i >= 0; i--) {
       start = i * 10;
       let num = parseInt(div.id + start).toString()[0];
-      if (column != parseInt(num[0])) {
+      if (parseInt(num[0]) != parseInt(column)) {
         break;
       }
       let select = document.getElementById(`${parseInt(div.id) + start}`);
