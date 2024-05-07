@@ -36,6 +36,7 @@ displaySetUpBoard(playerOne);
 
 //select first board
 let gameBoard = document.querySelector(".P1-board");
+let currentBoard;
 
 function startGame() {
   start = true;
@@ -43,7 +44,8 @@ function startGame() {
   playerOne.turn = true;
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "blue");
-  document.addEventListener("click", handleClick);
+  currentBoard = document.querySelector(".P2-board");
+  currentBoard.addEventListener("click", handleClick);
 }
 
 function handleClick(evt) {
