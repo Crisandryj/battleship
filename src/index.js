@@ -37,7 +37,6 @@ displaySetUpBoard(playerOne);
 //select first board
 let gameBoard = document.querySelector(".P1-board");
 let currentBoard;
-
 function startGame() {
   start = true;
   GamesContainer.removeChild(GamesContainer.firstElementChild);
@@ -47,7 +46,7 @@ function startGame() {
   currentBoard = document.querySelector(".P2-board");
   currentBoard.addEventListener("click", handleClick);
 }
-
+let toggleClass = ".P2-board";
 function handleClick(evt) {
   if (evt.target.closest("div") === null) {
     return;
@@ -56,6 +55,15 @@ function handleClick(evt) {
     playerTwo.changeTurn();
     playerOne.changeTurn();
     switchBoard(playerOne, playerTwo);
+    if (toggleClass == ".P1-board") {
+      toggleClass = ".P2-board";
+      console.log("p2");
+    } else {
+      toggleClass = ".P1-board";
+      console.log("p1");
+    }
+    currentBoard = document.querySelector(toggleClass);
+    console.log(currentBoard);
   }
 }
 
@@ -83,9 +91,11 @@ function selectAttack(evt) {
       }
       if (playerOne.turn == false) {
         playerOne.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+
         gameOver(playerOne);
       } else {
         playerTwo.game.recieveAttack(0, rowNum, evt.target.closest("div").id);
+
         gameOver(playerTwo);
       }
       break;
