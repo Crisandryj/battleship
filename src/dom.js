@@ -85,3 +85,15 @@ function selectAttack(evt, playerOne, playerTwo) {
       }
   }
 }
+
+export function checkShipPlaced(player, length) {
+  let check = false;
+  player.game.board.forEach((row) => {
+    for (let i = 0; i < 10; i++) {
+      if (row[i].length == length) {
+        check = true;
+      }
+    }
+  });
+  return check;
+}

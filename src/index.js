@@ -7,7 +7,7 @@ const {
   clearColors,
   colorSquares,
 } = require("../src/display");
-const { startGame } = require("../src/dom");
+const { startGame, checkShipPlaced } = require("../src/dom");
 
 const display = document.querySelector(".display");
 
@@ -35,18 +35,6 @@ displaySetUpBoard(playerOne);
 //select first board
 let gameBoard = document.querySelector(".P1-board");
 let currentBoard;
-
-function checkShipPlaced(player, length) {
-  let check = false;
-  player.game.board.forEach((row) => {
-    for (let i = 0; i < 10; i++) {
-      if (row[i].length == length) {
-        check = true;
-      }
-    }
-  });
-  return check;
-}
 
 function chooseBoard(length, turn, columnNum, rowNum) {
   if (gameBoard.classList.value == "P1-board") {
