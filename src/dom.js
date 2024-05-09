@@ -1,4 +1,4 @@
-const { displayBoard } = require("../src/display");
+const { displayBoard, gameOver, switchBoard } = require("../src/display");
 
 export function startGame(
   GamesContainer,
@@ -12,12 +12,18 @@ export function startGame(
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "blue");
   currentBoard = document.querySelector(".P2-board");
-  currentBoard.addEventListener("click", handleClick);
+  currentBoard.addEventListener(
+    "click",
+    handleClick.bind(null, playerOne, playerTwo)
+  );
 }
 
 let toggleClass = ".P2-board";
 
-function handleClick(evt) {
+function handleClick(playerOne, playerTwo, evt) {
+  console.log(evt);
+  console.log(playerTwo);
+  console.log(playerOne);
   if (evt.target.closest("div") === null) {
     return;
   } else {
