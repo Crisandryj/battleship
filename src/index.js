@@ -3,12 +3,9 @@ const { Ship } = require("../src/ships");
 const { Gameboard } = require("./gameBoard");
 const { allShipsSunk } = require("../src/gameBoard");
 const {
-  displayBoard,
-  switchBoard,
   displaySetUpBoard,
   clearColors,
   colorSquares,
-  gameOver,
 } = require("../src/display");
 const { startGame } = require("../src/dom");
 
