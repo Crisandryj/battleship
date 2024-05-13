@@ -10,7 +10,7 @@ export function startGame(
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   display.textContent = "P1 Select Target";
-  displayBoard(playerOne, playerTwo, "gray", "blue");
+  displayBoard(playerOne, playerTwo, "gray", "#8697C4");
   currentBoard = document.querySelector(".P2-board");
   currentBoard.addEventListener(
     "click",

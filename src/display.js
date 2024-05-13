@@ -83,7 +83,7 @@ function displayCurrentPlayerShips(item, block, player) {
 
 export function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
-    displayBoard(playerTwo, playerOne, "blue", "gray");
+    displayBoard(playerTwo, playerOne, "#8697C4", "gray");
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     boardNames.removeChild(boardNames.firstElementChild);
@@ -93,7 +93,7 @@ export function switchBoard(playerOne, playerTwo) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     boardNames.removeChild(boardNames.firstElementChild);
     boardNames.removeChild(boardNames.firstElementChild);
-    displayBoard(playerOne, playerTwo, "gray", "blue");
+    displayBoard(playerOne, playerTwo, "gray", "#8697C4");
   }
   gameOver(playerOne);
 }

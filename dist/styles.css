@@ -1,6 +1,9 @@
+body {
+  background-color: #adbbda;
+}
+
 .game-boards-container {
-  height: 1000px;
-  width: 1000px;
+  width: 1250px;
   display: flex;
   justify-content: space-between;
 }
@@ -28,5 +31,5 @@
 
 .game {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.2 1fr;
 }
