@@ -97,3 +97,19 @@ export function checkShipPlaced(player, length) {
   });
   return check;
 }
+
+export function chooseBoard(
+  length,
+  turn,
+  columnNum,
+  rowNum,
+  playerOne,
+  playerTwo,
+  gameBoard
+) {
+  if (gameBoard.classList.value == "P1-board") {
+    playerOne.game.placeShip(length, turn, columnNum, rowNum);
+  } else if (gameBoard.classList.value == "P2-board") {
+    playerTwo.game.placeShip(length, turn, columnNum, rowNum);
+  }
+}

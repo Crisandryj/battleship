@@ -7,7 +7,7 @@ const {
   clearColors,
   colorSquares,
 } = require("../src/display");
-const { startGame, checkShipPlaced } = require("../src/dom");
+const { startGame, checkShipPlaced, chooseBoard } = require("../src/dom");
 
 const display = document.querySelector(".display");
 
@@ -35,14 +35,6 @@ displaySetUpBoard(playerOne);
 //select first board
 let gameBoard = document.querySelector(".P1-board");
 let currentBoard;
-
-function chooseBoard(length, turn, columnNum, rowNum) {
-  if (gameBoard.classList.value == "P1-board") {
-    playerOne.game.placeShip(length, turn, columnNum, rowNum);
-  } else if (gameBoard.classList.value == "P2-board") {
-    playerTwo.game.placeShip(length, turn, columnNum, rowNum);
-  }
-}
 
 turnButton.addEventListener("click", () => {
   return turn ? (turn = false) : (turn = true);
@@ -94,7 +86,15 @@ gameBoard.addEventListener("click", (evt) => {
   switch (count) {
     case 0:
       const bigOne = new Ship(5);
-      chooseBoard(bigOne.length, turn, columnNum, rowNum);
+      chooseBoard(
+        bigOne.length,
+        turn,
+        columnNum,
+        rowNum,
+        playerOne,
+        playerTwo,
+        gameBoard
+      );
 
       colorSquares(bigOne, evt, turn);
       if (checkShipPlaced(playerOne, bigOne.length)) {
@@ -104,7 +104,15 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 1:
       const scarey = new Ship(4);
-      chooseBoard(scarey.length, turn, columnNum, rowNum);
+      chooseBoard(
+        scarey.length,
+        turn,
+        columnNum,
+        rowNum,
+        playerOne,
+        playerTwo,
+        gameBoard
+      );
       colorSquares(scarey, evt, turn);
       if (checkShipPlaced(playerOne, scarey.length)) {
         count += 1;
@@ -112,7 +120,15 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 2:
       const middleChild = new Ship(3);
-      chooseBoard(middleChild.length, turn, columnNum, rowNum);
+      chooseBoard(
+        middleChild.length,
+        turn,
+        columnNum,
+        rowNum,
+        playerOne,
+        playerTwo,
+        gameBoard
+      );
       colorSquares(middleChild, evt, turn);
       if (checkShipPlaced(playerOne, middleChild.length)) {
         count += 1;
@@ -120,7 +136,15 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 3:
       const sneakyPlayer = new Ship(3);
-      chooseBoard(sneakyPlayer.length, turn, columnNum, rowNum);
+      chooseBoard(
+        sneakyPlayer.length,
+        turn,
+        columnNum,
+        rowNum,
+        playerOne,
+        playerTwo,
+        gameBoard
+      );
       colorSquares(sneakyPlayer, evt, turn);
       if (checkShipPlaced(playerOne, sneakyPlayer.length)) {
         count += 1;
@@ -129,7 +153,15 @@ gameBoard.addEventListener("click", (evt) => {
       break;
     case 4:
       const littleOne = new Ship(2);
-      chooseBoard(littleOne.length, turn, columnNum, rowNum);
+      chooseBoard(
+        littleOne.length,
+        turn,
+        columnNum,
+        rowNum,
+        playerOne,
+        playerTwo,
+        gameBoard
+      );
       colorSquares(littleOne, evt, turn);
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
