@@ -18,7 +18,7 @@ export function startGame(
   );
 }
 
-function handleClick(playerOne, playerTwo, evt) {
+export function handleClick(playerOne, playerTwo, evt) {
   console.log(evt);
   console.log(playerTwo);
   console.log(playerOne);
