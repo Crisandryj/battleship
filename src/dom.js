@@ -18,8 +18,6 @@ export function startGame(
   );
 }
 
-let toggleClass = ".P2-board";
-
 function handleClick(playerOne, playerTwo, evt) {
   console.log(evt);
   console.log(playerTwo);
@@ -31,16 +29,21 @@ function handleClick(playerOne, playerTwo, evt) {
     playerTwo.changeTurn();
     playerOne.changeTurn();
     switchBoard(playerOne, playerTwo);
-    if (toggleClass == ".P1-board") {
-      toggleClass = ".P2-board";
-      console.log("p2");
-    } else {
-      toggleClass = ".P1-board";
-      console.log("p1");
-    }
-    currentBoard = document.querySelector(toggleClass);
-    console.log(currentBoard);
+    selectCurrentBoard();
   }
+}
+
+export function selectCurrentBoard() {
+  let toggleClass = ".P2-board";
+  if (toggleClass == ".P1-board") {
+    toggleClass = ".P2-board";
+    console.log("p2");
+  } else {
+    toggleClass = ".P1-board";
+    console.log("p1");
+  }
+  currentBoard = document.querySelector(toggleClass);
+  console.log(currentBoard);
 }
 
 function selectAttack(evt, playerOne, playerTwo) {
