@@ -116,3 +116,37 @@ export function chooseBoard(
     playerTwo.game.placeShip(length, turn, columnNum, rowNum);
   }
 }
+
+export function removeBtns() {
+  turnButton.parentNode.removeChild(turnButton);
+  doneBtn.parentNode.removeChild(doneBtn);
+}
+
+//buttons
+const buttons = document.querySelector(".buttons");
+let done = document.createElement("BUTTON");
+done.classList.add("done");
+done.textContent = "Done";
+
+export function appendDoneListener() {
+  buttons.append(done);
+  const doneBtn = document.querySelector(".done");
+  doneBtn.addEventListener("click", () => {
+    if (doneCount < 2) {
+      clearColors();
+    }
+    gameBoard.classList.remove("P1-board");
+    gameBoard.classList.add("P2-board");
+    doneCount += 1;
+    if (doneCount == 1 || doneCount == 2) {
+      doneBtn.parentNode.removeChild(doneBtn);
+      display.textContent = "P2 PLACE YOUR SHIPS";
+    }
+    count = 0;
+    if (doneCount == 2) {
+      startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
+      removeBtns();
+      doneCount = 0;
+    }
+  });
+}

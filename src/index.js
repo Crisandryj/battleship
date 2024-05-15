@@ -7,7 +7,12 @@ const {
   clearColors,
   colorSquares,
 } = require("../src/display");
-const { startGame, checkShipPlaced, chooseBoard } = require("../src/dom");
+const {
+  startGame,
+  checkShipPlaced,
+  chooseBoard,
+  appendDoneListener,
+} = require("../src/dom");
 
 const display = document.querySelector(".display");
 
@@ -15,17 +20,12 @@ const display = document.querySelector(".display");
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
 
-//buttons
-const buttons = document.querySelector(".buttons");
 // select container for boards
 const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
 const turnButton = document.querySelector("#turnShip");
 //handle turn of ships
 let turn = false;
-let done = document.createElement("BUTTON");
-done.classList.add("done");
-done.textContent = "Done";
 
 //done count start game after button clicked twice
 let doneCount = 0;
@@ -34,39 +34,10 @@ displaySetUpBoard(playerOne);
 
 //select first board
 let gameBoard = document.querySelector(".P1-board");
-let currentBoard;
 
 turnButton.addEventListener("click", () => {
   return turn ? (turn = false) : (turn = true);
 });
-
-function removeBtns() {
-  turnButton.parentNode.removeChild(turnButton);
-  doneBtn.parentNode.removeChild(doneBtn);
-}
-
-function appendDoneListener() {
-  buttons.append(done);
-  const doneBtn = document.querySelector(".done");
-  doneBtn.addEventListener("click", () => {
-    if (doneCount < 2) {
-      clearColors();
-    }
-    gameBoard.classList.remove("P1-board");
-    gameBoard.classList.add("P2-board");
-    doneCount += 1;
-    if (doneCount == 1 || doneCount == 2) {
-      doneBtn.parentNode.removeChild(doneBtn);
-      display.textContent = "P2 PLACE YOUR SHIPS";
-    }
-    count = 0;
-    if (doneCount == 2) {
-      startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
-      removeBtns();
-      doneCount = 0;
-    }
-  });
-}
 
 // listen to gameboards clicks
 let count = 0;
