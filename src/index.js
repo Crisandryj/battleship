@@ -2,33 +2,22 @@ const { Player } = require("../src/player");
 const { Ship } = require("../src/ships");
 const { Gameboard } = require("./gameBoard");
 const { allShipsSunk } = require("../src/gameBoard");
+const { displaySetUpBoard, colorSquares } = require("../src/display");
 const {
-  displaySetUpBoard,
-  clearColors,
-  colorSquares,
-} = require("../src/display");
-const {
-  startGame,
   checkShipPlaced,
   chooseBoard,
   appendDoneListener,
 } = require("../src/dom");
 
-const display = document.querySelector(".display");
-
 //create players
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
 
-// select container for boards
-const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
 const turnButton = document.querySelector("#turnShip");
 //handle turn of ships
 let turn = false;
 
-//done count start game after button clicked twice
-let doneCount = 0;
 //display set up board
 displaySetUpBoard(playerOne);
 
@@ -137,7 +126,7 @@ gameBoard.addEventListener("click", (evt) => {
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
       }
-      appendDoneListener();
+      appendDoneListener(gameBoard, count);
       //Finish board set up and move to next board
 
       break;
