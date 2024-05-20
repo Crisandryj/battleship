@@ -5,6 +5,10 @@ const {
   clearColors,
 } = require("../src/display");
 
+let done = document.createElement("BUTTON");
+done.classList.add("done");
+done.textContent = "Done";
+
 export function startGame(
   GamesContainer,
   playerOne,
@@ -22,9 +26,6 @@ export function startGame(
     handleClick.bind(null, playerOne, playerTwo)
   );
 }
-const display = document.querySelector(".display");
-// select container for boards
-const GamesContainer = document.querySelector(".game-boards-container");
 
 export function handleClick(playerOne, playerTwo, evt) {
   console.log(evt);
@@ -129,15 +130,16 @@ export function removeBtns() {
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
 }
+
 //done count start game after button clicked twice
-let doneCount = 0;
 //buttons
 const buttons = document.querySelector(".buttons");
-let done = document.createElement("BUTTON");
-done.classList.add("done");
-done.textContent = "Done";
 
-export function appendDoneListener(gameBoard, count) {
+const display = document.querySelector(".display");
+// select container for boards
+const GamesContainer = document.querySelector(".game-boards-container");
+
+export function appendDoneListener(gameBoard, count, doneCount) {
   buttons.append(done);
   const doneBtn = document.querySelector(".done");
   doneBtn.addEventListener("click", () => {
