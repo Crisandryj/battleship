@@ -143,7 +143,8 @@ gameBoard.addEventListener("click", (evt) => {
       if (doneCount >= 2) {
         console.log("startGame");
         startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
-        removeBtns();
+        const doneBtn = document.querySelector(".done");
+        removeBtns(doneBtn, turnButton);
         doneCount = 0;
       }
       console.log(doneCount);

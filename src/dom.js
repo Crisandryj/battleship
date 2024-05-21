@@ -6,7 +6,6 @@ const {
 } = require("../src/display");
 
 //defaultPlaceShips(playerOne, playerTwo)
-const turnButton = document.querySelector("#turnShip");
 
 let done = document.createElement("BUTTON");
 done.classList.add("done");
@@ -128,7 +127,8 @@ export function chooseBoard(
   }
 }
 
-export function removeBtns() {
+export function removeBtns(doneBtn, turnButton) {
+  console.log(doneBtn);
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
 }
