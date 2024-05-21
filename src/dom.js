@@ -5,9 +5,14 @@ const {
   clearColors,
 } = require("../src/display");
 
+//defaultPlaceShips(playerOne, playerTwo)
+const turnButton = document.querySelector("#turnShip");
+
 let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
+
+const doneBtn = document.querySelector(".done");
 
 export function startGame(
   GamesContainer,
@@ -134,9 +139,9 @@ const buttons = document.querySelector(".buttons");
 
 const display = document.querySelector(".display");
 // select container for boards
-const GamesContainer = document.querySelector(".game-boards-container");
 
-export function appendDoneListener(gameBoard, count, doneCount) {
+let doneCount = 0;
+export function appendDoneListener(gameBoard, count) {
   buttons.append(done);
   const doneBtn = document.querySelector(".done");
   doneBtn.addEventListener("click", () => {
@@ -151,10 +156,5 @@ export function appendDoneListener(gameBoard, count, doneCount) {
       display.textContent = "P2 PLACE YOUR SHIPS";
     }
     count = 0;
-    if (doneCount == 2) {
-      startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
-      removeBtns();
-      doneCount = 0;
-    }
   });
 }

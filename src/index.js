@@ -5,10 +5,15 @@ const { allShipsSunk } = require("../src/gameBoard");
 const { displaySetUpBoard, colorSquares } = require("../src/display");
 const {
   checkShipPlaced,
+  removeBtns,
   startGame,
   chooseBoard,
   appendDoneListener,
 } = require("../src/dom");
+
+const GamesContainer = document.querySelector(".game-boards-container");
+const display = document.querySelector(".display");
+currentBoard = document.querySelector(".P1-board");
 
 //create players
 const playerOne = new Player("P1");
@@ -129,8 +134,19 @@ gameBoard.addEventListener("click", (evt) => {
         count += 1;
       }
 
-      appendDoneListener(gameBoard, count, doneCount);
+      appendDoneListener(gameBoard);
 
+      if (doneCount <= 1) {
+        doneCount += 1;
+        count = 0;
+      }
+      if (doneCount >= 2) {
+        console.log("startGame");
+        startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
+        removeBtns();
+        doneCount = 0;
+      }
+      console.log(doneCount);
       //Finish board set up and move to next board
       break;
   }
