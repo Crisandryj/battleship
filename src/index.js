@@ -141,13 +141,11 @@ gameBoard.addEventListener("click", (evt) => {
         count = 0;
       }
       if (doneCount >= 2) {
-        console.log("startGame");
         startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
         const doneBtn = document.querySelector(".done");
         removeBtns(doneBtn, turnButton);
         doneCount = 0;
       }
-      console.log(doneCount);
       //Finish board set up and move to next board
       break;
   }
