@@ -31,7 +31,7 @@ export function startGame(
   );
 }
 
-export function handleClick(playerOne, playerTwo, evt) {
+function handleClick(playerOne, playerTwo, evt) {
   if (evt.target.closest("div") === null) {
     return;
   } else {
