@@ -28,9 +28,6 @@ export function startGame(
 }
 
 export function handleClick(playerOne, playerTwo, evt) {
-  console.log(evt);
-  console.log(playerTwo);
-  console.log(playerOne);
   if (evt.target.closest("div") === null) {
     return;
   } else {

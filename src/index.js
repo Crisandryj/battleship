@@ -128,6 +128,7 @@ gameBoard.addEventListener("click", (evt) => {
       if (checkShipPlaced(playerOne, littleOne.length)) {
         count += 1;
       }
+
       appendDoneListener(gameBoard, count, doneCount);
 
       //Finish board set up and move to next board
