@@ -43,7 +43,7 @@ function handleClick(playerOne, playerTwo, evt) {
   }
 }
 
-export function selectCurrentBoard() {
+function selectCurrentBoard() {
   let toggleClass = ".P2-board";
   if (toggleClass == ".P1-board") {
     toggleClass = ".P2-board";
