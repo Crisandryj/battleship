@@ -13,7 +13,6 @@ const {
 
 const GamesContainer = document.querySelector(".game-boards-container");
 const display = document.querySelector(".display");
-currentBoard = document.querySelector(".P1-board");
 
 //create players
 const playerOne = new Player("P1");
@@ -141,7 +140,7 @@ gameBoard.addEventListener("click", (evt) => {
         count = 0;
       }
       if (doneCount >= 2) {
-        startGame(GamesContainer, playerOne, playerTwo, display, currentBoard);
+        startGame(GamesContainer, playerOne, playerTwo, display);
         const doneBtn = document.querySelector(".done");
         removeBtns(doneBtn, turnButton);
         doneCount = 0;
