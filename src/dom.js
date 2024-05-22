@@ -11,24 +11,19 @@ let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
 
-const doneBtn = document.querySelector(".done");
-
-export function startGame(
-  GamesContainer,
-  playerOne,
-  playerTwo,
-  display,
-  currentBoard
-) {
+export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "#8697C4");
-  currentBoard = document.querySelector(".P2-board");
+  let currentBoard = document.querySelector(".P2-board");
   currentBoard.addEventListener(
     "click",
-    handleClick.bind(null, playerOne, playerTwo)
+    handleClick.bind(null, playerOne, playerTwo),
+    console.log(currentBoard)
   );
+  currentBoard = selectCurrentBoard();
+  console.log("g");
 }
 
 function handleClick(playerOne, playerTwo, evt) {
@@ -36,10 +31,9 @@ function handleClick(playerOne, playerTwo, evt) {
     return;
   } else {
     selectAttack(evt, playerOne, playerTwo);
-    playerTwo.changeTurn();
     playerOne.changeTurn();
+    playerTwo.changeTurn();
     switchBoard(playerOne, playerTwo);
-    selectCurrentBoard();
   }
 }
 
@@ -52,8 +46,9 @@ function selectCurrentBoard() {
     toggleClass = ".P1-board";
     console.log("p1");
   }
+  let currentBoard = document.querySelector(".P2-board");
   currentBoard = document.querySelector(toggleClass);
-  console.log(currentBoard);
+  return currentBoard;
 }
 
 function selectAttack(evt, playerOne, playerTwo) {
@@ -128,7 +123,6 @@ export function chooseBoard(
 }
 
 export function removeBtns(doneBtn, turnButton) {
-  console.log(doneBtn);
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
 }
