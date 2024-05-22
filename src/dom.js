@@ -10,7 +10,11 @@ const {
 let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
+//start game with board
 
+//change currentboard when clicked
+
+//listen to new current board
 export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
