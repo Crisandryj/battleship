@@ -12,22 +12,21 @@ done.classList.add("done");
 done.textContent = "Done";
 //start game with board
 
-//change currentboard when clicked
-
-//listen to new current board
 export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "#8697C4");
   let currentBoard = document.querySelector(".P2-board");
-  currentBoard.addEventListener(
+  startListeningToBoard(currentBoard, playerOne, playerTwo);
+}
+
+function startListeningToBoard(board, playerOne, playerTwo) {
+  board.addEventListener(
     "click",
     handleClick.bind(null, playerOne, playerTwo),
-    console.log(currentBoard)
+    console.log(board)
   );
-  currentBoard = selectCurrentBoard();
-  console.log("g");
 }
 
 function handleClick(playerOne, playerTwo, evt) {
