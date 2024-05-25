@@ -6,18 +6,12 @@ const { Player } = require("../src/player");
 
 const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".display");
-const boardNames = document.querySelector(".boardname");
+
 let count = 0;
 
 export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   const playerOneHeader = document.createElement("h2");
   const playerTwoHeader = document.createElement("h2");
-
-  playerOneHeader.textContent = "Current";
-  playerTwoHeader.textContent = "Opponent";
-
-  boardNames.append(playerOneHeader);
-  boardNames.append(playerTwoHeader);
 
   const playerOneBoard = document.createElement("div");
   const playerTwoBoard = document.createElement("div");
@@ -79,22 +73,6 @@ function displayCurrentPlayerShips(item, block, player) {
   if (item.length >= 0 && player.turn == true) {
     block.style.backgroundColor = "orange";
   }
-}
-export function switchBoard(playerOne, playerTwo) {
-  if (playerOne.turn == false) {
-    displayBoard(playerTwo, playerOne, "#8697C4", "gray");
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    boardNames.removeChild(boardNames.firstElementChild);
-    boardNames.removeChild(boardNames.firstElementChild);
-  } else {
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    boardNames.removeChild(boardNames.firstElementChild);
-    boardNames.removeChild(boardNames.firstElementChild);
-    displayBoard(playerOne, playerTwo, "gray", "#8697C4");
-  }
-  gameOver(playerOne);
 }
 
 export function showTurn(playerOne) {

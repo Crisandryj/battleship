@@ -1,10 +1,6 @@
-const {
-  displayBoard,
-  gameOver,
-  clearColors,
-  switchBoard,
-} = require("../src/display");
+const { displayBoard, gameOver, clearColors } = require("../src/display");
 
+const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
 
 let done = document.createElement("BUTTON");
@@ -39,6 +35,18 @@ function handleClick(playerOne, playerTwo, evt) {
     playerTwo.changeTurn();
     switchBoard(playerOne, playerTwo);
   }
+}
+function switchBoard(playerOne, playerTwo) {
+  if (playerOne.turn == false) {
+    displayBoard(playerTwo, playerOne, "#8697C4", "gray");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+  } else {
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+    displayBoard(playerOne, playerTwo, "gray", "#8697C4");
+  }
+  gameOver(playerOne);
 }
 
 function selectCurrentBoard() {
