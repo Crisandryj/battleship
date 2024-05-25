@@ -1,5 +1,7 @@
 import { forEach } from "lodash";
 
+const { startListeningToBoard, selectCurrentBoard } = require("../src/dom");
+
 const body = document.querySelector("body");
 const { Gameboard } = require("./gameBoard");
 const { Player } = require("../src/player");
@@ -8,23 +10,6 @@ const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".display");
 
 let count = 0;
-
-export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
-  const playerOneHeader = document.createElement("h2");
-  const playerTwoHeader = document.createElement("h2");
-
-  const playerOneBoard = document.createElement("div");
-  const playerTwoBoard = document.createElement("div");
-
-  styleGameBoard(playerOneBoard, playerOne, oneColor);
-  styleGameBoard(playerTwoBoard, playerTwo, twoColor);
-
-  GamesContainer.append(playerOneBoard);
-  GamesContainer.append(playerTwoBoard);
-
-  fillBoardloop(playerOne, playerOneBoard);
-  fillBoardloop(playerTwo, playerTwoBoard);
-}
 
 export function displaySetUpBoard(player) {
   const board = document.createElement("div");
@@ -48,11 +33,28 @@ function fillBoardloop(player, board) {
 
   count = 0;
 }
+export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
+  const playerOneBoard = document.createElement("div");
+  const playerTwoBoard = document.createElement("div");
+
+  styleGameBoard(playerOneBoard, playerOne, oneColor);
+  styleGameBoard(playerTwoBoard, playerTwo, twoColor);
+
+  GamesContainer.append(playerOneBoard);
+  GamesContainer.append(playerTwoBoard);
+
+  fillBoardloop(playerOne, playerOneBoard);
+  fillBoardloop(playerTwo, playerTwoBoard);
+
+  let toggleClass = ".P1-board";
+  let currentBoard = selectCurrentBoard(toggleClass);
+  console.log(currentBoard);
+  startListeningToBoard(currentBoard, playerOne, playerTwo);
+}
 function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
 }
-
 function displayMiss(item, blockDiv) {
   if (item.missed == true) {
     blockDiv.textContent = "x";

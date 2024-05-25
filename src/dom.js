@@ -13,17 +13,10 @@ export function startGame(GamesContainer, playerOne, playerTwo, display) {
   playerOne.turn = true;
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "#8697C4");
-  let currentBoard = document.querySelector(".P2-board");
-  currentBoard = selectCurrentBoard();
-  startListeningToBoard(currentBoard, playerOne, playerTwo);
 }
 
-function startListeningToBoard(board, playerOne, playerTwo) {
-  board.addEventListener(
-    "click",
-    handleClick.bind(null, playerOne, playerTwo),
-    console.log(board)
-  );
+export function startListeningToBoard(board, playerOne, playerTwo) {
+  board.addEventListener("click", handleClick.bind(null, playerOne, playerTwo));
 }
 
 function handleClick(playerOne, playerTwo, evt) {
@@ -38,9 +31,9 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerTwo, playerOne, "#8697C4", "gray");
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
@@ -49,8 +42,7 @@ function switchBoard(playerOne, playerTwo) {
   gameOver(playerOne);
 }
 
-function selectCurrentBoard() {
-  let toggleClass = ".P1-board";
+export function selectCurrentBoard(toggleClass) {
   if (toggleClass == ".P1-board") {
     toggleClass = ".P2-board";
     console.log("p2");
@@ -58,8 +50,7 @@ function selectCurrentBoard() {
     toggleClass = ".P1-board";
     console.log("p1");
   }
-  let currentBoard = document.querySelector(".P2-board");
-  currentBoard = document.querySelector(toggleClass);
+  let currentBoard = document.querySelector(toggleClass);
   return currentBoard;
 }
 
