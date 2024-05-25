@@ -80,7 +80,6 @@ function displayCurrentPlayerShips(item, block, player) {
     block.style.backgroundColor = "orange";
   }
 }
-
 export function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
     displayBoard(playerTwo, playerOne, "#8697C4", "gray");

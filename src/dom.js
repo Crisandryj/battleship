@@ -1,8 +1,8 @@
 const {
   displayBoard,
   gameOver,
-  switchBoard,
   clearColors,
+  switchBoard,
 } = require("../src/display");
 
 //defaultPlaceShips(playerOne, playerTwo)
@@ -18,6 +18,7 @@ export function startGame(GamesContainer, playerOne, playerTwo, display) {
   display.textContent = "P1 Select Target";
   displayBoard(playerOne, playerTwo, "gray", "#8697C4");
   let currentBoard = document.querySelector(".P2-board");
+  currentBoard = selectCurrentBoard();
   startListeningToBoard(currentBoard, playerOne, playerTwo);
 }
 
@@ -41,7 +42,7 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 
 function selectCurrentBoard() {
-  let toggleClass = ".P2-board";
+  let toggleClass = ".P1-board";
   if (toggleClass == ".P1-board") {
     toggleClass = ".P2-board";
     console.log("p2");
