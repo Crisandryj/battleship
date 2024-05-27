@@ -33,6 +33,7 @@ function fillBoardloop(player, board) {
 
   count = 0;
 }
+
 export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   const playerOneBoard = document.createElement("div");
   const playerTwoBoard = document.createElement("div");
@@ -46,8 +47,7 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   fillBoardloop(playerOne, playerOneBoard);
   fillBoardloop(playerTwo, playerTwoBoard);
 
-  let toggleClass = ".P2-board";
-  let currentBoard = selectCurrentBoard(toggleClass);
+  let currentBoard = selectCurrentBoard();
   console.log(currentBoard);
   startListeningToBoard(currentBoard, playerOne, playerTwo);
 }

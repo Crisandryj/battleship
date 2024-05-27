@@ -41,14 +41,14 @@ function switchBoard(playerOne, playerTwo) {
   }
   gameOver(playerOne);
 }
-
-export function selectCurrentBoard(toggleClass) {
-  if (toggleClass == ".P1-board") {
-    toggleClass = ".P2-board";
-    console.log("p2");
-  } else {
+let toggleClass;
+export function selectCurrentBoard() {
+  if (toggleClass == ".P2-board") {
     toggleClass = ".P1-board";
     console.log("p1");
+  } else {
+    toggleClass = ".P2-board";
+    console.log("p2");
   }
   let currentBoard = document.querySelector(toggleClass);
   return currentBoard;
