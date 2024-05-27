@@ -46,15 +46,17 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   fillBoardloop(playerOne, playerOneBoard);
   fillBoardloop(playerTwo, playerTwoBoard);
 
-  let toggleClass = ".P1-board";
+  let toggleClass = ".P2-board";
   let currentBoard = selectCurrentBoard(toggleClass);
   console.log(currentBoard);
   startListeningToBoard(currentBoard, playerOne, playerTwo);
 }
+
 function styleGameBoard(gameBoard, player, color) {
   gameBoard.classList.add(`${player.name}-board`);
   gameBoard.style.backgroundColor = color;
 }
+
 function displayMiss(item, blockDiv) {
   if (item.missed == true) {
     blockDiv.textContent = "x";
