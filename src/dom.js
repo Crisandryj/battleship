@@ -3,11 +3,19 @@ const { displayBoard, gameOver, clearColors } = require("../src/display");
 const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
 
+//buttons
+const buttons = document.querySelector(".buttons");
+
 let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
-//start game with board
 
+//place ship random location
+const random = document.createElement("BUTTON");
+random.classList.add("done");
+random.textContent = "Random Placement";
+
+buttons.append(random);
 export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
@@ -131,8 +139,6 @@ export function removeBtns(doneBtn, turnButton) {
 }
 
 //done count start game after button clicked twice
-//buttons
-const buttons = document.querySelector(".buttons");
 
 const display = document.querySelector(".display");
 // select container for boards
