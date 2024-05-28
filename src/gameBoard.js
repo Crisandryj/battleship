@@ -100,6 +100,14 @@ class Gameboard {
       return counter;
     }
   }
+
+  getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
+  placeRandom(len, turn) {
+    this.placeShip(len, turn, getRandomInt(9), getRandomInt(9));
+  }
 }
 
 export { Gameboard };
