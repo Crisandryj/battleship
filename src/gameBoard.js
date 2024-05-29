@@ -106,7 +106,7 @@ class Gameboard {
   }
 
   placeRandom(len, turn) {
-    this.placeShip(len, turn, getRandomInt(9), getRandomInt(9));
+    this.placeShip(len, turn, this.getRandomInt(9), this.getRandomInt(9));
   }
 }
 
