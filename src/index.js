@@ -13,6 +13,16 @@ const {
 
 const GamesContainer = document.querySelector(".game-boards-container");
 const display = document.querySelector(".display");
+const buttons = document.querySelector(".buttons");
+
+//place ship random location
+const random = document.createElement("BUTTON");
+random.classList.add("done");
+random.textContent = "Random Placement";
+
+buttons.append(random);
+
+random.addEventListener("click", console.log("d"));
 
 //create players
 const playerOne = new Player("P1");

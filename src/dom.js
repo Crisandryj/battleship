@@ -10,12 +10,6 @@ let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Done";
 
-//place ship random location
-const random = document.createElement("BUTTON");
-random.classList.add("done");
-random.textContent = "Random Placement";
-
-buttons.append(random);
 export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
@@ -50,6 +44,7 @@ function switchBoard(playerOne, playerTwo) {
   gameOver(playerOne);
 }
 let toggleClass;
+
 export function selectCurrentBoard() {
   if (toggleClass == ".P2-board") {
     toggleClass = ".P1-board";
