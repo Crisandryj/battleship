@@ -104,7 +104,6 @@ export function clearColors() {
 export function colorSquares(ship, evt, turn) {
   let start;
   let div = evt.target.closest("div");
-  let row = div.id[0];
   let column = div.id[0][0];
   //select veritcal blocks to color
   if (turn == true) {
