@@ -40,7 +40,11 @@ buttons.append(random);
 //place a ship randomly on board
 random.addEventListener("click", () => {
   playerOne.game.placeRandom(5, false);
-  console.log(playerOne.game);
+  playerOne.game.board.forEach((row) => {
+    row.forEach((cell) => {
+      console.log(cell);
+    });
+  });
 });
 
 // listen to gameboards clicks
