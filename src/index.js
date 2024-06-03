@@ -40,9 +40,17 @@ buttons.append(random);
 //place a ship randomly on board
 random.addEventListener("click", () => {
   playerOne.game.placeRandom(5, false);
+  let num = 0;
   playerOne.game.board.forEach((row) => {
     row.forEach((cell) => {
-      console.log(cell);
+      num += 1;
+      if (cell.length > 0) {
+        console.log(gameBoard);
+        console.log(num);
+        let div = document.getElementById(`${num}`);
+        div.style.background = "orange";
+        return;
+      }
     });
   });
 });
