@@ -38,23 +38,24 @@ random.textContent = "Random Placement";
 buttons.append(random);
 
 //place a ship randomly on board
-random.addEventListener("click", () => {
-  playerOne.game.placeRandom(5, false);
-  let num = 0;
-  playerOne.game.board.forEach((row) => {
-    row.forEach((cell) => {
-      num += 1;
-      if (cell.length > 0) {
-        console.log(gameBoard);
-        console.log(num);
-        let div = document.getElementById(`${num}`);
-        div.style.background = "orange";
-        return;
-      }
+function randomShip(length) {
+  random.addEventListener("click", () => {
+    playerOne.game.placeRandom(length, false);
+    let num = 0;
+    playerOne.game.board.forEach((row) => {
+      row.forEach((cell) => {
+        num += 1;
+        if (cell.length > 0) {
+          console.log(gameBoard);
+          console.log(num);
+          let div = document.getElementById(`${num}`);
+          div.style.background = "orange";
+          return;
+        }
+      });
     });
   });
-});
-
+}
 // listen to gameboards clicks
 let count = 0;
 let doneCount = 0;
@@ -89,8 +90,10 @@ gameBoard.addEventListener("click", (evt) => {
       );
 
       colorSquares(bigOne, evt, turn);
+      randomShip(bigOne.length);
       if (checkShipPlaced(playerOne, bigOne.length)) {
         count += 1;
+        console.log(count);
       }
 
       break;
@@ -105,6 +108,7 @@ gameBoard.addEventListener("click", (evt) => {
         playerTwo,
         gameBoard
       );
+      randomShip(scarey.length);
       colorSquares(scarey, evt, turn);
       if (checkShipPlaced(playerOne, scarey.length)) {
         count += 1;
