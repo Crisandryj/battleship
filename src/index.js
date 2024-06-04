@@ -32,13 +32,13 @@ let gameBoard = document.querySelector(".P1-board");
 
 //place ship random location
 const random = document.createElement("BUTTON");
-random.classList.add("done");
+random.classList.add("random");
 random.textContent = "Random Placement";
 
 buttons.append(random);
 
 //place a ship randomly on board
-function randomShip(length) {
+function randomShip(length, count) {
   random.addEventListener("click", () => {
     playerOne.game.placeRandom(length, false);
     let num = 0;
@@ -50,6 +50,7 @@ function randomShip(length) {
           console.log(num);
           let div = document.getElementById(`${num}`);
           div.style.background = "orange";
+          count += 1;
           return;
         }
       });
@@ -90,15 +91,17 @@ gameBoard.addEventListener("click", (evt) => {
       );
 
       colorSquares(bigOne, evt, turn);
-      randomShip(bigOne.length);
+
       if (checkShipPlaced(playerOne, bigOne.length)) {
         count += 1;
-        console.log(count);
+        console.log("check");
       }
 
       break;
     case 1:
       const scarey = new Ship(4);
+      //not getting called?
+      randomShip(scarey.length, count);
       chooseBoard(
         scarey.length,
         turn,
@@ -108,9 +111,10 @@ gameBoard.addEventListener("click", (evt) => {
         playerTwo,
         gameBoard
       );
-      randomShip(scarey.length);
+
       colorSquares(scarey, evt, turn);
       if (checkShipPlaced(playerOne, scarey.length)) {
+        console.log("check 2");
         count += 1;
       }
       break;
