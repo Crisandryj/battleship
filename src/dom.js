@@ -139,7 +139,7 @@ const display = document.querySelector(".display");
 // select container for boards
 
 let doneCount = 0;
-export function appendDoneListener(gameBoard, count) {
+export function appendDoneListener(gameBoard) {
   buttons.append(done);
   const doneBtn = document.querySelector(".done");
   doneBtn.addEventListener("click", () => {
@@ -153,6 +153,5 @@ export function appendDoneListener(gameBoard, count) {
       doneBtn.parentNode.removeChild(doneBtn);
       display.textContent = "P2 PLACE YOUR SHIPS";
     }
-    count = 0;
   });
 }
