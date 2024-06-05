@@ -23,13 +23,13 @@ const playerTwo = new Player("P2");
 let turn = false;
 
 //place ship random location
-const random = document.createElement("BUTTON");
-random.classList.add("random");
-random.textContent = "Random Placement";
+const randomBtn = document.createElement("BUTTON");
+randomBtn.classList.add("random");
+randomBtn.textContent = "Random Placement";
 
 //place a ship randomly on board
 function randomShip(length, count) {
-  random.addEventListener("click", () => {
+  randomBtn.addEventListener("click", () => {
     playerOne.game.placeRandom(length, false);
     let num = 0;
     playerOne.game.board.forEach((row) => {
@@ -66,7 +66,7 @@ function startBattle() {
   turnButton.setAttribute("id", "turnButton");
   buttons.append(turnButton);
   // add random ship placement button
-  buttons.append(random);
+  buttons.append(randomBtn);
   //display set up board
   displaySetUpBoard(playerOne);
   //select first board
@@ -186,7 +186,7 @@ function startBattle() {
         if (doneCount >= 2) {
           startGame(GamesContainer, playerOne, playerTwo, display);
           const doneBtn = document.querySelector(".done");
-          removeBtns(doneBtn, turnButton);
+          removeBtns(doneBtn, turnButton, randomBtn);
           doneCount = 0;
         }
         //Finish board set up and move to next board

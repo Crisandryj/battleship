@@ -1,3 +1,5 @@
+import { random } from "lodash";
+
 const { displayBoard, gameOver, clearColors } = require("../src/display");
 
 const GamesContainer = document.querySelector(".game-boards-container");
@@ -128,9 +130,10 @@ export function chooseBoard(
   }
 }
 
-export function removeBtns(doneBtn, turnButton) {
+export function removeBtns(doneBtn, turnButton, randomBtn) {
   turnButton.parentNode.removeChild(turnButton);
   doneBtn.parentNode.removeChild(doneBtn);
+  randomBtn.parentNode.removeChild(randomBtn);
 }
 
 //done count start game after button clicked twice
