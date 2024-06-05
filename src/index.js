@@ -52,14 +52,15 @@ let count = 0;
 let doneCount = 0;
 
 const turnButton = document.createElement("BUTTON");
-const startBattleGame = document.createElement("BUTTON");
-startBattleGame.textContent = "START";
+const startBattleGameBtn = document.createElement("BUTTON");
+startBattleGameBtn.textContent = "START";
 
-buttons.append(startBattleGame);
+buttons.append(startBattleGameBtn);
 
-startBattleGame.addEventListener("click", startBattle);
+startBattleGameBtn.addEventListener("click", startBattle);
 
 function startBattle() {
+  startBattleGameBtn.parentNode.removeChild(startBattleGameBtn);
   //add turnship button
   turnButton.textContent = "Turn Ship";
   turnButton.setAttribute("id", "turnButton");
