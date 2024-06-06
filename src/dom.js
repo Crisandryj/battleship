@@ -102,12 +102,14 @@ function selectAttack(evt, playerOne, playerTwo) {
   }
 }
 
-export function checkShipPlaced(player, length) {
+export function checkShipPlaced(player, name) {
   let check = false;
   player.game.board.forEach((row) => {
     for (let i = 0; i < 10; i++) {
-      if (row[i].length == length) {
+      console.log(row[i]);
+      if (row[i].name == name) {
         check = true;
+        console.log(row[i].name);
       }
     }
   });
@@ -121,12 +123,13 @@ export function chooseBoard(
   rowNum,
   playerOne,
   playerTwo,
-  gameBoard
+  gameBoard,
+  name
 ) {
   if (gameBoard.classList.value == "P1-board") {
-    playerOne.game.placeShip(length, turn, columnNum, rowNum);
+    playerOne.game.placeShip(length, turn, columnNum, rowNum, name);
   } else if (gameBoard.classList.value == "P2-board") {
-    playerTwo.game.placeShip(length, turn, columnNum, rowNum);
+    playerTwo.game.placeShip(length, turn, columnNum, rowNum, name);
   }
 }
 
