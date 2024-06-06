@@ -90,7 +90,7 @@ function startBattle() {
     // go in order of ships and allow 'X' consective clicks in order to place ships in place
     switch (count) {
       case 0:
-        const bigOne = new Ship(5);
+        const bigOne = new Ship(5, "bigOne");
         chooseBoard(
           bigOne.length,
           turn,
@@ -98,19 +98,19 @@ function startBattle() {
           rowNum,
           playerOne,
           playerTwo,
-          gameBoard
+          gameBoard,
+          bigOne.name
         );
 
         colorSquares(bigOne, evt, turn);
-
-        if (checkShipPlaced(playerOne, bigOne.length)) {
+        if (checkShipPlaced(playerOne, bigOne.name)) {
           count += 1;
-          console.log("check");
+          console.log(bigOne.name);
         }
 
         break;
       case 1:
-        const scarey = new Ship(4);
+        const scarey = new Ship(4, "scarey");
         //not getting called?
         chooseBoard(
           scarey.length,
@@ -119,17 +119,18 @@ function startBattle() {
           rowNum,
           playerOne,
           playerTwo,
-          gameBoard
+          gameBoard,
+          scarey.name
         );
 
         colorSquares(scarey, evt, turn);
-        if (checkShipPlaced(playerOne, scarey.length)) {
+        if (checkShipPlaced(playerOne, "scarey")) {
           console.log("check 2");
           count += 1;
         }
         break;
       case 2:
-        const middleChild = new Ship(3);
+        const middleChild = new Ship(3, "middleChild");
         chooseBoard(
           middleChild.length,
           turn,
@@ -137,15 +138,16 @@ function startBattle() {
           rowNum,
           playerOne,
           playerTwo,
-          gameBoard
+          gameBoard,
+          middleChild.name
         );
         colorSquares(middleChild, evt, turn);
-        if (checkShipPlaced(playerOne, middleChild.length)) {
+        if (checkShipPlaced(playerOne, "middleChild")) {
           count += 1;
         }
         break;
       case 3:
-        const sneakyPlayer = new Ship(3);
+        const sneakyPlayer = new Ship(3, "sneakyPlayer");
         chooseBoard(
           sneakyPlayer.length,
           turn,
@@ -153,16 +155,17 @@ function startBattle() {
           rowNum,
           playerOne,
           playerTwo,
-          gameBoard
+          gameBoard,
+          sneakyPlayer.name
         );
         colorSquares(sneakyPlayer, evt, turn);
-        if (checkShipPlaced(playerOne, sneakyPlayer.length)) {
+        if (checkShipPlaced(playerOne, "sneakyPlayer")) {
           count += 1;
         }
 
         break;
       case 4:
-        const littleOne = new Ship(2);
+        const littleOne = new Ship(2, "littleOne");
         chooseBoard(
           littleOne.length,
           turn,
@@ -170,10 +173,11 @@ function startBattle() {
           rowNum,
           playerOne,
           playerTwo,
-          gameBoard
+          gameBoard,
+          littleOne.name
         );
         colorSquares(littleOne, evt, turn);
-        if (checkShipPlaced(playerOne, littleOne.length)) {
+        if (checkShipPlaced(playerOne, "littleOne")) {
           count += 1;
         }
         gameBoard.classList.remove("P1-board");
