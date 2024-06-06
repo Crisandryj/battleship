@@ -176,7 +176,7 @@ function startBattle() {
         if (checkShipPlaced(playerOne, littleOne.length)) {
           count += 1;
         }
-
+        gameBoard.classList.remove("P1-board");
         appendDoneListener(gameBoard);
 
         if (doneCount <= 1) {
