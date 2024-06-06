@@ -19,10 +19,10 @@ class Gameboard {
     return this.board;
   }
 
-  placeShip(shipLength, turn, columnStart, rowStart) {
+  placeShip(shipLength, turn, columnStart, rowStart, name) {
     let column = Number(columnStart);
     let row = Number(rowStart);
-    const ship = new Ship(shipLength);
+    const ship = new Ship(shipLength, name);
     //false is vertical placement
     //true is horizontal placement
     if (turn == false) {
