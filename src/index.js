@@ -55,13 +55,18 @@ let doneCount = 0;
 
 const turnButton = document.createElement("BUTTON");
 const startBattleGameBtn = document.createElement("BUTTON");
+startBattleGameBtn.classList.add("start");
 startBattleGameBtn.textContent = "START";
+
+const svgMain = document.querySelector(".svgMain");
+console.log(svgMain);
 
 buttons.append(startBattleGameBtn);
 
 startBattleGameBtn.addEventListener("click", startBattle);
 
 function startBattle() {
+  svgMain.parentNode.removeChild(svgMain);
   startBattleGameBtn.parentNode.removeChild(startBattleGameBtn);
   //add turnship button
   turnButton.textContent = "Turn Ship";
