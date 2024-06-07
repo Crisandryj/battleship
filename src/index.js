@@ -15,6 +15,8 @@ const GamesContainer = document.querySelector(".game-boards-container");
 const display = document.querySelector(".display");
 const buttons = document.querySelector(".buttons");
 
+display.textContent = "Battleship Online";
+
 //create players
 const playerOne = new Player("P1");
 const playerTwo = new Player("P2");
