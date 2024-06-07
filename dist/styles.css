@@ -1,11 +1,13 @@
 body {
-  background-color: #adbbda;
+  margin: 5px;
+  background-color: white;
 }
 
 .game-boards-container {
   width: 1250px;
   display: flex;
   justify-content: space-between;
+  justify-items: center;
 }
 
 .P2-board,
@@ -30,6 +32,15 @@ body {
 }
 
 .game {
+  background-color: #adbbda;
+  height: 800px;
   display: grid;
   grid-template-rows: 0.2 1fr;
+  justify-items: center;
+}
+
+.display {
+  font-size: 50px;
+  font-family: Arial;
+  color: black;
 }
