@@ -84,6 +84,10 @@ function startBattle() {
   });
 
   gameBoard.addEventListener("click", (evt) => {
+    //add turnbtn
+    buttons.append(turnButton);
+    // add random ship placement button
+    buttons.append(randomBtn);
     let rowNum;
     let columnNum;
     if (evt.target.closest("div").id[1] >= 0) {
@@ -188,11 +192,16 @@ function startBattle() {
           count += 1;
         }
         gameBoard.classList.remove("P1-board");
-        appendDoneListener(gameBoard);
+
+        appendDoneListener(gameBoard, turnButton, randomBtn);
 
         if (doneCount <= 1) {
           doneCount += 1;
           count = 0;
+        }
+        if (doneCount == 1) {
+          turnButton.parentNode.removeChild(turnButton);
+          randomBtn.parentNode.removeChild(randomBtn);
         }
         if (doneCount >= 2) {
           startGame(GamesContainer, playerOne, playerTwo, display);
@@ -200,6 +209,7 @@ function startBattle() {
           removeBtns(doneBtn, turnButton, randomBtn);
           doneCount = 0;
         }
+
         //Finish board set up and move to next board
         break;
     }
