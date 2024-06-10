@@ -84,7 +84,7 @@ export function showTurn(playerOne) {
     : (turnDisplay.textContent = "P2 MAKE YOUR MOVE");
 }
 
-export function gameOver(player) {
+export function gameOver(player, turnDisplay) {
   if (player.game.allShipsSunk()) {
     turnDisplay.textContent = `${player.name} has been defeated`;
   } else {
