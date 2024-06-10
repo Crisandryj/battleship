@@ -10,7 +10,7 @@ const buttons = document.querySelector(".buttons");
 
 let done = document.createElement("BUTTON");
 done.classList.add("done");
-done.textContent = "Done";
+done.textContent = "Continue";
 
 export function startGame(GamesContainer, playerOne, playerTwo, display) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
