@@ -48,7 +48,6 @@ export function displayBoard(playerOne, playerTwo, oneColor, twoColor) {
   fillBoardloop(playerTwo, playerTwoBoard);
 
   let currentBoard = selectCurrentBoard();
-  console.log(currentBoard);
   startListeningToBoard(currentBoard, playerOne, playerTwo);
 }
 
