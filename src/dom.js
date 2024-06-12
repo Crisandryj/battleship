@@ -56,7 +56,6 @@ let toggleClass;
 export function selectCurrentBoard() {
   if (toggleClass == ".P2-board") {
     toggleClass = ".P1-board";
-    console.log("p1");
     turnDisplay.textContent = "P2 ATTACK COORDINATE";
   } else {
     toggleClass = ".P2-board";
