@@ -37,8 +37,9 @@ function randomShip(length, count) {
     playerOne.game.board.forEach((row) => {
       row.forEach((cell) => {
         num += 1;
-        if (cell.length > 0) {
-          console.log(gameBoard);
+        if (cell.hasOwnProperty("length")) {
+          console.log("good");
+          console.log(playerOne.game.board);
           console.log(num);
           let div = document.getElementById(`${num}`);
           div.style.background = "orange";
@@ -49,6 +50,7 @@ function randomShip(length, count) {
     });
   });
 }
+
 // listen to gameboards clicks
 let count = 0;
 let doneCount = 0;
@@ -88,6 +90,9 @@ function startBattle() {
     buttons.append(turnButton);
     // add random ship placement button
     buttons.append(randomBtn);
+
+    randomShip(5, count);
+
     let rowNum;
     let columnNum;
     if (evt.target.closest("div").id[1] >= 0) {
