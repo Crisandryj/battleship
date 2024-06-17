@@ -205,6 +205,7 @@ function startBattle() {
         }
         if (doneCount >= 2) {
           startGame(GamesContainer, playerOne, playerTwo, display);
+
           const doneBtn = document.querySelector(".done");
           removeBtns(doneBtn, turnButton, randomBtn);
           doneCount = 0;

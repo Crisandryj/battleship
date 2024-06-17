@@ -145,10 +145,14 @@ const display = document.querySelector(".display");
 // select container for boards
 
 let doneCount = 0;
-export function appendDoneListener(gameBoard) {
+export function appendDoneListener(gameBoard, turnButton, randomBtn) {
   buttons.append(done);
   const doneBtn = document.querySelector(".done");
   doneBtn.addEventListener("click", () => {
+    //add turnbtn
+    buttons.append(turnButton);
+    // add random ship placement button
+    buttons.append(randomBtn);
     if (doneCount < 2) {
       clearColors();
     }
