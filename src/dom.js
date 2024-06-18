@@ -1,11 +1,6 @@
 import { random } from "lodash";
 
-const {
-  displayBoard,
-  gameOver,
-  clearColors,
-  showTurn,
-} = require("../src/display");
+const { displayBoard, clearColors } = require("../src/display");
 
 const GamesContainer = document.querySelector(".game-boards-container");
 //defaultPlaceShips(playerOne, playerTwo)
