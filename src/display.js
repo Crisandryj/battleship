@@ -2,10 +2,6 @@ import { forEach } from "lodash";
 
 const { startListeningToBoard, selectCurrentBoard } = require("../src/dom");
 
-const body = document.querySelector("body");
-const { Gameboard } = require("./gameBoard");
-const { Player } = require("../src/player");
-
 const GamesContainer = document.querySelector(".game-boards-container");
 const turnDisplay = document.querySelector(".display");
 
