@@ -14,7 +14,7 @@ let done = document.createElement("BUTTON");
 done.classList.add("done");
 done.textContent = "Continue";
 
-export function startGame(GamesContainer, playerOne, playerTwo, display) {
+export function startGame(GamesContainer, playerOne, playerTwo) {
   GamesContainer.removeChild(GamesContainer.firstElementChild);
   playerOne.turn = true;
   displayBoard(playerOne, playerTwo, "gray", "#8697C4");
@@ -39,11 +39,23 @@ function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerTwo, playerOne, "#8697C4", "gray");
+    let cont = document.createElement("button");
+    GamesContainer.append(cont);
+    cont.textContent = "Next Players Turn";
+    cont.addEventListener(
+      "click",
+      displayBoard(playerTwo, playerOne, "#8697C4", "gray")
+    );
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerOne, playerTwo, "gray", "#8697C4");
+    let cont = document.createElement("button");
+    GamesContainer.append(cont);
+    cont.textContent = "Next Players Turn";
+    cont.addEventListener(
+      "click",
+      displayBoard(playerOne, playerTwo, "gray", "#8697C4")
+    );
   }
 }
 let toggleClass;
