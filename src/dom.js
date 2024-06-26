@@ -36,20 +36,20 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 
 let continueGame = false;
+if ((continueGame = true)) {
+  let cont = document.createElement("button");
+  cont.textContent = "Next Players Turn";
+  GamesContainer.append(cont);
+  cont.addEventListener(
+    "click",
+    displayBoard(playerTwo, playerOne, "#8697C4", "gray")
+  );
+}
 
 function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    if ((continueGame = true)) {
-      let cont = document.createElement("button");
-      cont.textContent = "Next Players Turn";
-      GamesContainer.append(cont);
-      cont.addEventListener(
-        "click",
-        displayBoard(playerTwo, playerOne, "#8697C4", "gray")
-      );
-    }
     continueGame = true;
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
