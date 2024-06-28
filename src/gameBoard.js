@@ -18,7 +18,7 @@ class Gameboard {
     });
     return this.board;
   }
-
+  //allow user to place battle ship
   placeShip(shipLength, turn, columnStart, rowStart, name) {
     let column = Number(columnStart);
     let row = Number(rowStart);
