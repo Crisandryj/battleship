@@ -52,6 +52,7 @@ class Gameboard {
       }
     }
   }
+
   // fix to look for ship
   recieveAttack(row, column, id) {
     if (this.board[row][column].hits >= 0) {
@@ -81,6 +82,7 @@ class Gameboard {
       return false;
     }
   }
+
   allShipsPlaced() {
     //go thru each cell
     //check if occuipied and hit
