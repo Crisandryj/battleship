@@ -36,14 +36,10 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 
 let continueGame = false;
-if ((continueGame = true)) {
-  let cont = document.createElement("button");
-  cont.textContent = "Next Players Turn";
-  GamesContainer.append(cont);
-  cont.addEventListener(
-    "click",
-    displayBoard(playerTwo, playerOne, "#8697C4", "gray")
-  );
+
+function continueNow(playerTwo, playerOne, color, color2) {
+  displayBoard(playerTwo, playerOne, color, color2);
+  continueGame = false;
 }
 
 function switchBoard(playerOne, playerTwo) {
@@ -51,16 +47,28 @@ function switchBoard(playerOne, playerTwo) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     continueGame = true;
+    if (continueGame == true) {
+      let cont = document.createElement("button");
+      cont.textContent = "Next Players Turn";
+      GamesContainer.append(cont);
+      cont.addEventListener(
+        "click",
+        continueNow(playerTwo, playerOne, "#8697C4", "gray")
+      );
+    }
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    let cont = document.createElement("button");
-    GamesContainer.append(cont);
-    cont.textContent = "Next Players Turn";
-    cont.addEventListener(
-      "click",
-      displayBoard(playerOne, playerTwo, "gray", "#8697C4")
-    );
+    continueGame = true;
+    if (continueGame == true) {
+      let cont = document.createElement("button");
+      GamesContainer.append(cont);
+      cont.textContent = "Next Players Turn";
+      cont.addEventListener(
+        "click",
+        displayBoard(playerOne, playerTwo, "gray", "#8697C4")
+      );
+    }
   }
 }
 let toggleClass;
