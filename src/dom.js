@@ -35,6 +35,7 @@ function handleClick(playerOne, playerTwo, evt) {
   }
 }
 
+// working on continue game funtion
 let continueGame = false;
 
 function continueNow(playerTwo, playerOne, color, color2) {
@@ -66,7 +67,7 @@ function switchBoard(playerOne, playerTwo) {
       cont.textContent = "Next Players Turn";
       cont.addEventListener(
         "click",
-        displayBoard(playerOne, playerTwo, "gray", "#8697C4")
+        continueNow(playerOne, playerTwo, "gray", "#8697C4")
       );
     }
   }
