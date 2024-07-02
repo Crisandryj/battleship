@@ -40,7 +40,6 @@ let continueGame = false;
 
 function continueNow(playerTwo, playerOne, color, color2) {
   displayBoard(playerTwo, playerOne, color, color2);
-  continueGame = false;
 }
 
 function switchBoard(playerOne, playerTwo) {
@@ -56,6 +55,7 @@ function switchBoard(playerOne, playerTwo) {
         "click",
         continueNow(playerTwo, playerOne, "#8697C4", "gray")
       );
+      continueGame = false;
     }
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
@@ -69,6 +69,7 @@ function switchBoard(playerOne, playerTwo) {
         "click",
         continueNow(playerOne, playerTwo, "gray", "#8697C4")
       );
+      continueGame = false;
     }
   }
 }
