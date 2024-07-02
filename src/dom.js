@@ -37,14 +37,16 @@ function handleClick(playerOne, playerTwo, evt) {
 
 function switchBoard(playerOne, playerTwo) {
   const displayone = () => {
-    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
     GamesContainer.removeChild(GamesContainer.firstElementChild);
+    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
   };
 
   const displayTwo = () => {
-    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
     GamesContainer.removeChild(GamesContainer.firstElementChild);
+    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
   };
+
+  // function nextTurn() {}
 
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
