@@ -35,33 +35,31 @@ function handleClick(playerOne, playerTwo, evt) {
   }
 }
 
-// working on continue game funtion
-// let continueGame = false;
-
-// function continueNow(playerTwo, playerOne, color, color2) {
-//   displayBoard(playerTwo, playerOne, color, color2);
-// }
-
-// if (continueGame == true) {
-//   let cont = document.createElement("button");
-//   cont.textContent = "Next Players Turn";
-//   GamesContainer.append(cont);
-//   cont.addEventListener(
-//     "click",
-//     continueNow(playerTwo, playerOne, "#8697C4", "gray")
-//   );
-//   continueGame = false;
-// }
-
 function switchBoard(playerOne, playerTwo) {
+  const displayone = () => {
+    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+  };
+
+  const displayTwo = () => {
+    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
+  };
+
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
+    let cont = document.createElement("button");
+    cont.textContent = "Next Players Turn";
+    GamesContainer.append(cont);
+    cont.addEventListener("click", displayone);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
+    let cont = document.createElement("button");
+    cont.textContent = "Next Players Turn";
+    GamesContainer.append(cont);
+    cont.addEventListener("click", displayTwo);
   }
 }
 let toggleClass;
