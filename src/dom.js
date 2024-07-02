@@ -46,22 +46,21 @@ function switchBoard(playerOne, playerTwo) {
     displayBoard(playerOne, playerTwo, "#8697C4", "gray");
   };
 
-  // function nextTurn() {}
+  function nextTurn(display) {
+    let cont = document.createElement("button");
+    cont.textContent = "Next Players Turn";
+    GamesContainer.append(cont);
+    cont.addEventListener("click", display);
+  }
 
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    let cont = document.createElement("button");
-    cont.textContent = "Next Players Turn";
-    GamesContainer.append(cont);
-    cont.addEventListener("click", displayone);
+    nextTurn(displayone);
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    let cont = document.createElement("button");
-    cont.textContent = "Next Players Turn";
-    GamesContainer.append(cont);
-    cont.addEventListener("click", displayTwo);
+    nextTurn(displayTwo);
   }
 }
 let toggleClass;
