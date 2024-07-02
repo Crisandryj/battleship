@@ -36,41 +36,32 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 
 // working on continue game funtion
-let continueGame = false;
+// let continueGame = false;
 
-function continueNow(playerTwo, playerOne, color, color2) {
-  displayBoard(playerTwo, playerOne, color, color2);
-}
+// function continueNow(playerTwo, playerOne, color, color2) {
+//   displayBoard(playerTwo, playerOne, color, color2);
+// }
+
+// if (continueGame == true) {
+//   let cont = document.createElement("button");
+//   cont.textContent = "Next Players Turn";
+//   GamesContainer.append(cont);
+//   cont.addEventListener(
+//     "click",
+//     continueNow(playerTwo, playerOne, "#8697C4", "gray")
+//   );
+//   continueGame = false;
+// }
 
 function switchBoard(playerOne, playerTwo) {
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    continueGame = true;
-    if (continueGame == true) {
-      let cont = document.createElement("button");
-      cont.textContent = "Next Players Turn";
-      GamesContainer.append(cont);
-      cont.addEventListener(
-        "click",
-        continueNow(playerTwo, playerOne, "#8697C4", "gray")
-      );
-      continueGame = false;
-    }
+    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    continueGame = true;
-    if (continueGame == true) {
-      let cont = document.createElement("button");
-      GamesContainer.append(cont);
-      cont.textContent = "Next Players Turn";
-      cont.addEventListener(
-        "click",
-        continueNow(playerOne, playerTwo, "gray", "#8697C4")
-      );
-      continueGame = false;
-    }
+    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
   }
 }
 let toggleClass;
