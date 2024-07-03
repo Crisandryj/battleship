@@ -34,7 +34,7 @@ function handleClick(playerOne, playerTwo, evt) {
     switchBoard(playerOne, playerTwo);
   }
 }
-
+//Show boards been hit on each switch
 function switchBoard(playerOne, playerTwo) {
   const displayone = () => {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
