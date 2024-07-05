@@ -34,6 +34,12 @@ function handleClick(playerOne, playerTwo, evt) {
     switchBoard(playerOne, playerTwo);
   }
 }
+function nextTurn(display) {
+  let cont = document.createElement("button");
+  cont.textContent = "Next Players Turn";
+  GamesContainer.append(cont);
+  cont.addEventListener("click", display);
+}
 //Show boards been hit on each switch
 function switchBoard(playerOne, playerTwo) {
   const displayone = () => {
@@ -45,13 +51,6 @@ function switchBoard(playerOne, playerTwo) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerOne, playerTwo, "#8697C4", "gray");
   };
-
-  function nextTurn(display) {
-    let cont = document.createElement("button");
-    cont.textContent = "Next Players Turn";
-    GamesContainer.append(cont);
-    cont.addEventListener("click", display);
-  }
 
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
