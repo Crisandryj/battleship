@@ -61,6 +61,7 @@ class Gameboard {
     } else {
       this.board[row][column].missed = true;
     }
+    return true;
   }
 
   allShipsSunk() {
