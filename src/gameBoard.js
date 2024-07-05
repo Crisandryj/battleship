@@ -58,10 +58,10 @@ class Gameboard {
     if (this.board[row][column].hits >= 0) {
       this.board[row][column].hit();
       this.board[row][column].id.push(id);
+      return true;
     } else {
       this.board[row][column].missed = true;
     }
-    return true;
   }
 
   allShipsSunk() {

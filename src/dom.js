@@ -50,6 +50,12 @@ function switchBoard(playerOne, playerTwo) {
   const displayTwo = () => {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerOne, playerTwo, "#8697C4", "gray");
+    if (playerOne.game.recieveAttack) {
+      console.log("hi");
+    }
+    if (playerTwo.game.recieveAttack) {
+      console.log("hi");
+    }
   };
 
   if (playerOne.turn == false) {
