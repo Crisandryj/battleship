@@ -36,6 +36,7 @@ function handleClick(playerOne, playerTwo, evt) {
 }
 function nextTurn(display) {
   let cont = document.createElement("button");
+  turnDisplay.textContent = "";
   cont.textContent = "Next Players Turn";
   GamesContainer.append(cont);
   cont.addEventListener("click", display);
@@ -158,7 +159,6 @@ export function removeBtns(doneBtn, turnButton, randomBtn) {
 
 //done count start game after button clicked twice
 
-const display = document.querySelector(".display");
 // select container for boards
 
 let doneCount = 0;
