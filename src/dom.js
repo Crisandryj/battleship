@@ -41,32 +41,34 @@ function nextTurn(display) {
   GamesContainer.append(cont);
   cont.addEventListener("click", display);
 }
+function removeElementsByClass(className) {
+  const elements = document.getElementsByClassName(className);
+  while (elements.length > 0) {
+    elements[0].parentNode.removeChild(elements[0]);
+    console.log("remove");
+  }
+}
+const displayone = (playerOne, playerTwo) => {
+  removeElementsByClass("P1-board");
+  removeElementsByClass("P2-board");
+  displayBoard(playerTwo, playerOne, "gray", "#8697C4");
+};
+
+const displayTwo = (playerOne, playerTwo) => {
+  GamesContainer.removeChild(GamesContainer.firstElementChild);
+  displayBoard(playerOne, playerTwo, "#8697C4", "gray");
+};
+
 //Show boards been hit on each switch
 function switchBoard(playerOne, playerTwo) {
-  const displayone = () => {
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerTwo, playerOne, "gray", "#8697C4");
-  };
-
-  const displayTwo = () => {
-    GamesContainer.removeChild(GamesContainer.firstElementChild);
-    displayBoard(playerOne, playerTwo, "#8697C4", "gray");
-    if (playerOne.game.recieveAttack) {
-      console.log("hi");
-    }
-    if (playerTwo.game.recieveAttack) {
-      console.log("hi");
-    }
-  };
-
   if (playerOne.turn == false) {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    nextTurn(displayone);
+    nextTurn(displayone(playerOne, playerTwo));
   } else {
     GamesContainer.removeChild(GamesContainer.firstElementChild);
     GamesContainer.removeChild(GamesContainer.firstElementChild);
-    nextTurn(displayTwo);
+    nextTurn(displayTwo(playerOne, playerTwo));
   }
 }
 let toggleClass;
