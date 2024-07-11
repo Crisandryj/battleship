@@ -45,15 +45,13 @@ function removeElementsByClass(className) {
   const elements = document.getElementsByClassName(className);
   while (elements.length > 0) {
     elements[0].parentNode.removeChild(elements[0]);
-    console.log("remove");
   }
 }
 
 //Show boards been hit on each switch
 function switchBoard(playerOne, playerTwo) {
   const displayone = () => {
-    removeElementsByClass("P1-board");
-    removeElementsByClass("P2-board");
+    GamesContainer.removeChild(GamesContainer.firstElementChild);
     displayBoard(playerTwo, playerOne, "gray", "#8697C4");
   };
 
