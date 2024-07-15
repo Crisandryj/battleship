@@ -71,7 +71,7 @@ function switchBoard(playerOne, playerTwo) {
   }
 }
 let toggleClass;
-
+//Selects board
 export function selectCurrentBoard() {
   if (toggleClass == ".P2-board") {
     toggleClass = ".P1-board";
