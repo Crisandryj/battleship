@@ -16,15 +16,19 @@
 
 Users should be able to:
 
-- View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
-- Play an interactive game of battleship
+- Submit and update each section or for the whole CV
 
 ## My process
+
+-Decide what components need to be created
+-Figure out the state structure of each component
+-Add style
+-Deploy project
 
 ### Built with
 
 - Javascript
+- React
 
 ### What I learned
 
@@ -60,8 +64,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 ## Author
 
 - Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+
 
 ## Acknowledgments
 
